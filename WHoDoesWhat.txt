@@ -1,0 +1,21 @@
+
+iSplitting out secitons to tex files -- as you need.
+
+
+Intro WOM
+
+3.1 Pass/Fail - FE
+
+4. FE 
+
+5 Schedule WOM 
+
+6. V& V tool FE 
+
+7 Unit and Integratoipn Test ..  FE
+
+
+8 Validaiton ..  WOM/FE
+
+9 Sci Val - MJ .. binrgin in text 
+
