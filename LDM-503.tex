@@ -1,0 +1,53 @@
+\documentclass[CUx,lsstdraft,STP]{lsstdoc}
+
+
+%set the WP number or product here for the requirements 
+\def\product{Data Management}
+\def\cycle{S17}
+
+\setDocCompact{true}
+
+%Product name first in title 
+\setDocTitle    [Test Plan]
+                    {\color[rgb]{0.16,0.42,0.57} \sf \product ~Test Plan} 
+                    
+\setDocAuthor   {William O'Mullane, Mario Juiric, Frossie Economou}                % the author(s)
+\setDocApprove  {Victor Krabendam?}              % approval by ...
+\setDocRef      {LDM-503-\docIssue} % the reference code
+\setDocIssue    {0D}                        % the issue
+\setDocRevision {1}                        % the revision
+\setDocDate     {\today}              % the date of the issue
+\setDocStatus   {draft}                    % the document status
+% Comment out the setLSSTDU if you do not want it do not set it to Blanck
+%\setLSSTDU          {DUy}                      % the DU within your CU
+ 
+%
+% a short abstract
+%
+\setDocAbstract {
+This is the  Test Plan for \product. In it we define termas associated with testing and further test specifications for specific items.}
+
+\begin{document}
+%
+% the title page
+%
+\mktitle
+
+%
+%	Revision history MOST RECENT FIRST
+%
+\begin{docHistory}
+\addtohist{D}{1}{2017-01-13}{WOM}{First draft}
+\end{docHistory}
+
+%
+%	TOC
+%
+\newpage
+\setcounter{tocdepth}{3}
+\tableofcontents
+\newpage
+
+
+\input{body}
+\end{document}
