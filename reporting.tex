@@ -1,0 +1,38 @@
+
+\section{Roles and Reporting}
+
+Tester report issues through Jira, but what other mechanisms will be used?
+
+WHo directs OPS rehersals .. ?
+
+Reports on rehersals .. issues and 
+
+
+Handeling failures - time ines for fix. 
+
+
+\subsection{Pass/Fail Criteria}
+
+The Software Review Board will meet once a full run of all Test Cases has been performed, and subsequently after a complete run of all outstanding Test Cases.
+
+A Test Case will be considered ``Passed'' when:
+\begin{itemize_single}
+\item All of the test steps of the Test Case are completed and
+\item All open SPRs from this Test Case agreed in Software Review Board are considered noncritical.
+\end{itemize_single}
+
+A Test Case will be considered ``Partially Passed'' when:
+\begin{itemize_single}
+\item Only a subset of all of the test steps in the Test Case are completed but the overall purpose of the test has been met and
+\item Any critical SPRs from this Test Case agreed in Software Review Board are still not closed.
+\end{itemize_single}
+
+A Test Case will be considered ``Failed'' when:
+\begin{itemize_single}
+\item Only a subset of all of the test steps in the Test Case are completed and the overall purpose of the test has not been met and
+\item Any critical SPRs from this Test Case agreed in Software Review Board are still not closed.
+\end{itemize_single}
+
+\section{Constraints and Limitations}
+
+Describes the limitations and the constraints which apply to CU level tests of the system. lack of computing resources may mean that datasets are smaller or that full accuracy cannot be achieved. Explain what must be validated in the DPC tests
