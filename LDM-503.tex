@@ -1,4 +1,4 @@
-\documentclass[CUx,lsstdraft,STP]{lsstdoc}
+\documentclass[DM,lsstdraft,STP,toc]{lsstdoc}
 
 
 %set the WP number or product here for the requirements 
@@ -26,26 +26,18 @@
 \setDocAbstract {
 This is the  Test Plan for \product. In it we define termas associated with testing and further test specifications for specific items.}
 
+%
+%
+\setDocChangeRecord{%
+	\addtohist{D}{2017-01-13}{First draft}{William O'Mullane}
+}
+
+
 \begin{document}
 %
 % the title page
 %
 \maketitle
-
-%
-%	Revision history MOST RECENT FIRST
-%
-\begin{docHistory}
-\addtohist{D}{1}{2017-01-13}{WOM}{First draft}
-\end{docHistory}
-
-%
-%	TOC
-%
-\newpage
-\setcounter{tocdepth}{3}
-\tableofcontents
-\newpage
 
 
 \input{body}

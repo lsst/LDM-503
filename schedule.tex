@@ -1,30 +1,59 @@
 
 \section{Master Schedule}
 
-The schedule for testing the system until launch. If some modules are scheduled for development after other, explain dependencies and impact on integration and validation tests.
+The schedule for testing the system until operations commence (currently 2022). 
 
 
-Nightly Tests \\
+\begin{longtable} {|l|l|p{0.7\textwidth}|}\hline 
+{\bf Date/Freq} &{\bf Location}& {\bf Title, Description} \\ \hline
 
-Weekly Integration test with data .. \\
+Nightly &  Amazon & {\bf Nightly Tests} \newline 
+Run all automated tests on all DM packages automatically. 
+\\ \hline
+Weekly & Amazon & {\bf Integration tests} \newline 
+Basic Sanity check to make sure code compiles at no regressions have occurred and also pushing though a basic data set.
+\\ \hline
 
-Interface tests ( 2by 2 and integrated E2E, Internal and External)) \\
+TBP& NCSA & Interface tests \newline
+The interface tests have to be planned and documented in a separate test plan that should include 
+tests for each two parties on an interface (2by2 tests) as well as tests for all parties. Some of these will be covered again in E2E tests but before that we should be confident they work. {\bf This includes internal and external interfaces.}
+\\ \hline
 
-End to End Tests ?? Freeze software for Ops .. \\
-
-WISE data to PDAC - ...\\
-
-HSC reprocessing - yes see the data and also validate the ops platform . Validate some procedures like install some procedures etc .. \\
-
-ZTF Alerts processing to valiate ALerts pipe .. \\
-
-2018 Specrograph Data Acquasiitong Test..
-
-2018 - Ops rehsal for comissioning - with a weeks comissioning say - pick which parts of plan we could reherase.\\
-
-2019 - Ops rehsal \#2 for comissioning - more complete .\\
-
-2020 - Ops Rehersal Data Release (Comisisoning Data)\\
-2021 - Ops Rehersal Data Release (Regular Data)\\
+TBP & NCSA + IN2P3 & End to End Tests ?? Freeze software for Ops .. \url{https://confluence.lsstcorp.org/display/DM/Data+Processing+End+to+End+Testing}  What is the status of these ?
+\\ \hline
 
 
+F17 & NCSA & {\bf Science Platform with WISE data in PDAC}  \newline
+SUIT continues PDAC development, adding the WISE data, further exercising the DAX dbserv and imgserv APIs, and taking advantage of metaserv once it becomes available
+\\ \hline
+
+F17 & NCSA& {\bf HSC reprocessing } \newline
+Validate the data products withe LSST stack match or improve the HSC products - thus validating the stack.  
+Validate the ops platform in NCSA. Validate some procedures like installing the stack, patches, starting, stopping production. Generate validation data set for weekly integration and other tests. 
+\\ \hline
+
+S18? & NCSA & {\bf ZTF Alerts processing} \newline
+Validate Alerts pipe .. 
+\\ \hline
+
+2018 & NCSA & {\bf Spectrograph Data acquisition Test} \newline
+\ldots
+\\ \hline
+
+2018 &  NCSA & {\bf Operations rehearsal for commissioning }
+With TBD weeks commissioning (lets say a week) - pick which parts of plan we could rehearse.
+\\ \hline
+
+2019 & NCSA &  {\bf  Operations rehearsal \#2 for commissioning} 
+More complete rehearsal - where do the scientist look at quality data? How do they feed it back to the Telescope ?
+How do we create/update calibrations ? Exercises some of the control loops.
+\\ \hline
+\hline
+2020 &  NCSA &  {\bf Operations  Rehearsal Data Release (Commissioning Data)}
+\\ \hline
+2021 &  NCSA &  {\bf Operations  Rehearsal Data Release (Regular Data).}
+\\ \hline
+
+\hline
+
+\end{longtable}
