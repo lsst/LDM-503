@@ -12,7 +12,7 @@
                     
 \setDocAuthor   {William O'Mullane, Mario Juiric, Frossie Economou}                % the author(s)
 \setDocApprove  {Victor Krabendam?}              % approval by ...
-\setDocRef      {LDM-503-DRAFT} % the reference code
+\setDocRef      {LDM-503-\docIssue} % the reference code
 \setDocIssue    {0D}                        % the issue
 \setDocRevision {1}                        % the revision
 \setDocDate     {\today}              % the date of the issue
