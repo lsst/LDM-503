@@ -1,0 +1,55 @@
+\section{Constraints and Limitations}
+
+\textit{Wil: Describes the limitations and the constraints which apply to CU level tests of the system. lack of computing resources may mean that datasets are smaller or that full accuracy cannot be achieved. Explain what must be validated in the DPC tests}
+
+\begin{itemize}
+
+\item Verification is being done on the basis of precursor data sets such as HSC, and eventually with engineering data from the LSST arrays. These are just a proxy for full-focal-plane on-site LSST data. 
+
+\item Metric measurements and operational rehearsals during construction may not involve critical operational systems that are still in development. For example, while computational performance is being measured, computationally dominant algorithmic steps such as deblending and multi-fit are only modeled, since they have not yet been implemented; operational rehearsals are done without the factory LSST workflow system; etc.
+
+\end{itemize}
+
+\subsection{Requirements Traceability Constraints}
+
+\textit{I felt a summary of the current state of play being verified could be useful to Wil. We don't have to leave it in the final document --FE}
+
+\subsubsection{Scientific}
+
+Some science requirements are captured in LSE-29 (aka LSR) and  flow down to LSE-30 (aka OSS) ; some also exist in LSE-163 (aka DPDD) and will flow down in LSE-61 (aka DMSR) \textit{Flowdown is not complete, TJ is working on this}
+
+\subsubsection{Computational}
+
+There are requirements in LSE-61 (aka DMSR) which captures the LSE-30 (OSS) requirements that DM is responsible for. \textit{In practice LSE-63 (the QA document) has not been flown down to LSE-61}. These are:
+
+\begin{itemize}
+
+\item The primary computational performance flown down from LSE-29 (LSR) is OTT1 which is the requirement to issue an alert within 60 seconds of exposure end.
+
+\item Another requirement flows down from LSE-29 is calculation of orbits within 24 hours of the end of the observing night
+
+\item There is a new (not yet baselined?) requirement for the calibration pipeline to reduce calibration observations within 1200 seconds
+
+\item A nightly report on data quality, data management system performance and a calibration report have to be generated with 4 hours of the end of the night 
+
+\end{itemize}
+
+Note that there are no computational requirements on individual technical components eg. data processing cluster availability, database data retrieval speeds, etc. There is an upper limit on acceptable data loss, and there is a network availability requirement. 
+
+\subsubsection{KPMs}
+
+
+As a proxy for validating the DM system, LDM-240 (aka “the spreadsheet”) defined a set of Key Performance Metrics that the system could be verified against. KPMs were not formally flowed down from LSE-29 (LSR) through LSE-30 (OSS) although there is some overlap with LSE-29 requirements. [TJ is working on this]. In particular, the non-science KPMs only exist in LDM-240 \textit{(spreadsheet/old plan)}.
+
+[While verification was part of the SQuaRE WBS we prepared a KPM verification plan at the request of System Engineering - LDM-502. This work is now being led by Wil now I guess?]
+
+\subsection{Functional Requirements}
+
+Functional requirement are not explicitly called out as such. They are captured in LSE-61 (DMSR).  \textit{[When SQuaRE prepared the verification plan for SysEng, we were directed not to include functional requirements and limit ourselves to KPM. In general functional requirements are easy to verify by simply undertaking to perform the required functions in eg. operational rehearsals so maybe we could just say that?]}
+
+
+\subsection{Interfaces}
+
+There is an implicit, but not explicit, need to verify interfaces to other subsystems. The ICDs describing external interfaces are curated in Docushare Collection 5201. \textit{[Integration used to be a Tucson role; I believe this is being led by the currently vacant Integration Scientist role? or whoever conducts the operation rehearsals?]}
+
+\textit{Internal interfaces: currently we have no definitions and hence they are not verifiable presumably. If we did, I would propose: I}
