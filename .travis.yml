@@ -9,5 +9,6 @@ before_install:
 install:
   - git clone https://github.com/lsst/lsst-texmf
 script:
-  - export TEXMFLOCAL=./lsst-texmf/texmf
+  - export TEXMFHOME=./lsst-texmf/texmf
+  - rm -f LDM-503.pdf
   - make
