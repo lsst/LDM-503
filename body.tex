@@ -7,11 +7,11 @@
 
 Tester report issues through Jira, but what other mechanisms will be used?
 
-WHo directs OPS rehersals .. ?
+Who directs OPS rehearsals .. ?
 
-Reports on rehersals .. issues and
+Reports on rehearsals .. issues and
 
-Handeling failures - time ines for fix.
+Handling failures - time lines for fix.
 
 
 \begin{note}
@@ -44,30 +44,25 @@ Handeling failures - time ines for fix.
 
 \subsection{Approach}
 
-Unit and Integration Tests will be automatically executed through the JUnit test framework. The descriptions of the test below are extracted from the test cases code and documentation.The results of Unit and Integration Test to be included in the Sofwtare Test Report will be generated automatically from the output of the execution of the tests by JUnit. A script will be provided to perform thes processing steps.
+Unit and Integration Tests will be automatically executed through the JUnit test framework. The descriptions of the test below are extracted from the test cases code and documentation.The results of Unit and Integration Test to be included in the Software Test Report will be generated automatically from the output of the execution of the tests by JUnit. A script will be provided to perform thees processing steps.
 
 Module identification? (module tag in class header? mapping file?)
 
 \subsection{Test Coverage}
 
-Test coverage goal for unit and integration testing. Each class and public method shall have a JUnit test harness that may be labelled according to their purpose (e.g. I/O, individual class/method tests, software integration, data model integration etc.). Nominal and contingency
+Test coverage goal for unit and integration testing. Each class and public method shall have a JUnit test harness that may be labeled according to their purpose (e.g. I/O, individual class/method tests, software integration, data model integration etc.). Nominal and contingency
 tests should be clearly identified.
 
 Interface coverage...
 
 The tool [insert name of unit test coverage tool here] will be used to provide metrics on the code coverage by Unit Tests for \product \ and this metric will be provide in the Test Report.
 
-\subsection{Unit and Integration Test Specification}
+\subsection{Component and Integration Test Specification}
 
-This is a example test plan record; this should be generated automatically.
-
-\begin{longtable} {|p{0.2\textwidth}|p{0.2\textwidth}|p{0.6\textwidth}|}\hline
-{\bf Class} & {\bf Unit Test Name} & {\bf Purpose}  \\\hline
-Unit Test Class &
-Unit Test Method &
-Purpose of Unit Test from method header \\\hline
-\end{longtable}
-
+\begin{table}
+	\caption{Components from LDM-148 with the test specifications to verify them. \label{tab:testspecs}
+	\input{TopLevelTestSpecs}
+\end{table}
 \input{validation}
 
 
