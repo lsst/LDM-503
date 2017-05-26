@@ -56,7 +56,7 @@ def theader(tout):
      tout.write("\n")
      tout.write("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
      tout.write("\n")
-     tout.write("\\begin{longtable}{|p{0.3\\textwidth}|p{0.2\\textwidth}|}\hline \n ")
+     tout.write("\\begin{longtable}{|p{0.4\\textwidth}|p{0.2\\textwidth}|}\hline \n ")
      tout.write("\\bf Component & Testing Spec \\\\ \hline   \n")
 
      return
