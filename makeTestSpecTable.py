@@ -16,8 +16,8 @@ def processFile(fin,tout ):
         line=line.rstrip('\r\n')
         part=line.split(","); #comp,req.des.tesspec.ad,on.user,tut.Rcolo
         
-        #if (part[7] != "" ):
-            #tout.write("\\rowcolor{"+part[7]+"} \n ")
+        if (part[7] != "" ):
+            tout.write("\\rowcolor{"+part[7]+"} \n ")
         tout.write(part[0]+" &  "+part[3]+" \\\\ \\hline \n")
 
     sys.stdout.write(  str(count) + " test spec lines \n")
