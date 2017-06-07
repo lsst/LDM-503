@@ -1,22 +1,45 @@
 \section{Test Items}
 
-The test items covered in this test plan are \product \ and its
-primary components.
-
-\subsection{Top-level Testing Specification documents}
-
-Each major component of \product has a Testing Specification document. 
-
 \begin{table}
 	\caption{Components from LDM-148 with the test specifications to verify them. \label{tab:testspecs}}
 	\input{TopLevelTestSpecs}
 \end{table}
 
+The test items covered in this test plan are:
+
+\begin{itemize_single}
+\item \product \ and its primary components for testing and integration purposes. These are listed in Table \ref{tab:testspecs}. All components listed in orange and yellow have specifications in the corresponding documents listed. Major sub-components in white may have individual test specifications or be addressed in the component they are under depending on applicable factors such as whether they are scheduled for testing at the same time and/or whether they share architectural components or are largely distinct. 
+
+\item The external interfaces between \product and other sub-systems. These are described in [Docushare collection]
+
+\item Operational procedures like Data Release Process and Software Release Process. [We don't have a list]
+
+\end{itemize_single}
+
+
+  
 \subsection{Testing Specification document format}
 
+The Testing Specification documents are drawn in conjunction with the LSST System Engineer. In all cases they include:
 
-% \begin{itemize_single}
-% \item Interfaces  
-% \item Procedures like Data release 
-% \end{itemize_single}
+\begin{itemize_single}
+
+\item A list of components being tested within the scope of the Test Specification Document. 
+
+\item A list of features in those components that are being explicitly tested.
+
+\item How those features related to identified requirements for that component
+  
+\item A description of the environment in which the tests are carried out (eg. hardware platform) and a description of how they differ from the operational system in tests prior to final integration (eg. interfaces that may be mocked without affecting that component's testing). 
+  
+\item The inputs (eg. data, API load) that are to be used in the test
+
+\item Pass-fail criteria (eg. metrics to be met) 
+
+\item How any outputs that are used to determine pass/fail (eg. data or metrics) are published (made available). 
+
+\item A Software Quality Assurance manifest listing (as relevant) code repositories, configuration information, release/distribution methods and applicable documentation (such as installation instructions, developer guide, user guide etc.)
+  
+\end{itemize_single}
+
 
