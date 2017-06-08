@@ -1,4 +1,41 @@
-\section{Test Items}
+\section{DM Verification Approach \label{approach}}
+
+We intend to verify DM requirements by testing of DM components in a fairly standard engineering manner.
+For each high level component a test specification will be produced defining a set of tests related to the requirements for the component. 
+These specifications are represented on the top of \figref{fig:doctree}.
+Any given  requirement may have several tests associated with it in the specification, the tests may be phased with the need for certain functionality at a specific time. 
+The test spec will cover all aspects of the test as outlined in \secref{sect:tsform}. 
+
+As we execute tests we will gather test reports on the Pass/Fail of the individual tests related to specific requirements.
+This Information will allow us to build a Verification Control Document (VCD) (right of \figref{fig:doctree}).
+The VCD will provide a \% verification of each requirement in DM (rolled up to OSS requirements also).
+
+
+
+\begin{figure}
+\begin{center}
+ \includegraphics[width=0.9\textwidth]{images/DocTree}
+ \caption{Documentation tree for DM software relating the high level documents to each other. (from \citeds{LDM-294}\label{fig:doctree}}
+
+ \end{center}
+ \end{figure}
+
+
+
+ The DM components are  outlined in \citeds{LDM-294} and detailed in \citeds{LDM-148}. At a high level these components are represented in figure \figref{fig:dmsdeploy}.  Based on those components we can see the set of Test Specifications needed in \tabref{tab:testspecs}. That table does not contain all of the document numbers yet. 
+
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{images/DMSDeployment}
+		\caption{DM components as deployed during Operations. Where components are
+			deployed in multiple locations, the connections between them are labeled with
+			the relevant communication protocols. Science payloads are shown in blue.
+		\label{fig:dmsdeploy} (from \citeds{LDM-148})}
+	\end{center}
+\end{figure}
+
+\subsection{Test Items}
 
 \begin{table}
 	\caption{Components from LDM-148 with the test specifications to verify them. \label{tab:testspecs}}
@@ -18,7 +55,7 @@ The test items covered in this test plan are:
 
 
   
-\subsection{Testing Specification document format}
+\subsection{Testing Specification document format}\label{sect:tsform}
 
 The Testing Specification documents are drawn in conjunction with the LSST System Engineer. In all cases they include:
 
