@@ -2,7 +2,7 @@
 
 \subsection{Introduction}
 
-A number of tools and development practices are in use in \product to ensure software quality and to verify requirements are met. These tools are used continuously (eg. to measure key performance metrics routinely) or periodically (eg. software release characterisations) and so will be well understood by the time the formal verification phase begins. 
+A number of tools and development practices are in use in \product to ensure software quality and to verify requirements are met. These tools are used continuously (eg. to measure key performance metrics routinely) or periodically (eg. software release characterizations) and so will be well understood by the time the formal verification phase begins. 
 
 \subsection{Continuous Integration and Unit Testing}
  
@@ -14,9 +14,9 @@ Roles and responsibilities in this area include:
 
 \begin{itemize_single}
   
-\item The Architecture team [KT as architect or TJ as TCT chair?] is responsible for approving dependencies and setting strategy such as the Python 3 portability
+\item The DM System Engineering Team  team is responsible for approving dependencies and setting strategy such as the Python 3 portability
 
-\item The Architecture team [KT as architect or TJ as TCT chair?] is responsible for setting the Unit Test policy
+\item The DM System Engineering  Team is responsible for setting the Unit Test policy
 
 \item The SQuaRE team is responsible for developing, operating and supporting Continuous Integration Services
 
@@ -34,7 +34,7 @@ Roles and responsibilities in this area include:
 
 \begin{itemize_single}
 
-\item The Architecture Team [KT as architect or TJ as TCT chair?] defines the development process and style guide including the code review standard.
+\item The DM System Engineering Team  defines the development process and style guide including the code review standard.
 
 \item SQuaRE is responsible for supporting tooling to assist code review (eg. linters, JIRA-Github integration, etc). 
 
@@ -50,13 +50,13 @@ DM uses a harness for continuous metric verification. In the software developmen
   
 \item A regression testing framework for any developer-supplied metric, with optional alerts when excursions occur from past values to verify that performance is not being degraded by new code or environments
 
-\item Visualising these results and linking them back to build and pull request information
+\item Visualizing these results and linking them back to build and pull request information
 
-\item  Drill-down of those metrics in pre-defined visualisation templates geared towards specific verification use-cases.
+\item  Drill-down of those metrics in pre-defined visualization templates geared towards specific verification use-cases.
 
 Roles and responsibilities in this area include:
  
-\item The pipeline teams (?) are responsible for providing code and data to calculate the KPMs
+\item The pipeline teams  are responsible for providing some of the code and data to calculate the KPMs
   
 \item SQuaRE is responsible for developing and operating the continuous metric verification services
 

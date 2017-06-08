@@ -1,9 +1,5 @@
 \section{Constraints and Limitations}
 
-\begin{note}
-  Wil: Describes the limitations and the constraints which apply to CU level tests of the system. lack of computing resources may mean that datasets are smaller or that full accuracy cannot be achieved. Explain what must be validated in the DPC tests.
-\end{note}
-
 \begin{itemize}
 
 \item Verification is being done on the basis of precursor data sets such as HSC, and eventually with engineering data from the LSST arrays. These are just a proxy for full-focal-plane on-site LSST data.
@@ -42,7 +38,7 @@ There are requirements in \citeds{LSE-61} (aka \DMSR) which captures the \citeds
 
 \end{itemize}
 
-Note that there are no computational requirements on individual technical components eg. data processing cluster availability, database data retrieval speeds, etc. There is an upper limit on acceptable data loss, and there is a network availability requirement.
+Note that there are no computational requirements on individual technical components e.g.. data processing cluster availability, database data retrieval speeds, etc. There is an upper limit on acceptable data loss, and there is a network availability requirement.
 
 \subsubsection{KPMs}
 
@@ -50,26 +46,17 @@ Note that there are no computational requirements on individual technical compon
 As a proxy for validating the DM system, \citeds{LDM-240} (aka “the spreadsheet”) defined a set of Key Performance Metrics that the system could be verified against. KPMs were not formally flowed down from \citeds{LSE-29} (\LSR) through \citeds{LSE-30} (\OSS) although there is some overlap with \citeds{LSE-29} requirements. [TJ is working on this]. In particular, the non-science KPMs only exist in \citeds{LDM-240} \textit{(spreadsheet/old plan)}.
 
 \begin{note}
-While verification was part of the SQuaRE WBS we prepared a KPM verification plan at the request of System Engineering - \citeds{LDM-502}. This work is now being led by Wil now I guess?
+While verification was part of the SQuaRE WBS we prepared a KPM verification plan at the request of System Engineering - \citeds{LDM-502}. Need to understand how this fits in DM verification.
 \end{note}
-
-\subsection{Functional Requirements}
-
-Functional requirement are not explicitly called out as such. They are captured in \citeds{LSE-61} (\DMSR).
-
-\begin{note}
-When SQuaRE prepared the verification plan for SysEng, we were directed not to include functional requirements and limit ourselves to KPM. In general functional requirements are easy to verify by simply undertaking to perform the required functions in eg. operational rehearsals so maybe we could just say that?
-\end{note}
-
 
 \subsection{Interfaces}
 
-There is an implicit, but not explicit, need to verify interfaces to other subsystems. The ICDs describing external interfaces are curated in Docushare Collection 5201.
+We need to verify at the least  interfaces to other subsystems. The ICDs describing external interfaces are curated in Docushare Collection 5201.
+
+%\begin{note}
+ % Integration used to be a Tucson role; I believe this is being led by the currently vacant Integration Scientist role? or whoever conducts the operation rehearsals?
+%\end{note}
 
 \begin{note}
-  Integration used to be a Tucson role; I believe this is being led by the currently vacant Integration Scientist role? or whoever conducts the operation rehearsals?
-\end{note}
-
-\begin{note}
-  Internal interfaces: currently we have no definitions and hence they are not verifiable presumably. If we did, I would propose: I
+  Internal interfaces: currently we have no definitions and hence they are not readily verifiable. We have components now though so perhaps we can begin to tackle this as part of each test spec. 
 \end{note}
