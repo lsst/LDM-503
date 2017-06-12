@@ -4,11 +4,14 @@ We intend to verify DM requirements by testing of DM components in a fairly stan
 For each high level component a test specification will be produced defining a set of tests related to the requirements for the component. 
 These specifications are represented on the top of \figref{fig:doctree}.
 Any given  requirement may have several tests associated with it in the specification, the tests may be phased with the need for certain functionality at a specific time. 
-The test spec will cover all aspects of the test as outlined in \secref{sect:tsform}. 
+
+The test spec will cover all aspects of the test as outlined in \secref{sect:tsform}. These high level test specifications may call out individual lower level test specification. 
 
 As we execute tests we will gather test reports on the Pass/Fail of the individual tests related to specific requirements.
 This Information will allow us to build a Verification Control Document (VCD) (right of \figref{fig:doctree}).
 The VCD will provide a \% verification of each requirement in DM (rolled up to OSS requirements also).
+\figref {fig:doctree} currently calls for a report from each test spec - this may be captured directly in Jira.
+
 
 
 
