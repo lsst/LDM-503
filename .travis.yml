@@ -1,14 +1,21 @@
 sudo: true
-language: python
 dist: trusty
-matrix:
-  include:
-    - python: "3.5"
+services:
+  - docker
+language: python
+python:
+  - '3.5'
 before_install:
-  - "sudo apt-get update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended latexmk poppler-utils latex-xcolor lmodern texlive-xetex texlive-generic-recommended texlive-full"
-install:
-  - git clone https://github.com/lsst/lsst-texmf
+  - "pip install 'lander>=0.1.0,<0.2'"
 script:
-  - export TEXMFHOME=./lsst-texmf/texmf
-  - rm -f LDM-503.pdf
-  - make
+  # Compile PDF using containerized lsst-texmf
+  - "docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make'"
+after_success:
+  # Deploy website. See https://github.com/lsst-sqre/lander for CLI options
+  - lander --pdf LDM-503.pdf --upload --lsstdoc LDM-503.tex --env=travis --ltd-product $PRODUCT --title "Data Management Test Plan" --handle LDM-503 --authors "[\"William O'Mullane\", \"Mario Juric\", \"Frossie Economou\"]"
+env:
+  global:
+    - PRODUCT="LDM-503"
+    # Add LSST the Docs credentials
+    - secure: "GKXD6aC0usTYxZt2ElbVbqb+KhUSgxIGTn1gL1KXTSy6BtQsDWJAee+9CTkM/OmRJ9RIJ4DGJkJ/DG0Csjj2tRpFcU+PAnkQuoLqwJTKqPi4Y8V+k8R1nuW9KLSpOnQ4TLa8zJJf2mQehJIK0+BL9YOxVHOXGgRSWVQPoE7ZfVrDby87pJ9C4LIymek/0dXoacgPFDAcowlmDrXgqCr+8266x3nAUhNkOn9VH/UKsFZ8vuBIUfe6ASUQkx0nUI3lwfulz/z481EW8l+QeS063KK/oKRk+L1+j0kOM0D78BTRqkL0+ZzDZLJD2+lXgbBnNwd22PVHyuCD4blfqS2H4r9doB3TMrx6I28mxfhqCW6FDWi8INB/bEGgFiulcUcHgOQWxADKQlKbZ/O+XFhksknIQxveVcnczwwUEpxLq4v+CPA03gKLCeaKEh+Fjl1FWkWjgjSzHJoBDBGSwVNrw9EE0fEtK+n9HvCv239t5l0EtIEbllqmBEEtqRbzeRYAWl2OdLiOgJw8hV1bmGHBwyZWVa2bPNRM4s3cGhn8Z3NLFpDTadpDPsDYWXnqkPZ1nXVVHWA/FrxzIP7LNAwO7xvt1b6GMqUQ3C3AK0kVAZvOQPwYCEpL8IG4IVf5lis2NP3+qmIWb504L5/jVGtYj4YZwaC2ZQq9wpZhbPA4aqM="
+    - secure: "N2uHYvTtFDFtdk4hzJsr+lirAo2w+ctV599faFGgjvbc9dNdF6qeLRiTpHsJ6kp7PiqaEMDGJjVGzgWqRSDr2KsbyJh66a00Y3jipbHuy7P3ZRnmSlY/uqe4F2r5bLpbIaf99vbSGDXp3hEV3+boswJTkIhtnqroTsS4XDdC1+9BrsZooPQaAbG2whaknwgdilBrK1Bl7CUArgyEMlkSMVFhupDyn6VC1l5EUXYAlLw2gBJQK6l0lgDCQLG8LbkuB3tY/R57RwAubC1QBz2ucJyytVdID12ieSRVl5Z9Ry5rLrHahTJUvDgvFWr/tDqyx2WhQR+NOZEERDT9gNmdbuu0/xbuvQZ27xFA9RieYGDtsOrYX2euMarCrNIr2wPiuYqodOxzwFZYkj+9u/Q37goqVI0mOxFnjfJv6SFkeTPcbgS7EmIgkrJE16+y4Hg8kQwjXtZFKRNBvsH/vUE63dYoKWDb+H/+JOjR4c/S2xh4LYA+3Yf/mOWDSjNKxTO5DL8cMSiTvRxX6POmpJd312AS1J2HOSl650qdmU0SK2rQHA8xdImDMhrYhcYaEULwJOSVBkGu/XiCf4OYu237FRQrK7lW68FmgGMKaxe9f1NtPk+iBZxW+d7A3Ix+26R6e9nteDUYSX3ypKKvMTAE2FSivrJMoZS18qMYHzV3NB4="
