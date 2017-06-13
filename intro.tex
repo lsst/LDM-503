@@ -1,21 +1,20 @@
 
 \section{Introduction \label{sect:intro}}
-In this document  we lay out  the verification and validation approach for LSST Data Management. In addition we outline some of the high level test milestones in \secref{sect:schedule}.
-
+In this document  we lay out  the verification and validation approach for LSST Data Management. In addition we outline some of the high level test milestones in \secref{sect:schedule} and our planned schedule for demonstrating interim verification status.
 
 \subsection{Objectives \label{sect:objectives}}
 
-We describes the test and verification approach for DM and describe  constraints and limitations in the testing to be performed. 
+We describe the test and verification approach for DM and describe various constraints and limitations in the testing to be performed. 
 We also describe the validation tests to be performed on the partially and fully integrated system. 
-We do not describe all tests in details but leave that to dedicated test specifications.
+We do not describe all tests in details; those are described in dedicated test specifications for major components of \product. Here we outline the required elements for those specifications as well as the tools we use to for continuous verification. 
 
 \subsection{Scope \label{sect:scope}}
 
-This provides the approach and plan for all od DM. It covers interfaces to DM but nothing outside of DM. 
-This document will be updated in response to any  requirements updates.
+This provides the approach and plan for all of \product. It covers interfaces between \product\ and components from other LSST subsystems but nothing outside of \product. 
+This document is change-controlled by the DMCCB and will be updated in response to any requirements updates or changes of approach.
 
 \subsection{Assumptions}  
- We will run large scale Science Validations. A large amount of informal science validation will be done in the the teams and documented in technical notes, in this test plan we are looking for broad validation and specifically {\em operaability} i.e. can we run this system everyday for a long period of time (years).
+ We will run large scale Science Validations in order to demonstrate the system's end-to-end capability against its design specifications. A large amount of informal science validation will be done in the the teams and documented in technical notes; in this test plan we are looking for validation of the broader system and specifically {\em operability} i.e. whether we can run this system every day for the 10 year planned survey with a reasonable level of operational support.
 
 \subsection{Applicable Documents \label{sect:ad}}
 When applicable documents change a change may be required in this document.
