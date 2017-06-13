@@ -1,31 +1,39 @@
 \section{DM Verification Approach \label{approach}}
 
-We intend to verify DM requirements by testing of DM components in a fairly standard engineering manner.
-For each high level component a test specification will be produced defining a set of tests related to the requirements for the component. 
-These specifications are represented on the top of \figref{fig:doctree}.
-Any given  requirement may have several tests associated with it in the specification, the tests may be phased with the need for certain functionality at a specific time. 
+Our approch towards verifying the \product\ requirements follows
+standard engineering practice.  Each high level component will have at
+least one test specification defining a set of tests related to the
+design requirements for the component.  These specifications are
+represented on the top of \figref{fig:doctree}. Any given requirement
+may have several tests associated with it in the specification; the
+tests may be phased to account for incremental delivery depending on
+the need for certain functionality at a specific time.
 
-The test spec will cover all aspects of the test as outlined in \secref{sect:tsform}. These high level test specifications may call out individual lower level test specification. 
+The test spec will cover all aspects of the test as outlined in
+\secref{sect:tsform}. These high level test specifications may call
+out individual lower level test specification where it makes sense
+(either technically or programatically) to test lower-level components
+in isolation.
 
-As we execute tests we will gather test reports on the Pass/Fail of the individual tests related to specific requirements.
+\subsection{Reports}
+
+As we execute tests we will generate test reports on the Pass/Fail of the individual tests related to specific requirements. 
 This Information will allow us to build a Verification Control Document (VCD) (right of \figref{fig:doctree}).
 The VCD will provide a \% verification of each requirement in DM (rolled up to OSS requirements also).
-\figref {fig:doctree} currently calls for a report from each test spec - this may be captured directly in Jira.
+\figref {fig:doctree} currently calls for a report from each test spec - this may be captured directly in e.g.\ Jira and does not need to originate as a document-format (Word, LaTex) source.
 
-
+In cases of reports that are generated via automantic (continuous) verification, the report may be in the format of a Jupyter Notebook that simultaneously can serve as test specification and test report and, in some cases, the test script itself. This is the preferred method provided the notebook-as-report is satisfactorily captured in Docushare. 
 
 
 \begin{figure}
 \begin{center}
- \includegraphics[width=0.9\textwidth]{images/DocTree}
+ \includegraphics[angle=-90,width=0.7\textwidth]{images/DocTree}
  \caption{Documentation tree for DM software relating the high level documents to each other. (from \citeds{LDM-294}\label{fig:doctree}}
 
  \end{center}
  \end{figure}
 
-
-
- The DM components are  outlined in \citeds{LDM-294} and detailed in \citeds{LDM-148}. At a high level these components are represented in figure \figref{fig:dmsdeploy}.  Based on those components we can see the set of Test Specifications needed in \tabref{tab:testspecs}. That table does not contain all of the document numbers yet. 
+ The DM components are  outlined in \citeds{LDM-294} and detailed in \citeds{LDM-148}. At a high level these components are represented in figure \figref{fig:dmsdeploy}.  Based on those components we can see the set of Test Specifications needed in \tabref{tab:testspecs}. That table does not contain all of the document numbers yet for cases for second-level components (and in some cases they may be rolled up into their parent). 
 
 
 \begin{figure}[htbp]
@@ -52,7 +60,7 @@ The test items covered in this test plan are:
 
 \item The external interfaces between \product and other sub-systems. These are described in [Docushare collection]
 
-\item Operational procedures like Data Release Process and Software Release Process. [We don't have a list]
+\item Operational procedures like Data Release Process, the Software Release Process and the Security Plan. 
 
 \end{itemize_single}
 
