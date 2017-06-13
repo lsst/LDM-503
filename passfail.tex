@@ -1,8 +1,6 @@
 
 \section{Pass/Fail Criteria}
 
-Pass/Fail criteria vary slighty depending on the type of test being performed.
-
 
 A Test Case will be considered ``Passed'' when:
 \begin{itemize_single}
@@ -22,12 +20,6 @@ A Test Case will be considered ``Failed'' when:
 \item Any critical SPRs from this Test Case agreed in Software Review Board are still not closed.
 \end{itemize_single}
 
+Note that in \citeds{LPM-17} science requirements are described as having a minimum specification, a design specification and a stretch goal. We preserve these distinctions where they have been made in, for example, the verification framework and automated metric harness. However for the purposes of Pass/Fail criteria, it is the design specification that is verified as having been met for a test to pass without intervention of the Software Review Board.
 
-\begin{note}
-Given the incomplete 1:1 match between Key Performance Metrics listed in \citeds{LDM-240} (which was a spreadsheet) and \citeds{LSE-30} (aka \OSS), we could theoretically have a situation where we pass our KPMs but fail an OSS metric. I think this is unlikely, but we would need to complete the OSS flowdown to be able to demonstate that to a skeptic. If we re-flowdown and come up with KPM 2.0s though, this section would stand as written. We just have to surrender the pedantic point that they wouldn't be ``Key'' at that point, they would be \textbf{the} performance metrics.
-\end{note}
-
-\begin{note}
-  There is an LCR open for flowing down some of the performance metrics from \LSR to \OSS.
-\end{note}
-
+In the event that a requirement is failing its design specification and the minimum specification is invoked, this is an LSST project level issue and is escalated beyond the scope of this plan. 
