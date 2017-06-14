@@ -1,14 +1,25 @@
 sudo: true
-language: python
 dist: trusty
-matrix:
-  include:
-    - python: "3.5"
+services:
+  - docker
+language: python
+python:
+  - '3.5'
 before_install:
-  - "sudo apt-get update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended latexmk poppler-utils latex-xcolor lmodern texlive-xetex texlive-generic-recommended texlive-full"
-install:
-  - git clone https://github.com/lsst/lsst-texmf
+  - "pip install 'lander>=0.1.0,<0.2'"
 script:
-  - export TEXMFHOME=./lsst-texmf/texmf
-  - rm -f LDM-503.pdf
-  - make
+  # Compile PDF using containerized lsst-texmf
+  - "docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make'"
+after_success:
+  # Deploy website. See https://github.com/lsst-sqre/lander for CLI options
+  - "lander --pdf LDM-503.pdf --upload --lsstdoc LDM-503.tex --env=travis --ltd-product $PRODUCT --title \"$TITLE\" --abstract \"$ABSTRACT\" --docushare-url $DOCUSHAREURL"
+env:
+  global:
+    - PRODUCT="LDM-503"
+    # Manually managed metadata that Lander current can't parse from tex
+    - ABSTRACT="This is the  Test Plan for Data Management. In it we define terms associated with testing and further test specifications for specific items."
+    - TITLE="Data Management Test Plan"
+    - DOCUSHAREURL="https://ls.st/ldm-105*"
+    # Add LSST the Docs credentials
+    - secure: "Em1j7Sz3qOg0VMas0GllY7YOXaMrjWoHsCVO7ysUBuFbPrAwHNQ4j4veO4WTZjK0qxLMKcoaHQEAsTm+3a1ZSAaWLHqgG8Dy0q32BwGoaCOxzvG9IyOalgZHioug0jykkWlCOiGnfVZY9jnzkXfmFsQrNfyRP4Ai2LXe9KGco4eheEh7W6SUGEXUTkAoaRvsA59vN1nta9dTULLqO60659vJhwQTUQnsQ4BU35MxcR+y4VXEngI2Q78e3lh1gOWXKr31F0I41cacVcKgHKqi0DM3dzhadehXT2hIWaIHG6TmNvQOh7Kh60+/Q2xfrTgMnNstRxKFG+ChMXSAnUO+321oJ7EDgvWhWpQyM78g03SNJHWC3Rlo2dZJVm5QhcPHTqhKWsj9hOM+rtu6EfJYYgzqsggtEoj7FpTinMHOY6OMBa8Jhto5b4UHPuxHA1faofMnQ0avlYN/boG8EjMrsCgMslETsW8f8Q3g5WShhVDzbMJ7+hN4cZpfOJec3JV6j2YFZRaV2x0Ck9fa2HyQkYlNIp5s1pkianB7+snQYiYTVhUHgsG7kmks/FblgbAtlGhxcqeHgBwa3cQT2xEYm9C6ojuVx4AKzeJB1RsZk7b8DmD/et/46SHZduWuzCe7z3ANoVCgZDEryYqIbdZ7W+lUWUp5y/o9qT3VHsRBitw="
+    - secure: "QE0KKBCx5tekgPjwzFYZGaKoCu8YCnJH2ekTzOV8Tyv/IeUY2u2BUt92oAqJPNEcgSblNQq0pEUv5Y9Cf96UR2RQ3Cx+Td4xJdNpAUj9r7sBa1j2zUm7B997PHDYvMXZWFSFuWPBf9NKQz1eDpdj/nrYL3etrALn/YuCNStTWu0li+nVWC7D8QrrR2hVRbZus5gz3FfBQOwZVQoLOKbMlRLvRClJ3epaMnNT2n2Fdk66KJYfncuOg8zs4Sl9Xg1+Hy6qFVRwXVNUgCh2mipyNNjT8zqWgiNDKtnYyM38TR9RZXY+cr3/5a6OH7u9d9QPFsKO1GzoRbOdmkaCZRcZn1pYpfu5OoaZOsAsFDwp3RcVTpxUb5efoS3fx6ZyUTAUqSbCi5iqjaM8MUElRrmUi7WqMJ6yRual3pA8Z5UWGNkWOob463Hk1/LMUcO4/ehuTpf8THhy+++Wxg3vEBdU2as4vkd+qFxSnuAdF0fojmHCfVu7mNzcDIZtTjRAdBYJFuAhdBv9tH6ZwEASdo2fxKTUdrlH4ie17nHPoXbdUlz8o7HTQiHb8oJDtX19Lttu5T0mQittfcuyOyTlIej6H2xKWtrZdtprDspJWvoczfN4hh5ZyOV3CLsYJ29fZgh35kdM6bLxL5Ll0NSEk8o+xAEMMADjv1g92yJ5ltGfmBs="
