@@ -1,4 +1,4 @@
-\section{Tools for Continuous Verification and Software Quality Assurance}
+
 
 \subsection{Introduction}
 
@@ -8,7 +8,7 @@ A number of tools and development practices are in use in \product to ensure sof
  
 Code is checked via a continuous integration (CI) service both for on-demand developer use and for verifying the quality of the master branch. Irrespective of supported platforms, we have a practice of verifying that the stack can run on at least 2 distinct operating systems/platforms as portability is often a good indicator of maintainability. The CI service also permits verification that the codebase runs with different third party dependencies; for example we test that the python code runs both under (legacy) Python 2.7 and (trailing edge versions of) Python 3. This reduces the foreseeable technical debt of porting to Python 3 for operations.
  
-Unit testing policy is described in the DM Developer guide under Unit Test Policy.
+Unit testing policy is described in the \href{https://developer.lsst.io}{DM Developer guide} under Unit Test Policy.
  
 Roles and responsibilities in this area include:
 
@@ -28,7 +28,7 @@ At the time of this revision we do not have unit test coverage tooling for Pytho
 
 \subsection{Code Reviews}
 
-DM’s process requires that every story resulting in code changes to the stack is reviewed prior to being merged to master. This is both as code quality verification and also to ensure that at least one other team-member has some familiarity with a particular part of the codebase. DM’s Code Review process is described in the DM Developer Guide under the section DM Code Review and Merging Process.
+DM’s process requires that every story resulting in code changes to the stack is reviewed prior to being merged to master. This is both as code quality verification and also to ensure that at least one other team-member has some familiarity with a particular part of the codebase. DM’s Code Review process is described in the \href{https://developer.lsst.io}{DM Developer guide} under the section DM Code Review and Merging Process.
 
 Roles and responsibilities in this area include:
 
