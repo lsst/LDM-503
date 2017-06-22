@@ -17,12 +17,12 @@ in isolation.
 
 \subsection{Reports}
 
-As we execute tests we will generate test reports on the Pass/Fail of the individual tests related to specific requirements. 
+As we execute tests we will generate test reports on the Pass/Fail of the individual tests related to specific requirements.
 This Information will allow us to build a Verification Control Document (VCD) (right of \figref{fig:doctree}).
 The VCD will provide a \% verification of each requirement in DM (rolled up to OSS requirements also).
 \figref {fig:doctree} currently calls for a report from each test spec - this may be captured directly in e.g.\ Jira and does not need to originate as a document-format (Word, LaTex) source.
 
-In cases of reports that are generated via automantic (continuous) verification, the report may be in the format of a Jupyter Notebook that simultaneously can serve as test specification and test report and, in some cases, the test script itself. This is the preferred method provided the notebook-as-report is satisfactorily captured in Docushare. 
+In cases of reports that are generated via automantic (continuous) verification, the report may be in the format of a Jupyter Notebook that simultaneously can serve as test specification and test report and, in some cases, the test script itself. This is the preferred method provided the notebook-as-report is satisfactorily captured in Docushare.
 
 
 \begin{figure}
@@ -33,7 +33,7 @@ In cases of reports that are generated via automantic (continuous) verification,
  \end{center}
  \end{figure}
 
- The DM components are  outlined in \citeds{LDM-294} and detailed in \citeds{LDM-148}. At a high level these components are represented in figure \figref{fig:dmsdeploy}.  Based on those components we can see the set of Test Specifications needed in \tabref{tab:testspecs}. That table does not contain all of the document numbers yet for cases for second-level components (and in some cases they may be rolled up into their parent). 
+ The DM components are  outlined in \citeds{LDM-294} and detailed in \citeds{LDM-148}. At a high level these components are represented in figure \figref{fig:dmsdeploy}.  Based on those components we can see the set of Test Specifications needed in \tabref{tab:testspecs}. That table does not contain all of the document numbers yet for cases for second-level components (and in some cases they may be rolled up into their parent).
 
 
 \begin{figure}[htbp]
@@ -56,11 +56,11 @@ In cases of reports that are generated via automantic (continuous) verification,
 The test items covered in this test plan are:
 
 \begin{itemize_single}
-\item \product\ and its primary components for testing and integration purposes. These are listed in Table \ref{tab:testspecs}. All components listed in orange and yellow have specifications in the corresponding documents listed. Major sub-components in white may have individual test specifications or be addressed in the component they are under depending on applicable factors such as whether they are scheduled for testing at the same time and/or whether they share architectural components or are largely distinct. 
+\item \product\ and its primary components for testing and integration purposes. These are listed in Table \ref{tab:testspecs}. All components listed in orange and yellow have specifications in the corresponding documents listed. Major sub-components in white may have individual test specifications or be addressed in the component they are under depending on applicable factors such as whether they are scheduled for testing at the same time and/or whether they share architectural components or are largely distinct.
 
 \item The external interfaces between \product and other sub-systems. These are described in Docushare collection 5201.
 
-\item Operational procedures like Data Release Process, the Software Release Process and the Security Plan. 
+\item Operational procedures like Data Release Process, the Software Release Process and the Security Plan.
 
 \end{itemize_single}
 
@@ -71,22 +71,20 @@ The Testing Specification documents will be drawn in conjunction with the LSST S
 
 \begin{itemize_single}
 
-\item A list of components being tested within the scope of the Test Specification Document. 
+\item A list of components being tested within the scope of the Test Specification Document.
 
 \item A list of features in those components that are being explicitly tested.
 
 \item How those features related to identified requirements for that component.
-  
-\item A description of the environment in which the tests are carried out (e.g.\ hardware platform) and a description of how they differ from the operational system in tests prior to final integration (e.g.\ interfaces that may be mocked without affecting that component's testing). 
-  
+
+\item A description of the environment in which the tests are carried out (e.g.\ hardware platform) and a description of how they differ from the operational system in tests prior to final integration (e.g.\ interfaces that may be mocked without affecting that component's testing).
+
 \item The inputs (such as data, API load, etc.) that are to be used in the test.
 
 \item Pass-fail criteria on any metrics to be done.
 
-\item How any outputs that are used to determine pass/fail (e.g.\ data or metrics) are published (made available). 
+\item How any outputs that are used to determine pass/fail (e.g.\ data or metrics) are published (made available).
 
 \item A Software Quality Assurance manifest listing (as relevant) code repositories, configuration information, release/distribution methods and applicable documentation (such as installation instructions, developer guide, user guide etc.)
-  
+
 \end{itemize_single}
-
-
