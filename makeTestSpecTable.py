@@ -1,5 +1,5 @@
 #python
-#Take list file with and make a tex table 
+#Take list file with and make a tex table
 
 import os
 import fileinput
@@ -15,7 +15,7 @@ def processFile(fin,tout ):
         line=line.replace("\"","")
         line=line.rstrip('\r\n')
         part=line.split(","); #comp,req.des.tesspec.ad,on.user,tut.Rcolo
-        
+
         if (part[7] != "" ):
             tout.write("\\rowcolor{"+part[7]+"} \n ")
         tout.write(part[0]+" &  "+part[3]+" \\\\ \\hline \n")
@@ -30,7 +30,7 @@ def fixTex(text ):
 
 def doFile(inFile ):
     "This processes a csv and produces a  tex longtable."
-    f=inFile 
+    f=inFile
     nt = "TopLevelTestSpecs.tex"
     sys.stdout.write( "Processing " + f  +"--> (table)" + nt +" \n")
     fin = open (f,'r')
@@ -67,5 +67,5 @@ def tfooter(tout):
      return;
 
 
-### MAIN 
+### MAIN
 doFile("TopLevelTestSpecs.csv")

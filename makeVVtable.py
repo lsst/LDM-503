@@ -19,5 +19,3 @@ with open(fn, "r") as f:
         name = re.sub(r'\&', 'and', name)
         if (req!=""):
            out.write(req+" & "+name +" & "+ meth + "\\\\ \hline\n")
-        
-
