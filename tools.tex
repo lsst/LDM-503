@@ -1,8 +1,6 @@
+\section{Software Tools}
 
-
-\subsection{Introduction}
-
-A number of tools and development practices are in use in \product to ensure software quality and to verify requirements are met. These tools are used continuously (eg. to measure key performance metrics routinely) or periodically (eg. software release characterizations) and so will be well understood by the time the formal verification phase begins.
+A number of tools and development practices are in use in \product\ to ensure software quality and to verify requirements are met. These tools are used continuously (e.g.\ to measure key performance metrics routinely) or periodically (e.g.\ software release characterizations) and so will be well understood by the time the formal verification phase begins.
 
 \subsection{Continuous Integration and Unit Testing}
 
@@ -14,13 +12,13 @@ Roles and responsibilities in this area include:
 
 \begin{itemize_single}
 
-\item The DM System Engineering Team  team is responsible for approving dependencies and setting strategy such as the Python 3 portability
+\item The DM Systems Engineering Team  team is responsible for approving dependencies and setting strategy such as the Python 3 portability.
 
-\item The DM System Engineering  Team is responsible for setting the Unit Test policy
+\item The DM Systems Engineering  Team is responsible for setting the Unit Test policy.
 
-\item The SQuaRE team is responsible for developing, operating and supporting Continuous Integration Services
+\item The SQuaRE team is responsible for developing, operating and supporting Continuous Integration Services.
 
-\item The SQuaRE team determines platform release practice ICW the other teams and Architecture
+\item The SQuaRE team determines platform release practice ICW the other teams and Architecture.
 
 \end{itemize_single}
 
@@ -34,9 +32,9 @@ Roles and responsibilities in this area include:
 
 \begin{itemize_single}
 
-\item The DM System Engineering Team  defines the development process and style guide including the code review standard.
+\item The DM Systems Engineering Team defines the development process and style guide including the code review standard.
 
-\item SQuaRE is responsible for supporting tooling to assist code review (eg. linters, JIRA-Github integration, etc).
+\item SQuaRE is responsible for supporting tooling to assist code review (e.g.\ linters, Jira-Github integration, etc).
 
 \end{itemize_single}
 
@@ -46,20 +44,24 @@ DM uses a harness for continuous metric verification. In the software developmen
 
 \begin{itemize_single}
 
-\item Calculating KPMs where available and alerting when they exceed specification
+\item Calculating KPMs where available and alerting when they exceed specification.
 
-\item A regression testing framework for any developer-supplied metric, with optional alerts when excursions occur from past values to verify that performance is not being degraded by new code or environments
+\item A regression testing framework for any developer-supplied metric, with optional alerts when excursions occur from past values to verify that performance is not being degraded by new code or environments.
 
-\item Visualizing these results and linking them back to build and pull request information
+\item Visualizing these results and linking them back to build and pull request information.
 
 \item  Drill-down of those metrics in pre-defined visualization templates geared towards specific verification use-cases.
 
+\end{itemize_single}
+
 Roles and responsibilities in this area include:
 
-\item The pipeline teams  are responsible for providing some of the code and data to calculate the KPMs
+\begin{itemize_single}
 
-\item SQuaRE is responsible for developing and operating the continuous metric verification services
+\item The pipeline teams  are responsible for providing some of the code and data to calculate the KPMs.
 
-\item Individual developers contribute non-KPM metrics as desired
+\item SQuaRE is responsible for developing and operating the continuous metric verification services.
+
+\item Individual developers contribute non-KPM metrics as desired.
 
 \end{itemize_single}

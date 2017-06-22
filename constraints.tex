@@ -2,7 +2,7 @@
 
 \begin{itemize}
 
-\item Verification is being done on the basis of precursor data sets such as HSC, and eventually with engineering data from the LSST arrays. These are just a proxy for full-focal-plane on-site LSST data.
+\item Verification is being done on the basis of precursor data sets such as HSC (see for example \citeds{LDM-502}), and eventually with engineering data from the LSST arrays. These are just a proxy for full-focal-plane on-site LSST data.
 
 \item Metric measurements and operational rehearsals during construction may not involve critical operational systems that are still in development. For example, while computational performance is being measured, computationally dominant algorithmic steps such as deblending and multi-fit are only modeled, since they have not yet been implemented; operational rehearsals are done without the factory LSST workflow system; etc.
 
@@ -18,17 +18,17 @@ Some science requirements are captured in \citeds{LSE-29} (aka \LSR) and flow do
 
 \subsubsection{Computational}
 
-There are requirements in \citeds{LSE-61} (aka \DMSR) which captures the \citeds{LSE-30} (\OSS) requirements that DM is responsible for. \textit{In practice \citeds{LSE-63} (the QA document) has not been flown down to \citeds{LSE-61}}. These are:
+There are requirements in \citeds{LSE-61} (aka \DMSR) which captures the \citeds{LSE-30} (\OSS) requirements that DM is responsible for. \textit{In practice \citeds{LSE-63} (the QA document) has not been flowed down to \citeds{LSE-61}}. These are:
 
 \begin{itemize}
 
 \item The primary computational performance flown down from \citeds{LSE-29} (\LSR) is OTT1 which is the requirement to issue an alert within 60 seconds of exposure end.\dmreq{0004}\lsrreq{0101}
 
-\item Another requirement flows down from \citeds{LSE-29} is calculation of orbits within 24 hours of the end of the observing night\dmreq{0004}\lsrreq{0104}\reqparam{L1PublicT}
+\item Another requirement flown down from \citeds{LSE-29} is calculation of orbits within 24 hours of the end of the observing night.\dmreq{0004}\lsrreq{0104}\reqparam{L1PublicT}
 
-\item There is a new (not yet baselined?) requirement for the calibration pipeline to reduce calibration observations within 1200 seconds
+\item There is a new (not yet baselined?) requirement for the calibration pipeline to reduce calibration observations within 1200 seconds.\reqparam{calProcTime}
 
-\item A nightly report on data quality, data management system performance and a calibration report have to be generated with 4 hours of the end of the night\dmreq{0096}\reqparam{dq\-Report\-Compl\-Time}
+\item A nightly report on data quality, data management system performance and a calibration report have to be generated with 4 hours of the end of the night.\dmreq{0096}\reqparam{dq\-Report\-Compl\-Time}
 
 \end{itemize}
 
@@ -36,10 +36,8 @@ Note that there are no computational requirements on individual technical compon
 
 \subsubsection{KPMs}
 
-As a proxy for validating the DM system, \citeds{LDM-240} (aka “the spreadsheet”) defined a set of Key Performance Metrics that the system could be verified against. KPMs were not formally flowed down from \citeds{LSE-29} (\LSR) through \citeds{LSE-30} (\OSS) although there is some overlap with \citeds{LSE-29} requirements. In particular, the non-science KPMs only exist in \citeds{LDM-240} \textit{(spreadsheet/old plan)}.
+As a proxy for validating the DM system, \citeds{LDM-240} (aka “the spreadsheet”) defined a set of Key Performance Metrics that the system could be verified against. KPMs were not formally flowed down from \citeds{LSE-29} (\LSR) through \citeds{LSE-30} (\OSS) although there is some overlap with \citeds{LSE-29} requirements. In particular, the non-science KPMs only exist in \citeds{LDM-240} \textit{(spreadsheet/old plan)}, although they are implicitly assumed in the sizing model presented in \citeds{LSE-81} and \citeds{LSE-82}.
 
 \subsection{Interfaces}
 
-We will verify external interfaces to other subsystems and selected major internal interfaces. The ICDs describing external interfaces are curated in Docushare Collection 5201.
-
-
+We will verify external interfaces to other subsystems and selected major internal interfaces. The ICDs describing external interfaces are curated in \href{https://ls.st/Collection-5201}{Docushare Collection 5201}.
