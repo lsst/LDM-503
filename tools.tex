@@ -1,30 +1,28 @@
+\section{Software Tools}
 
-
-\subsection{Introduction}
-
-A number of tools and development practices are in use in \product to ensure software quality and to verify requirements are met. These tools are used continuously (eg. to measure key performance metrics routinely) or periodically (eg. software release characterizations) and so will be well understood by the time the formal verification phase begins. 
+A number of tools and development practices are in use in \product\ to ensure software quality and to verify requirements are met. These tools are used continuously (e.g.\ to measure key performance metrics routinely) or periodically (e.g.\ software release characterizations) and so will be well understood by the time the formal verification phase begins.
 
 \subsection{Continuous Integration and Unit Testing}
- 
+
 Code is checked via a continuous integration (CI) service both for on-demand developer use and for verifying the quality of the master branch. Irrespective of supported platforms, we have a practice of verifying that the stack can run on at least 2 distinct operating systems/platforms as portability is often a good indicator of maintainability. The CI service also permits verification that the codebase runs with different third party dependencies; for example we test that the python code runs both under (legacy) Python 2.7 and (trailing edge versions of) Python 3. This reduces the foreseeable technical debt of porting to Python 3 for operations.
- 
+
 Unit testing policy is described in the \href{https://developer.lsst.io}{DM Developer guide} under Unit Test Policy.
- 
+
 Roles and responsibilities in this area include:
 
 \begin{itemize_single}
-  
-\item The DM System Engineering Team  team is responsible for approving dependencies and setting strategy such as the Python 3 portability
 
-\item The DM System Engineering  Team is responsible for setting the Unit Test policy
+\item The DM Systems Engineering Team  team is responsible for approving dependencies and setting strategy such as the Python 3 portability.
 
-\item The SQuaRE team is responsible for developing, operating and supporting Continuous Integration Services
+\item The DM Systems Engineering  Team is responsible for setting the Unit Test policy.
 
-\item The SQuaRE team determines platform release practice ICW the other teams and Architecture
-  
+\item The SQuaRE team is responsible for developing, operating and supporting Continuous Integration Services.
+
+\item The SQuaRE team determines platform release practice ICW the other teams and Architecture.
+
 \end{itemize_single}
 
-At the time of this revision we do not have unit test coverage tooling for Python; this is coming with the planned switch to the pytest framework. 
+At the time of this revision we do not have unit test coverage tooling for Python; this is coming with the planned switch to the pytest framework.
 
 \subsection{Code Reviews}
 
@@ -34,32 +32,36 @@ Roles and responsibilities in this area include:
 
 \begin{itemize_single}
 
-\item The DM System Engineering Team  defines the development process and style guide including the code review standard.
+\item The DM Systems Engineering Team defines the development process and style guide including the code review standard.
 
-\item SQuaRE is responsible for supporting tooling to assist code review (eg. linters, JIRA-Github integration, etc). 
+\item SQuaRE is responsible for supporting tooling to assist code review (e.g.\ linters, Jira-Github integration, etc).
 
 \end{itemize_single}
-  
+
 \subsection{Automated Requirements Verification and KPM Measurement}
 
 DM uses a harness for continuous metric verification. In the software development context this is used for:
 
 \begin{itemize_single}
 
-\item Calculating KPMs where available and alerting when they exceed specification
-  
-\item A regression testing framework for any developer-supplied metric, with optional alerts when excursions occur from past values to verify that performance is not being degraded by new code or environments
+\item Calculating KPMs where available and alerting when they exceed specification.
 
-\item Visualizing these results and linking them back to build and pull request information
+\item A regression testing framework for any developer-supplied metric, with optional alerts when excursions occur from past values to verify that performance is not being degraded by new code or environments.
+
+\item Visualizing these results and linking them back to build and pull request information.
 
 \item  Drill-down of those metrics in pre-defined visualization templates geared towards specific verification use-cases.
 
-Roles and responsibilities in this area include:
- 
-\item The pipeline teams  are responsible for providing some of the code and data to calculate the KPMs
-  
-\item SQuaRE is responsible for developing and operating the continuous metric verification services
+\end{itemize_single}
 
-\item Individual developers contribute non-KPM metrics as desired
+Roles and responsibilities in this area include:
+
+\begin{itemize_single}
+
+\item The pipeline teams  are responsible for providing some of the code and data to calculate the KPMs.
+
+\item SQuaRE is responsible for developing and operating the continuous metric verification services.
+
+\item Individual developers contribute non-KPM metrics as desired.
 
 \end{itemize_single}
