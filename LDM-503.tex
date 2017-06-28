@@ -1,0 +1,40 @@
+\documentclass[DM,lsstdraft,toc]{lsstdoc}
+
+
+%set the WP number or product here for the requirements
+\def\product{Data Management}
+\def\cycle{S17}
+
+\setDocCompact{true}
+
+%Product name first in title
+\title    [Test Plan]  { \product ~Test Plan}
+
+\author   {William O'Mullane, Mario Juric, Frossie Economou}                % the author(s)
+\setDocRef      {LDM-503} % the reference code
+\setDocDate     {\today}              % the date of the issue
+
+%
+% a short abstract
+%
+\setDocAbstract {
+This is the  Test Plan for \product. In it we define terms associated with testing and further test specifications for specific items.}
+
+%
+%
+\setDocChangeRecord{%
+	\addtohist{D}{2017-01-13}{First draft}{William O'Mullane}
+}
+
+
+\begin{document}
+%
+% the title page
+%
+\maketitle
+
+
+\input{body}
+\appendix
+\input{vvmatrix}
+\end{document}
