@@ -1,35 +1,37 @@
 #!/usr/bin/env python
 
 import csv
+import os
 import re
 import sys
+
+CSVFIELDS = ("id", "title", "date", "description", "note")
+LOCATION = "NCSA"  # for all tests
 
 fn = sys.argv[1]
 of = fn.replace(".csv", ".tex")
 tf = open("testsections.tex","w")
 out = open(of, "w")
 
+def sanitize(string):
+     return string.strip().replace("#", "\#").replace("&", "and").replace("Test report: ", "")
+
 
 with open(fn, "r") as f:
-    reader = csv.reader(f)
-    header = next(reader)
+    reader = csv.DictReader(f, fieldnames=CSVFIELDS)
     for row in reader:
-        c=0
-        tid = row[c]
-        if tid.startswith("LDM") :
-            c= c+ 1
-            desc = row[c]
-            desc=re.sub(r'\#', '\\#', desc)
-            desc=re.sub(r'Test report:', '', desc)
-            c= c+ 1
-            date = row[c]
-            c= c+ 1
-            txt = row[c]
-            txt=re.sub(r'\&', 'and', txt)
-            txt=re.sub(r'\#', '\\#', txt)
-            c= c+ 1
-            note = row[c]
-            out.write(tid+" & "+date +" &\n NCSA & \\textbf{"+ desc +"} \n" + txt + "\n \\\\ \hline\n")
-            tf.write("\subsection{"+desc+"\\textbf{("+tid+")}\label{"+tid+"}}\n")
-            tf.write(txt+"\n \\newline")
-            tf.write(note+"\n")
+        if not row['id'].startswith("LDM"):
+            continue
+
+        desc = "\\textbf{%s}\n%s" % (sanitize(row['title']), sanitize(row['description']))
+        out.write("%s & %s & %s & %s\n\\\\ \hline\n" % (sanitize(row["id"]), sanitize(row['date']),
+                                                        LOCATION, desc))
+
+        # If there's a pre-existing "id.tex" file on on disk, we use that.
+        # Otherwise, construct one from the CSV file.
+        if os.path.exists("%s.tex" % (row['id'].strip(),)):
+            tf.write("\n\\input %s\n\n" % (row['id'].strip(),))
+        else:
+            tf.write("\subsection{" + sanitize(row['title']) + " \\textbf{(" + row['id'] + ")}\label{" + row['id'] + "}}\n")
+            tf.write(sanitize(row['description'])+"\n \\newline\n")
+            tf.write(sanitize(row['note'])+"\n")

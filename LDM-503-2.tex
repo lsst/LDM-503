@@ -1,0 +1,13 @@
+\subsection{HSC reprocessing \textbf{(LDM-503-2)}\label{LDM-503-2}}
+\subsubsection{Personnel}
+Jim Bosch, Robert Lupton, John Swinbank, Hsin-Fang Chiang
+
+\subsection{Open issues}
+ Validate the data products with the LSST stack match or improve upon HSC products.
+ Validate the ops platform in NCSA, including installing the stack, starting and stopping production.
+ Generate a validation data set for weekly integration and other tests.
+ \newline From the pipelines perspective, I think there's no new work involved here beyond the v13.0 release (at which point the HSC merge is complete and QA has been performed). Suggest we'd run this with the latest release as of the date of the test (so this is 14.N, where 14.0 is the end-of-S17 release).
+ Again from pipelines, I don't care about what the "ops platform" actually consists of. Suggest that the plausible availability of services should drive the test plan in this case, rather than vice versa.
+ "Generate a validation dataset" is a good aim, but relates to an existing RFC (RFC-243) — need to achieve consensus there about what we're looking for here.
+
+\input{f17_drp}
