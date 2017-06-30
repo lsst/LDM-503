@@ -8,12 +8,12 @@ NCSA Enclave,,,LDM-532,,,,orange,
 - - L1 OCS Batch Processing,,LDM-148 ?,???,,,,,
 - - L1 Offline Processing,,LDM-151,???,,,,,MOPS
 - L2 System,,LDM-148 ?,LDM-534,,pipelines.lsst.io,,yellow,Operations/Integration test of all L2 software running in NCSA. This may be one specification or one per independent system.
-- - L2 QC,Y,Y,???,Y,Y,,,
-- - L2 Data Release,,LDM-151,???,,,,,Testing the science payload - do we achieve LDM-151
-- - L2 Calibration Products,,LDM-151,???,,,,,Payloads to produce bias flats etc
+- - L2 QC,Y,Y,LDM-534,Y,Y,,,
+- - L2 Data Release,,LDM-151,LDM-534,,,,,Testing the science payload - do we achieve LDM-151
+- - L2 Calibration Products,,LDM-151,LDM-534,,,,,Payloads to produce bias flats etc
 Data Backbone,,,LDM-535,,,,orange,
 - DBB Data Services,,,LDM-536,,,,yellow,
-- - DBB QSERV,Y,LDM-148 ?,???,Y,,,,
+- - DBB Qserv,Y,LDM-148 ?,LDM-552,Y,,,,
 - - DBB Databases,,LDM-148 ?,???, ,,,,
 - - DBB Image Database/Metadata Prov,,LDM-148 ?,???,,,,,
 - - DBB Data Butler Client,Y,LDM-148 ?,???,,Y,Y,,
@@ -35,4 +35,4 @@ Data Access Center Enclave,,,LDM-539,,,,orange,
 - - Science Platform Portal,,LDM-130,???,,,,,
 - - DAX VO+ Services,,LDM-148 ?,???,Y,Y,Y,,
 Commissioning Cluster Enclave,,,LDM-541,,,,orange,
-- - SuperTask ..,,,,,,,,
+- - SuperTask,,,,,,,,
