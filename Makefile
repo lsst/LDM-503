@@ -14,7 +14,7 @@ clean :
 	rm *.pdf
 
 
-tex=	LDM-503.tex constraints.tex passfail.tex scivalidation.tex TopLevelTestSpecs.tex intro.tex reporting.tex test_items.tex myacronyms.tex schedtab.tex tools.tex body.tex schedule.tex validation.tex
+tex=	LDM-503.tex constraints.tex passfail.tex scivalidation.tex TopLevelTestSpecs.tex intro.tex reporting.tex schedtab.tex tools.tex body.tex schedule.tex validation.tex
 
-acronyms.tex :$(tex)
+acronyms.tex :$(tex) myacronyms.tex 
 	acronyms.csh  $(tex)
