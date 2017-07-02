@@ -4,7 +4,7 @@ A number of tools and development practices are in use in \product\ to ensure so
 
 \subsection{Continuous Integration and Unit Testing}
 
-Code is checked via a continuous integration (CI) service both for on-demand developer use and for verifying the quality of the master branch. Irrespective of supported platforms, we have a practice of verifying that the stack can run on at least 2 distinct operating systems/platforms as portability is often a good indicator of maintainability. The CI service also permits verification that the codebase runs with different third party dependencies; for example we test that the python code runs both under (legacy) Python 2.7 and (trailing edge versions of) Python 3. This reduces the foreseeable technical debt of porting to Python 3 for operations.
+Code is checked via a continuous integration (CI) service both for on-demand developer use and for verifying the quality of the master branch. Irrespective of supported platforms, we have a practice of verifying that the stack can run on at least two distinct operating systems/platforms as portability is often a good indicator of maintainability. The CI service also permits verification that the codebase runs with different third party dependencies; for example we test that the python code runs both under (legacy) Python 2.7 and Python 3. This reduces the foreseeable technical debt of porting to Python 3 for operations.
 
 Unit testing policy is described in the \href{https://developer.lsst.io}{DM Developer guide} under Unit Test Policy.
 
@@ -12,17 +12,17 @@ Roles and responsibilities in this area include:
 
 \begin{itemize_single}
 
-\item The DM Systems Engineering Team  team is responsible for approving dependencies and setting strategy such as the Python 3 portability.
+\item The DM Systems Engineering Team team is responsible for approving dependencies and setting strategy such as the approach to Python 3 portability.
 
-\item The DM Systems Engineering  Team is responsible for setting the Unit Test policy.
+\item The DM Systems Engineering Team is responsible for setting the unit testing policy.
 
-\item The SQuaRE team is responsible for developing, operating and supporting Continuous Integration Services.
+\item The SQuaRE team is responsible for developing, operating and supporting continuous integration services.
 
-\item The SQuaRE team determines platform release practice in conjunction with the other teams and Architecture.
+\item The SQuaRE team determines platform release practice in conjunction with the other teams, notably including Architecture.
 
 \end{itemize_single}
 
-At the time of this revision we do not have unit test coverage tooling for Python; this is coming with the planned switch to the pytest framework.
+At the time of this revision we do not have unit test coverage tooling for Python. This will be remedied with an upcoming switch to the \href{http://www.pytest.org}{pytest} framework.
 
 \subsection{Code Reviews}
 
@@ -34,7 +34,7 @@ Roles and responsibilities in this area include:
 
 \item The DM Systems Engineering Team defines the development process and style guide including the code review standard.
 
-\item SQuaRE is responsible for supporting tooling to assist code review (e.g.\ linters, JIRA-Github integration, etc).
+\item SQuaRE is responsible for supporting tooling to assist code review (e.g.\ linters, JIRA-GitHub integration, etc).
 
 \end{itemize_single}
 
@@ -58,7 +58,7 @@ Roles and responsibilities in this area include:
 
 \begin{itemize_single}
 
-\item The pipeline teams  are responsible for providing some of the code and data to calculate the KPMs.
+\item The pipeline teams are responsible for providing the code and data to calculate the KPMs.
 
 \item SQuaRE is responsible for developing and operating the continuous metric verification services.
 

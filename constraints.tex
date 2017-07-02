@@ -1,25 +1,31 @@
 \section{Constraints and Limitations}
 
+\subsection{Procedural and Technical Limitations}
+
 \begin{itemize}
 
-\item Verification is being done on the basis of precursor data sets such as HSC (see for example \citeds{LDM-502}), and eventually with engineering data from the LSST arrays. These are just a proxy for full-focal-plane on-site LSST data.
+\item Verification is being done on the basis of precursor data sets such as HSC (see for example \secref{LDM-503-2}), and eventually with engineering data from the LSST camera test stands and commissioning camera. These are just a proxy for full-focal-plane on-site LSST data.
 
-\item Metric measurements and operational rehearsals during construction may not involve critical operational systems that are still in development. For example, while computational performance is being measured, computationally dominant algorithmic steps such as deblending and multi-fit are only modeled, since they have not yet been implemented; operational rehearsals are done without the factory LSST workflow system; etc.
+\item Metric measurements and operational rehearsals during construction may not involve critical operational systems that are still in development. For example, while computational performance is being measured, computationally dominant algorithmic steps such as deblending and multi-epoch fitting may only be modeled, since they have not yet been implemented; operational rehearsals are done without the factory LSST workflow system; etc.
 
 \end{itemize}
 
 \subsection{Requirements Traceability Constraints}
 
 This section outlines the traceability of requirements through key LSST and \product\ documentation.
-In principle all DM requirements should be flowed to \citeds{LSE-61} which forms the basis of DM work. We are working to make that the reality, meanwhile the current situation is outlined here.
+In principle all DM requirements should be flowed down to \citeds{LSE-61} (the DM System Requirements, or \DMSR).
+In practice, while we are working to make that the reality, the current situation is outlined here.
 
 \subsubsection{Scientific}
 
-Some science requirements are captured in \citeds{LSE-29} (aka \LSR) and flow down to \citeds{LSE-30} (aka \OSS) ; some also exist in \citeds{LSE-163} (aka \DPDD) and will flow down in \citeds{LSE-61} (aka \DMSR).
+Some scientific requirements are captured in \citeds{LSE-29} (the LSST System Requirements, or \LSR) and flow down to \citeds{LSE-30} (the Observatory System Specifications, or \OSS).
+Work remains to flow them down from there to \citeds{LSE-61}.
+
+Some requirements alre also specificed in \citeds{LSE-163} (the Data Products Definition Document, or \DPDD) and will flow down from there to \citeds{LSE-61}.
 
 \subsubsection{Computational}
 
-There are requirements in \citeds{LSE-61} (aka \DMSR) which captures the \citeds{LSE-30} (\OSS) requirements that DM is responsible for. \textit{In practice \citeds{LSE-63} (the QA document) has not been flowed down to \citeds{LSE-61}}. These are:
+There are requirements in \citeds{LSE-61} (aka \DMSR) which captures the \citeds{LSE-30} (\OSS) requirements that DM is responsible for. These are:
 
 \begin{itemize}
 
@@ -33,11 +39,16 @@ There are requirements in \citeds{LSE-61} (aka \DMSR) which captures the \citeds
 
 \end{itemize}
 
-Note that there are no computational requirements on individual technical components e.g.. data processing cluster availability, database data retrieval speeds, etc. There is an upper limit on acceptable data loss, and there is a network availability requirement.
+Work remains to flow down \citeds{LSE-63}, the Data Quality Assurance Plan, to \citeds{LSE-61}.
+
+Note that there are no computational requirements on individual technical components such as data processing cluster availability, database data retrieval speeds, etc. There is, however, an upper limit on acceptable data loss, and there is a network availability requirement.
 
 \subsubsection{KPMs}
 
-As a proxy for validating the DM system, \citeds{LDM-240} (aka “the spreadsheet”) defined a set of Key Performance Metrics that the system could be verified against. KPMs were not formally flowed down from \citeds{LSE-29} (\LSR) through \citeds{LSE-30} (\OSS) although there is some overlap with \citeds{LSE-29} requirements. In particular, the non-science KPMs only exist in \citeds{LDM-240} \textit{(spreadsheet/old plan)}, although they are implicitly assumed in the sizing model presented in \citeds{LSE-81} and \citeds{LSE-82}.
+As a proxy for validating the DM system, \citeds{LDM-240}, the---now obsolete---DM release plan, defined a set of Key Performance Metrics that the system could be verified against.
+KPMs were not formally flowed down from \citeds{LSE-29} through \citeds{LSE-30}, although there is some overlap with \citeds{LSE-29} requirements.
+In particular, the non-science KPMs only exist in \citeds{LDM-240}, although they are implicitly assumed in the sizing model presented in \citeds{LSE-81} and \citeds{LSE-82}.
+Although other material in \citeds{LDM-240} is now regarded as obsolete, these KPMs are still being tracked.
 
 \subsection{Interfaces}
 
