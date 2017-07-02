@@ -1,25 +1,28 @@
-
 \section{Pass/Fail Criteria}
 
-
-A Test Case will be considered ``Passed'' when:
+A test case will be considered ``Passed'' when:
 \begin{itemize_single}
 \item All of the test steps of the Test Case are completed and
 \item All open SPRs from this Test Case are considered noncritical by DMCCB.
 \end{itemize_single}
 
-A Test Case will be considered ``Partially Passed'' when:
+% What is the meaning of "partially passed"? Does a partially passed test case
+% count towards % verification of a requirement? Does it mean the test has to
+% be re-run? -- JDS, 2017-07-02.
+A test case will be considered ``Partially Passed'' when:
 \begin{itemize_single}
-\item Only a subset of all of the test steps in the Test Case are completed but the overall purpose of the test has been met and
-\item Any critical SPRs from this Test Case agreed in Software Review Board are still not closed.
+\item Only a subset of all of the test steps in the Test Case are completed and/or there remain open SPRs which are regarded as critical by the DMCCB, but
+\item The overall purpose of the test has been met.
 \end{itemize_single}
 
-A Test Case will be considered ``Failed'' when:
+A test case will be considered ``Failed'' when:
 \begin{itemize_single}
-\item Only a subset of all of the test steps in the Test Case are completed and the overall purpose of the test has not been met and
-\item Any critical SPRs from this Test Case agreed in Software Review Board are still not closed.
+\item Only a subset of all of the test steps in the Test Case are completed and/or there remain open SPRs which are regarded as critical by the DMCCB, and
+\item The overall purpose of the test has not been met.
 \end{itemize_single}
 
-Note that in \citeds{LPM-17} science requirements are described as having a minimum specification, a design specification and a stretch goal. We preserve these distinctions where they have been made in, for example, the verification framework and automated metric harness. However for the purposes of Pass/Fail criteria, it is the design specification that is verified as having been met for a test to pass without intervention of the Software Review Board.
+Note that in \citeds{LPM-17} science requirements are described as having a minimum specification, a design specification and a stretch goal.
+We preserve these distinctions where they have been made in, for example, the verification framework and automated metric harness.
+However for the purposes of pass/fail criteria, it is the design specification that is verified as having been met for a test to pass without intervention of the Software Review Board.
 
 In the event that a requirement is failing its design specification and the minimum specification is invoked, this is an LSST project level issue and is escalated beyond the scope of this plan.
