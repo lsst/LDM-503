@@ -1,5 +1,3 @@
-#
-#
 all: $(tex) acronyms.tex
 	latexmk -bibtex -pdf -f LDM-503.tex
 
@@ -13,4 +11,4 @@ acronyms.tex: $(tex) myacronyms.tex
 	acronyms.csh $(tex)
 
 dmtestmilestones.tex: makeDMtestmilestones.py milestones_pmcs.csv milestone_descriptions.csv
-	python makeDMtestmilestones.py milestones_pmcs.csv milestone_descriptions.csv $@
+	python3 makeDMtestmilestones.py milestones_pmcs.csv milestone_descriptions.csv $@

@@ -1,4 +1,4 @@
-﻿task_code,status_code,wbs_id,task_name,start_date,end_date,succ_list,delete_record_flag
+task_code,status_code,wbs_id,task_name,start_date,end_date,succ_list,delete_record_flag
 Activity ID,Activity Status,WBS Code,Activity Name,(*)Start,(*)Finish,(*)Successors,Delete This Row
 LSST-1520,Not Started,LSST BL 18-03.00.04.02,System First Light,,2/19/2021 8:00:00 AM,LSST-1540,
 LSST-1510,Not Started,LSST BL 18-03.00.04.02,Start Early System Integration and Test (ComCam),5/6/2020 8:00:00 AM,,LSST-1512,

@@ -19,7 +19,7 @@ def get_milestones(ms_list, ms_dscr):
     descriptions = {d['code']: d['description'] for d in description_reader}
 
     for k in milestone_reader:
-        code = k['\ufefftask_code']
+        code = k['task_code']
         if code == "Activity ID":
             continue
         dscr = descriptions[code] if code in descriptions else ""
