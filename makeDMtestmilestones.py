@@ -11,13 +11,17 @@ from textwrap import dedent
 EXCEL_DATEFMT = "%m/%d/%Y %I:%M:%S %p"
 LOCATION = "NCSA"  # for all tests
 Milestone = namedtuple('Milestone',
-                       ['code', 'name', 'description', 'date', 'successors'])
+                       ['code', 'name', 'short_name', 'description', 'date', 'successors'])
 
 def get_milestones(ms_list, ms_dscr):
     milestones = []
     milestone_reader = csv.DictReader(ms_list)
     description_reader = csv.DictReader(ms_dscr)
-    descriptions = {d['code']: d['description'] for d in description_reader}
+    descriptions = {}
+    short_names = {}
+    for d in description_reader:
+        descriptions[d['code']] =  d['description']
+        short_names[d['code']] =  d['short_name']
 
     for k in milestone_reader:
         code = k['task_code']
@@ -26,8 +30,12 @@ def get_milestones(ms_list, ms_dscr):
         dscr = descriptions[code] if code in descriptions else ""
         date = (datetime.strptime(k['end_date'], EXCEL_DATEFMT) if k['end_date']
                 else datetime.strptime(k['start_date'], EXCEL_DATEFMT))
+        short_name = short_names[code] if (
+                        code in short_names and short_names[code]
+                     ) else k['task_name']
         milestones.append(
-            Milestone(code, k['task_name'], dscr, date, k['succ_list'].split(', '))
+            Milestone(code, k['task_name'], short_name,
+                      dscr, date, k['succ_list'].split(', '))
         )
 
     return milestones
@@ -77,7 +85,7 @@ def format_gantt(milestones, prefix="", start=datetime(2017, 7, 1)):
     for ms in sorted(milestones, key=lambda x: x.date):
         output.write("\\ganttmilestone[name={},progress label text={}\\phantom{{#1}},progress=100]{{{}}}{{{}}} \\ganttnewline\n".format(
             escape_latex(get_milestone_name(ms.code) ),
-            escape_latex(ms.name),
+            escape_latex(ms.short_name),
             escape_latex(ms.code),
             get_month_number(start, ms.date)
         ))
