@@ -109,7 +109,7 @@ def format_commentary(milestones, prefix="LDM"):
     output = StringIO()
     for ms in sorted(milestones, key=lambda x: x.date):
         if not ms.code.startswith(prefix): continue
-        output.write("\\subsection{{{} \\textbf{{{}}}}}\n".format(
+        output.write("\\subsection{{{} (\\textbf{{{}}})}}\n".format(
                      escape_latex(ms.name), escape_latex(ms.code)))
         output.write("\\label{{{}}}\n\n".format(escape_latex(ms.code)))
         output.write("{}\n\n".format(escape_latex(ms.description)))
