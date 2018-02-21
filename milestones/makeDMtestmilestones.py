@@ -74,10 +74,10 @@ def format_gantt(milestones, prefix="", start=datetime(2017, 7, 1)):
         \\begin{ganttchart}[
             expand chart=\\textwidth,
             title label font=\\sffamily\\bfseries,
-            milestone label font=\\small,
+            milestone label font=\\scriptsize,
             progress label text={#1},
             milestone progress label node/.append style={right=0.9cm},
-            y unit chart=0.6cm,
+            y unit chart=0.5cm,
             y unit title=0.8cm
         ]{1}{115}
           \\gantttitle{}{6} \\gantttitle{2018}{12} \\gantttitle{2019}{12}
