@@ -51,12 +51,12 @@ def format_table(milestones, prefix="LDM"):
     output = StringIO()
     for ms in sorted(milestones, key=lambda x: x.date):
         if ms.code.startswith(prefix):
-            output.write("{} & {} & NCSA & \\textbf{{{}}}: {} \\\\ \hline\n".format(
-                escape_latex(ms.code),
-                escape_latex(ms.date.strftime("%Y-%m-%d")),
-                escape_latex(ms.name),
-                escape_latex(ms.description)
-            ))
+            output.write("{} &\n".format(escape_latex(ms.code)))
+            output.write("{} &\n".format(ms.date.strftime("%Y-%m-%d")))
+            output.write("NCSA &\n")
+            output.write("\\textit{???} & \n")
+            output.write("{} \\\\\n\n".format(escape_latex(ms.name)))
+
     return output.getvalue()
 
 def format_gantt(milestones, prefix="", start=datetime(2017, 7, 1)):
@@ -112,8 +112,11 @@ def format_commentary(milestones, prefix="LDM"):
         output.write("\\subsection{{{} (\\textbf{{{}}})}}\n".format(
                      escape_latex(ms.name), escape_latex(ms.code)))
         output.write("\\label{{{}}}\n\n".format(escape_latex(ms.code)))
+        output.write("\\subsubsection{Description}\n\n")
         output.write("{}\n\n".format(escape_latex(ms.description)))
-        output.write("{}\n\n".format(escape_latex(ms.comments)))
+        if ms.comments:
+            output.write("\\subsubsection{Comments}\n\n")
+            output.write("{}\n\n".format(escape_latex(ms.comments)))
     return output.getvalue()
 
 def parse_args():
