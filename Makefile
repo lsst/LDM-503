@@ -1,20 +1,16 @@
 #
 #
-
-
-SRCS=$(wildcard LDM-*.tex)
-
-OBJS=$(SRCS:.tex=.pdf)
-
-all: LDM-503.tex
+all: $(tex) acronyms.tex
 	latexmk -bibtex -pdf -f LDM-503.tex
 
 clean :
-	latexmk -c 
+	latexmk -c
 	rm *.pdf
 
+tex=LDM-503.tex LDM-503-2.tex TopLevelTestSpecs.tex approach.tex approach.tex body.tex body.tex constraints.tex dmtestmilestones.tex dmvv.tex f17_drp.tex intro.tex orstab.tex passfail.tex roles.tex schedtab.tex schedule.tex scivalidation.tex testsections.tex tools.tex validation.tex vvmatrix.tex
 
-tex=	LDM-503.tex constraints.tex passfail.tex scivalidation.tex TopLevelTestSpecs.tex intro.tex reporting.tex schedtab.tex tools.tex body.tex schedule.tex validation.tex
+acronyms.tex: $(tex) myacronyms.tex
+	acronyms.csh $(tex)
 
-acronyms.tex :$(tex) myacronyms.tex 
-	acronyms.csh  $(tex)
+dmtestmilestones.tex: makeDMtestmilestones.py milestones_pmcs.csv milestone_descriptions.csv
+	python makeDMtestmilestones.py milestones_pmcs.csv milestone_descriptions.csv $@
