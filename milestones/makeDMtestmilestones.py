@@ -21,10 +21,12 @@ def get_milestones(ms_list, ms_dscr):
     descriptions = {}
     short_names = {}
     comments = {}
+    test_specs = {}
     for d in description_reader:
         descriptions[d['code']] = d['description']
         short_names[d['code']] = d['short_name']
         comments[d['code']] = d['comments']
+        test_specs[d['code']] = d['test_spec']
 
     for k in milestone_reader:
         code = k['task_code']
@@ -34,11 +36,14 @@ def get_milestones(ms_list, ms_dscr):
         date = (datetime.strptime(k['end_date'], EXCEL_DATEFMT) if k['end_date']
                 else datetime.strptime(k['start_date'], EXCEL_DATEFMT))
         short_name = short_names[code] if (
-                        code in short_names and short_names[code]
-                     ) else k['task_name']
+            code in short_names and short_names[code]
+        ) else k['task_name']
         cmnts = comments[code] if code in comments else ""
+        test_spec = test_specs[code] if (
+            code in test_specs and test_specs[code]
+        ) else ""
         milestones.append(
-            Milestone(code, k['task_name'], short_name, "", dscr,
+            Milestone(code, k['task_name'], short_name, test_spec, dscr,
                       cmnts, date, k['succ_list'].split(', '))
         )
 
@@ -54,7 +59,6 @@ def format_table(milestones, prefix="LDM"):
             output.write("{} &\n".format(escape_latex(ms.code)))
             output.write("{} &\n".format(ms.date.strftime("%Y-%m-%d")))
             output.write("NCSA &\n")
-            output.write("\\textit{???} & \n")
             output.write("{} \\\\\n\n".format(escape_latex(ms.name)))
 
     return output.getvalue()
@@ -112,6 +116,13 @@ def format_commentary(milestones, prefix="LDM"):
         output.write("\\subsection{{{} (\\textbf{{{}}})}}\n".format(
                      escape_latex(ms.name), escape_latex(ms.code)))
         output.write("\\label{{{}}}\n\n".format(escape_latex(ms.code)))
+        output.write("\\subsubsection{Specification}\n\n")
+        if ms.test_spec:
+            output.write("This test will be executed following the procedure "
+                         "defined in {}.\n\n".format(escape_latex(ms.test_spec)))
+        else:
+            output.write("The execution procedure for this test is "
+                         "currently unspecified.\n\n")
         output.write("\\subsubsection{Description}\n\n")
         output.write("{}\n\n".format(escape_latex(ms.description)))
         if ms.comments:
