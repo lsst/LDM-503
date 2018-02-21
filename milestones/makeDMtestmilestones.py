@@ -1,0 +1,211 @@
+import argparse
+import csv
+import sys
+import time
+
+from collections import namedtuple
+from datetime import datetime
+from io import StringIO
+from textwrap import dedent
+
+EXCEL_DATEFMT = "%m/%d/%Y %I:%M:%S %p"
+LOCATION = "NCSA"  # for all tests
+Milestone = namedtuple('Milestone',
+                       ['code', 'name', 'short_name', 'test_spec',
+                        'description', 'comments', 'date', 'successors'])
+
+GANTT_PREAMBLE_STANDALONE= """
+\\documentclass{article}
+\\usepackage[
+    paperwidth=30cm,
+    paperheight=19.20cm,  % Manually tweaked to fit chart
+    left=0mm,
+    top=0mm,
+    bottom=0mm,
+    right=0mm,
+    noheadfoot,
+    marginparwidth=0pt,
+    includemp=false
+]{geometry}
+\\usepackage{pgfgantt}
+\\begin{document}
+\\begin{center}
+\\begin{ganttchart}[
+%    vgrid,  % disabled for aesthetic reasons
+%    hgrid,  % disabled for aesthetic reasons
+    expand chart=0.98\\textwidth,
+    title label font=\\sffamily\\bfseries,
+    milestone label font=\\sffamily\\bfseries,
+    progress label text={#1},
+    milestone progress label node/.append style={right=2.0cm},
+    milestone progress label font=\\sffamily,
+    y unit chart=0.55cm,
+    y unit title=0.8cm
+]{1}{90}
+  \\gantttitle{}{6} \\gantttitle{2018}{12} \\gantttitle{2019}{12}
+  \\gantttitle{2020}{12} \\gantttitle{2021}{12} \\gantttitle{2022}{12}
+  \\gantttitle{Operations}{24} \\
+  \\ganttnewline\n
+"""
+
+GANTT_POSTAMBLE_STANDALONE = """
+\\end{ganttchart}
+\\end{center}
+\\end{document}
+"""
+
+GANTT_PREAMBLE_EMBEDDED = """
+\\begin{ganttchart}[
+    expand chart=\\textwidth,
+    title label font=\\sffamily\\bfseries,
+    milestone label font=\\scriptsize,
+    progress label text={#1},
+    milestone progress label node/.append style={right=0.9cm},
+    y unit chart=0.5cm,
+    y unit title=0.8cm
+]{1}{115}
+  \\gantttitle{}{6} \\gantttitle{2018}{12} \\gantttitle{2019}{12}
+  \\gantttitle{2020}{12} \\gantttitle{2021}{12} \\gantttitle{2022}{12}
+  \\gantttitle{Operations}{49} \\
+  \\ganttnewline\n
+"""
+
+GANTT_POSTAMBLE_EMBEDDED = """
+\\end{ganttchart}
+"""
+
+def get_milestones(ms_list, ms_dscr):
+    milestones = []
+    milestone_reader = csv.DictReader(ms_list)
+    description_reader = csv.DictReader(ms_dscr)
+    descriptions = {}
+    short_names = {}
+    comments = {}
+    test_specs = {}
+    for d in description_reader:
+        descriptions[d['code']] = d['description']
+        short_names[d['code']] = d['short_name']
+        comments[d['code']] = d['comments']
+        test_specs[d['code']] = d['test_spec']
+
+    for k in milestone_reader:
+        code = k['task_code']
+        if code == "Activity ID":
+            continue
+        dscr = descriptions[code] if code in descriptions else ""
+        date = (datetime.strptime(k['end_date'], EXCEL_DATEFMT) if k['end_date']
+                else datetime.strptime(k['start_date'], EXCEL_DATEFMT))
+        short_name = short_names[code] if (
+            code in short_names and short_names[code]
+        ) else k['task_name']
+        cmnts = comments[code] if code in comments else ""
+        test_spec = test_specs[code] if (
+            code in test_specs and test_specs[code]
+        ) else ""
+        milestones.append(
+            Milestone(code, k['task_name'], short_name, test_spec, dscr,
+                      cmnts, date, k['succ_list'].split(', '))
+        )
+
+    return milestones
+
+def escape_latex(text):
+    return text.strip().replace("#", "\#").replace("&", "\&").replace("Test report: ", "")
+
+def format_table(milestones, prefix="LDM"):
+    output = StringIO()
+    for ms in sorted(milestones, key=lambda x: x.date):
+        if ms.code.startswith(prefix):
+            output.write("{} &\n".format(escape_latex(ms.code)))
+            output.write("{} &\n".format(ms.date.strftime("%Y-%m-%d")))
+            output.write("NCSA &\n")
+            output.write("{} \\\\\n\n".format(escape_latex(ms.name)))
+
+    return output.getvalue()
+
+def format_gantt(milestones, preamble, postamble, prefix="", start=datetime(2017, 7, 1)):
+    def get_month_number(start, date):
+        # July 2017 is month 1; all other months sequentially.
+        return 1 + (date.year * 12 + date.month) - (start.year * 12 + start.month)
+    def get_milestone_name(code):
+        return code.lower().replace("-", "").replace("&", "")
+
+    output = StringIO()
+    output.write(preamble)
+    for ms in sorted(milestones, key=lambda x: x.date):
+        if not ms.code.startswith(prefix): continue
+        output.write("\\ganttmilestone[name={},progress label text={}\\phantom{{#1}},progress=100]{{{}}}{{{}}} \\ganttnewline\n".format(
+            escape_latex(get_milestone_name(ms.code) ),
+            escape_latex(ms.short_name),
+            escape_latex(ms.code),
+            get_month_number(start, ms.date)
+        ))
+    for ms in sorted(milestones, key=lambda x: x.date):
+        if not ms.code.startswith(prefix): continue
+        for succ in ms.successors:
+            if succ in [ms.code for ms in milestones]:
+                output.write("\\ganttlink{{{}}}{{{}}}\n".format(
+                    escape_latex(get_milestone_name(ms.code)),
+                    escape_latex(get_milestone_name(succ))
+                ))
+    output.write(postamble)
+    return output.getvalue()
+
+def format_commentary(milestones, prefix="LDM"):
+    output = StringIO()
+    for ms in sorted(milestones, key=lambda x: x.date):
+        if not ms.code.startswith(prefix): continue
+        output.write("\\subsection{{{} (\\textbf{{{}}})}}\n".format(
+                     escape_latex(ms.name), escape_latex(ms.code)))
+        output.write("\\label{{{}}}\n\n".format(escape_latex(ms.code)))
+        output.write("\\subsubsection{Specification}\n\n")
+        if ms.test_spec:
+            output.write("This test will be executed following the procedure "
+                         "defined in {}.\n\n".format(escape_latex(ms.test_spec)))
+        else:
+            output.write("The execution procedure for this test is "
+                         "currently unspecified.\n\n")
+        output.write("\\subsubsection{Description}\n\n")
+        output.write("{}\n\n".format(escape_latex(ms.description)))
+        if ms.comments:
+            output.write("\\subsubsection{Comments}\n\n")
+            output.write("{}\n\n".format(escape_latex(ms.comments)))
+    return output.getvalue()
+
+def parse_args():
+    parser = argparse.ArgumentParser(description='Prepare LDM-503-n milestone summaries')
+    parser.add_argument('pmcs', help="Milestone listing extracted from PMCS.")
+    parser.add_argument('dscr', help="Mapping of milestone ID to description.")
+    parser.add_argument('--table', help="Output location for milestone table.")
+    parser.add_argument('--gantt', help="Output location for embeddable Gantt chart.")
+    parser.add_argument('--gantt-standalone', help="Output location for standalone Gantt chart.")
+    parser.add_argument('--commentary', help="Output location for commentary.")
+    args = parser.parse_args()
+    if not args.table and not args.gantt and not args.gantt_standalone and not args.commentary:
+        raise RuntimeError("No output requested!")
+    return args
+
+if __name__ == "__main__":
+    args = parse_args()
+    with open(args.pmcs) as ms_list, open(args.dscr) as ms_dscr:
+        milestones = get_milestones(ms_list, ms_dscr)
+    if args.table:
+        with open(args.table, 'w') as output:
+            output.write("% Auto-generated by {} on {} - DO NOT EDIT\n\n".format(sys.argv[0], time.strftime("%c")))
+            output.write(format_table(milestones))
+    if args.gantt:
+        with open(args.gantt, 'w') as output:
+            output.write("% Auto-generated by {} on {} - DO NOT EDIT\n\n".format(sys.argv[0], time.strftime("%c")))
+            output.write(format_gantt(milestones,
+                                      preamble=GANTT_PREAMBLE_EMBEDDED,
+                                      postamble=GANTT_POSTAMBLE_EMBEDDED))
+    if args.gantt_standalone:
+        with open(args.gantt_standalone, 'w') as output:
+            output.write("% Auto-generated by {} on {} - DO NOT EDIT\n\n".format(sys.argv[0], time.strftime("%c")))
+            output.write(format_gantt(milestones,
+                                      preamble=GANTT_PREAMBLE_STANDALONE,
+                                      postamble=GANTT_POSTAMBLE_STANDALONE))
+    if args.commentary:
+        with open(args.commentary, 'w') as output:
+            output.write("% Auto-generated by {} on {} - DO NOT EDIT\n\n".format(sys.argv[0], time.strftime("%c")))
+            output.write(format_commentary(milestones))
