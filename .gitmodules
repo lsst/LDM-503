@@ -1,3 +1,6 @@
 [submodule "images"]
 	path = images
 	url = https://github.com/lsst-dm/images
+[submodule "milestones"]
+	path = milestones
+	url = https://github.com/lsst-dm/milestones.git
