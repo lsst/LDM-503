@@ -10,11 +10,11 @@ tex=LDM-503.tex TopLevelTestSpecs.tex approach.tex approach.tex body.tex body.te
 acronyms.tex: $(tex) myacronyms.tex
 	acronyms.csh $(tex)
 
-dmtestmilestones.tex: milestones/makeDMtestmilestones.py milestones/pmcs.csv milestones/descriptions.csv
-	python3 milestones/makeDMtestmilestones.py milestones/pmcs.csv milestones/descriptions.csv --table $@
+dmtestmilestones.tex: milestones/milestones.py
+	python milestones/milestones.py ldm503 --table $@
 
-dmtestgantt.tex: milestones/makeDMtestmilestones.py milestones/pmcs.csv milestones/descriptions.csv
-	python3 milestones/makeDMtestmilestones.py milestones/pmcs.csv milestones/descriptions.csv --gantt $@
+dmtestgantt.tex: milestones/milestones.py
+	python milestones/milestones.py ldm503 --gantt $@
 
-testsections.tex: milestones/makeDMtestmilestones.py milestones/pmcs.csv milestones/descriptions.csv
-	python3 milestones/makeDMtestmilestones.py milestones/pmcs.csv milestones/descriptions.csv --commentary $@
+testsections.tex: milestones/milestones.py
+	python milestones/milestones.py ldm503 --commentary $@
