@@ -7,8 +7,8 @@ clean :
 
 tex=LDM-503.tex TopLevelTestSpecs.tex approach.tex approach.tex body.tex body.tex constraints.tex dmvv.tex f17_drp.tex intro.tex orstab.tex passfail.tex roles.tex schedtab.tex schedule.tex scivalidation.tex tools.tex validation.tex vvmatrix.tex
 
-acronyms.tex: $(tex) myacronyms.tex
-	acronyms.csh $(tex)
+#acronyms.tex: $(tex) myacronyms.tex
+#	acronyms.csh $(tex)
 
 dmtestmilestones.tex: milestones/milestones.py
 	python milestones/milestones.py ldm503 --table $@
