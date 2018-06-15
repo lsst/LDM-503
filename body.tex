@@ -1,54 +1,32 @@
 
 \input{intro}
-\input{roles}
-
-
-% -------------------------------- TEST approach -------------------------
 
 \input{approach}
 
-% -------------------------------- PASS/FAIL CRITERIA-------------------
-
-\input{passfail}
-
-% ------------------------------- CONSTRAINTS AND LIMITATIONS------------
-
-\input{constraints}
+\input{rehearsal}
 
 \input{schedule}
 
-\section{Verification Tests \label{sect:vts}}
+\section{Major DM Milestones \label{sect:milestones}}
 
-\subsection{Nightly integration tests (\textbf{LDM-503-NLY})}
+\subsection{Nightly integration tests}
+
 \subsubsection{Specification}
 The execution procedure for this test is currently unspecified.
 \subsubsection{Description}
 Run all automated tests on all DM packages automatically.
 
-\subsection{Weekly integration tests (\textbf{LDM-503-WLY})}
+\subsection{Weekly integration tests}
+
 \subsubsection{Specification}
 The execution procedure for this test is currently unspecified.
+
 \subsubsection{Description}
 Basic Sanity check to make sure code compiles at no regressions have occurred
 and also pushing though a basic data set.
 
-\subsection{Interface tests (\textbf{LDM-503-\textit{???}})}
-\subsubsection{Specification}
-The execution procedure for this test is currently unspecified.
-\subsubsection{Description}
-The interface tests have to be planned and documented in a separate test plan that should include tests for each two parties on an interface (2by2 tests) as well as tests for all parties.
-Some of these will be covered again in E2E tests but before that we should be confident they work.
-\textbf{This includes internal and external interfaces.}
-
-\subsection{End-to-end tests (\textbf{LDM-503-\textit{???}})}
-\subsubsection{Description}
-Freeze software for Ops; \url{https://confluence.lsstcorp.org/display/DM/Data+Processing+End+to+End+Testing}.
-What is the status of these?
-
 \input{testsections}
 
 \input{tools}
-
-\input{validation}
 
 \input{scivalidation}

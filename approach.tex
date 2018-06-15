@@ -1,40 +1,40 @@
-\section{DM Verification Approach \label{sect:approach}}
+\section{Verification Tests \label{sect:approach}}
 
-Our approach towards verifying the \product\ requirements follows
-standard engineering practice.  Each high level component will have at
-least one test specification defining a set of tests related to the
-design requirements for the component.  These specifications are
-represented on the top of \figref{fig:doctree}. Any given requirement
-may have several tests associated with it in the specification; these
-tests may be phased to account for incremental delivery depending on
-the need for certain functionality at a specific time.
+Our approach towards verifying the successful delivery of the \product{} System follows standard engineering practice.
 
-The test spec will cover all aspects of the test as outlined in
-\secref{sect:tsform}. These high level test specifications may call
-out individual lower level test specifications where it makes sense
-(either technically or programmatically) to test lower-level components
-in isolation.
+We regard the system as being successfully completed when all of the high level requirements placed upon it, as defined in \citeds{LSE-61} --- the \emph{Data Management System Requirements} --- have been verified.
+The approach which will be taken to verifying each requirement is described in \citeds{LDM-639}, the \emph{DM Acceptance Test Specification}.
+The test specifiation covers all aspects of the tests, as described in \secref{sect:tsform}.
+Any given requirement may have multiple test cases associated with it in the specification, and these tests will be phased to account for incremental delivery depending on the need for certain functionality at a specific time.
 
-\subsection{Reports}
+In addition to the high level requirements on the overall \product{} system, lower-level requirements documents describe requirements placed upon specific parts of the system (for example, \citeds{LDM-554} provides requirements on the LSST Science Platform, and \citeds{LDM-555} on the DM database system).
+Each of these requirements documents is accompanied by a test specification (\citeds{LDM-540} and \citeds{LDM-552} in the case of the previous examples; see also Table \ref{tab:testspecs}), with the relationship between them being the same as for the high-level requirements.
 
-As we execute tests we will generate test reports on the pass/fail status of the individual tests related to specific requirements.
-This information will allow us to build a Verification Control Document (VCD) (shown at the right of \figref{fig:doctree}).
-The VCD will provide the fractional verification status of each DM requirement.
-These will also be rolled up to the (higher) level of OSS (Observatory System Specifications; \citeds{LSE-30}) requirements.
-\figref {fig:doctree} currently calls for a report from each test spec.
-This report may be captured directly in e.g.\ JIRA: it does not necessarily correspond to a separate (e.g. Word or LaTeX) document.
+In some cases, high-level test specifications may call out individual lower level specifications to demonstrate that some high-level requirement has been satisfied by the low-level component in isolation.
+In general, though, high-level tests are expected to demonstrate the successful integration and overall functionality of the entire DM system, not the proper operation of individual components within.
 
-In cases of reports that are generated via automatic (continuous) verification, the report may be in the format of a Jupyter Notebook that simultaneously can serve as test specification and test report and, in some cases, the test script itself.
-This is the preferred method, provided the notebook-as-report is satisfactorily captured in DocuShare.
+Although individual test cases may be executed at any time, it is anticipated that major testing campaigns will be undertaken to demonstrate the successful completion of major milestones in the \product{} construction effort.
+The schedule for these milestones is shown in \secref{sect:schedule}, while \secref{sect:milestones} provides further details as to the contents of each one.
+
+\subsection{Managing and Reporting Test Execution}
+\label{sect:reports}
+
+As described above, requirements and test specifications are provided in baselined documents.
+These documents provide curated views on the Jira \emph{LSST Verification and Validation} project which underlies the LSST-wide test effort.
+The Jira system provides ``scripts'' that testers will follow when carrying out tests, and tracks information about tesst execution and results.
+This information enables us to generate reports on the execution of each test\footnote{These test reports may, on occasion, be issued as Word or LaTeX documents, but this is not, in general, required.}, and ultimately to build a Verification Control Document (VCD; see \figref{fig:doctree}).
+The VCD will provide the verification status of each DM requirement (in terms of the fraction of test cases pertaining to that requirement which have been successfully executed).
 
 \begin{figure}
 \begin{center}
  \includegraphics[angle=-90,width=0.7\textwidth]{images/DocTree}
- \caption{Documentation tree for DM software relating the high level documents to each other. (from \citeds{LDM-294})\label{fig:doctree}}
 
- \end{center}
- \end{figure}
+ \caption{Documentation tree for DM software relating the high level documents to each other, from \citeds{LDM-294}.
+ \emph{The documention tree is undergoing revision in summer 2018; this figure is due to be updated when the new tree is available.}
+ \label{fig:doctree}}
 
+\end{center}
+\end{figure}
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -50,16 +50,22 @@ This is the preferred method, provided the notebook-as-report is satisfactorily 
 \subsection{Components Under Test}
 
 \begin{table}
-	\caption{Components from LDM-148 with the test specifications to verify them. \label{tab:testspecs}}
+	\caption{Components from LDM-148 with the test specifications to verify them.
+    \emph{The documention tree is undergoing revision in summer 2018; this figure is due to be updated when the new tree is available.}
+    \label{tab:testspecs}}
 	\input{TopLevelTestSpecs}
 \end{table}
 
-The components of the DM ystem are outlined in \citeds{LDM-294} and detailed in \citeds{LDM-148}. At a high level these components are represented in \figref{fig:dmsdeploy}. Based on those components we can see the set of Test Specifications needed in \tabref{tab:testspecs}. At time of writing, document numbers are not available for all second-level components.
+The components of the DM ystem are outlined in \citeds{LDM-294} and described in detail in \citeds{LDM-148}; a summary is shown in \figref{fig:dmsdeploy}.
+The test specifications covering these components are shown in \tabref{tab:testspecs}, but note that, at time of writing, the document tree is being refactored and document numbers are not currently available for all components.
+Based on those components we can see the set of Test Specifications needed in \tabref{tab:testspecs}.
+At time of writing, document numbers are not available for all second-level components.
 
 The test items covered in this test plan are:
 
 \begin{itemize_single}
-\item \product\ and its primary components for testing and integration purposes. These are listed in Table \ref{tab:testspecs}. All components listed in orange and yellow have specifications in the corresponding documents listed. Major sub-components in white may have individual test specifications or be addressed in the component they are under depending on applicable factors such as whether they are scheduled for testing at the same time and/or whether they share architectural components or are largely distinct.
+
+\item The \product{} System and its primary components for testing and integration purposes. These are listed in Table \ref{tab:testspecs}. All components listed in orange and yellow have specifications in the corresponding documents listed. Major sub-components in white may have individual test specifications or be addressed in the component they are under depending on applicable factors such as whether they are scheduled for testing at the same time and/or whether they share architectural components or are largely distinct.
 
 \item The external interfaces between \product{} and other sub-systems. These are described in \href{https://ls.st/Collection-5201}{DocuShare collection 5201}.
 
@@ -69,24 +75,88 @@ The test items covered in this test plan are:
 
 \subsection{Testing Specification Document Format}\label{sect:tsform}
 
-The testing specification documents will be drawn up in conjunction with the LSST Systems Engineer. In all cases they will include:
+As described in \secref{sect:reports}, test specifications consist primarily of views on the test cases managed in the Jira ``LSST Verification and Validation'' project.
+The format of these test cases has been developed in conjunction with the LSST Systems Engineering Team.
+Each test case will include:
 
 \begin{itemize_single}
 
-\item A list of components being tested within the scope of the test specification document.
-
-\item A list of features in those components that are being explicitly tested.
-
-\item The relationship between features under test and the identified requirements for the component.
-
-\item A description of the environment in which the tests are carried out (e.g.\ hardware platform) and a description of how they differ from the operational system in tests prior to final integration (e.g.\ interfaces that may be mocked without affecting that component's testing).
-
-\item The inputs (such as data, API load, etc.) that are to be used in the test.
-
-\item Pass-fail criteria on any metrics or other measurements.
-
-\item How any outputs that are used to determine pass/fail (e.g.\ data or metrics) are to be published or otherwise made available.
-
-\item A software quality assurance manifest, listing (as relevant) code repositories, configuration information, release/distribution methods and applicable documentation (such as installation instructions, developer guide, user guide etc.)
+  \item{A description of the environment in which the test case is to be carried out (e.g.\ hardware platform) and a description of how they differ from the operational system in tests prior to final integration (e.g.\ interfaces that may be mocked without affecting that component's testing).}
+  \item{The inputs (such as data, API load, etc.) that are to be used in the test.}
+  \item{Pass-fail criteria on any metrics or other measurements.}
+  \item{How any outputs that are used to determine pass/fail (e.g.\ data or metrics) are to be published or otherwise made available.}
+  \item{A software quality assurance manifest, listing (as relevant) code repositories, configuration information, release/distribution methods and applicable documentation (such as installation instructions, developer guide, user guide etc.)}
 
 \end{itemize_single}
+
+In addiiton to the collection of test cases, the test specification will include:
+
+\begin{itemize_single}
+
+  \item{A list of components being tested within the scope of the test specification document.}
+  \item{A list of features in those components that are being explicitly tested.}
+  \item{The relationship between features under test and the identified requirements for the component.}
+
+\end{itemize_single}
+
+\subsection{Roles and Personnel}
+\label{sect:roles}
+
+Each test specification must make clear who the \emph{tester} is.
+
+The tester is responsible for executing the test cases following the script provided in the Jira ``LSST Verification and Validation'' project (\secref{sect:tsform}).
+
+Testers submit details of test execution to Jira project, where it is used to log test execution and may be used to generate test reports.
+The information captured in Jira will also be used to populate the Verification Control Document (see \secref{sect:approach}).
+
+Tests and procedures will sometimes fail: a test specification may be re-run several times until it passes, but testers will log an explanation than indicates that any failures were understood (e.g.\ they were due to a fault that was fixed) or repeated sufficient times to ensure that passing the test was not transient success.
+Issues which cannot be resolved by the tester in the course of carrying out the test willl be reported as ``Software Problemn Reports'' (SPRs) through the \product{} ticketing system (the Jira ``Data Management'' project at the time of this document revision).
+The DMCCB, or an individual designated by it, will be tasked with assessing the SPRs determining the timescale for re-executing the test procedure.
+
+Other parties that have a relevant role in \product\ verification are identified in the appropriate sections of the document; these are involved in their primary capacity (e.g.\ the DM Systems Engineer) and so are not individually listed in this section.
+
+\subsection{Pass/Fail Criteria}
+
+A test case will be considered ``Passed'' when:
+
+\begin{itemize_single}
+\item{All of the test steps of the Test Case are completed; and}
+\item{All open SPRs from this Test Case are considered noncritical by DMCCB.}
+\end{itemize_single}
+
+A test case will be considered ``Partially Passed'' when:
+
+\begin{itemize_single}
+\item{Only a subset of all of the test steps in the Test Case are completed and/or there remain open SPRs which are regarded as critical by the DMCCB; but}
+\item{The DMCCB regards overall purpose of the test as having been met.}
+\end{itemize_single}
+
+A test case will be considered ``Failed'' when:
+
+\begin{itemize_single}
+\item{Only a subset of all of the test steps in the Test Case are completed and/or there remain open SPRs which are regarded as critical by the DMCCB; and}
+\item{The DMCCB regards overall purpose of the test as not having been met.}
+\end{itemize_single}
+
+Note that in \citeds{LPM-17} science requirements are described as having a minimum specification, a design specification and a stretch goal.
+While we preserve these distinctions in some DM tooling for internal tracking purposes, for the purposes of these tests, it is the design specification that is verified as having been met for a test to pass without intervention of the DMCCB.
+Ultimately, if it proves impossible to satisfy a requirement at design specification, LSST Project level approval is required to accept the minimum specification.
+
+\subsection{Constraints and Limitations}
+
+\subsubsection{Procedural and Technical Limitations}
+
+\begin{itemize}
+
+
+  \item{The \product{} system must be verified before the complete LSST system can be completed. Verification is therefore carried out using precursor datasets~\footnote{e.g. from Hyper Suprime-Cam; \secref{LDM-503-02}}, simulated data, and --- where available --- with engineering and pre-release data from the as yet incomplete LSST system.}
+
+  \item{Metric measurements and operational rehearsals during construction may not involve critical operational systems that are still in development. For example, while computational performance is being measured, computationally dominant algorithmic steps such as deblending and multi-epoch fitting may only be modeled, since they have not yet been implemented; operational rehearsals are done without the factory LSST workflow system; etc.}
+
+\end{itemize}
+
+\subsubsection{Requirements Traceability Constraints}
+
+The \product{} verification plan is based entirely on requirements captured in the DM System Requirements (\citeds{LSE-61}).
+It does not refer to higher level requirements documentation, such as the LSST System Requirements (\citeds{LSE-29}) or the Observatory System Specifications (\citeds{LSE-30}); rather, we assume that all higher level requirements have been correctly flowed down to DM.
+In practice, the Systems Engineering team continues to refine the flow-down of higher level requirements and issue updates to \citeds{LSE-61}; this test plan must both anticipate and be responsive to those updates.
