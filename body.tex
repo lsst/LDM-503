@@ -7,22 +7,24 @@
 
 \input{scivalidation}
 
+\input{tools}
+
 \input{schedule}
 
 \section{Major DM Milestones \label{sect:milestones}}
 
 \subsection{Nightly software integration tests and releases (LDM-503-NLY)}
+\label{sect:ldm-503-nly}
 
 Nightly throughout construction, the DM continuous integration system (\secref{sect:tools}) performs a complete rebuild of all major components of the \product{} codebase, executes their associated unit tests, and runs a series of automated small-scale integration tests.
 Failures are logged, and the DM team notified.
 The resulting build artefacts are packaged for release as a ``nightly build''.
 
 \subsection{Weekly software integration tests and releases (LDM-503-WLY)}
+\label{sect:ldm-503-wly}
 
 Nightly throughout construction, the DM continuous integration system (\secref{sect:tools}) performs a complete rebuild of all major components of the \product{} codebase, executes their associated unit tests, and runs a series of automated small-scale integration tests.
 Failures are logged, and the DM team notified.
 The resulting build artefacts are packaged for release as ``weekly build'', and automatically made available for developer use on shared hardware.
 
 \input{testsections}
-
-\input{tools}
