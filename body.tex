@@ -11,21 +11,17 @@
 
 \section{Major DM Milestones \label{sect:milestones}}
 
-\subsection{Nightly integration tests}
+\subsection{Nightly software integration tests and releases (LDM-503-NLY)}
 
-\subsubsection{Specification}
-The execution procedure for this test is currently unspecified.
-\subsubsection{Description}
-Run all automated tests on all DM packages automatically.
+Nightly throughout construction, the DM continuous integration system (\secref{sect:tools}) performs a complete rebuild of all major components of the \product{} codebase, executes their associated unit tests, and runs a series of automated small-scale integration tests.
+Failures are logged, and the DM team notified.
+The resulting build artefacts are packaged for release as a ``nightly build''.
 
-\subsection{Weekly integration tests}
+\subsection{Weekly software integration tests and releases (LDM-503-WLY)}
 
-\subsubsection{Specification}
-The execution procedure for this test is currently unspecified.
-
-\subsubsection{Description}
-Basic Sanity check to make sure code compiles at no regressions have occurred
-and also pushing though a basic data set.
+Nightly throughout construction, the DM continuous integration system (\secref{sect:tools}) performs a complete rebuild of all major components of the \product{} codebase, executes their associated unit tests, and runs a series of automated small-scale integration tests.
+Failures are logged, and the DM team notified.
+The resulting build artefacts are packaged for release as ``weekly build'', and automatically made available for developer use on shared hardware.
 
 \input{testsections}
 
