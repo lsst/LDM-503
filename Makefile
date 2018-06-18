@@ -5,7 +5,7 @@ clean :
 	latexmk -c
 	rm *.pdf
 
-tex=LDM-503.tex TopLevelTestSpecs.tex approach.tex approach.tex body.tex body.tex dmvv.tex f17_drp.tex intro.tex schedtab.tex schedule.tex scivalidation.tex tools.tex rehearsal.tex vvmatrix.tex
+tex=LDM-503.tex TopLevelTestSpecs.tex approach.tex approach.tex body.tex body.tex dmvv.tex intro.tex schedtab.tex schedule.tex scivalidation.tex tools.tex rehearsal.tex vvmatrix.tex
 
 #acronyms.tex: $(tex) myacronyms.tex
 #	acronyms.csh $(tex)
