@@ -1,56 +1,62 @@
 \section{Software Tools}
+\label{sect:tools}
 
-A number of tools and development practices are in use in \product\ to ensure software quality and to verify requirements are met. These tools are used continuously (e.g.\ to measure key performance metrics routinely) or periodically (e.g.\ software release characterizations) and so will be well understood by the time the formal verification phase begins.
+All of the preceding aspects of testing --- verification, science valdation, and operations rehearsals --- rely on a robust and powerful software infrastructure.
+In this section, we briefly outline the tooling and practices that are in use
+within \product{} to ensure software quality and to verify that requirements are met.
+These tools are used continuously (e.g.\ to measure key performance metrics routinely) or periodically (e.g.\ software release characterizations).
 
 \subsection{Continuous Integration and Unit Testing}
 
-Code is checked via a continuous integration (CI) service both for on-demand developer use and for verifying the quality of the master branch. Irrespective of supported platforms, we have a practice of verifying that the stack can run on at least two distinct operating systems/platforms as portability is often a good indicator of maintainability. The CI service also permits verification that the codebase runs with different third party dependencies; for example we test that the python code runs both under (legacy) Python 2.7 and Python 3. This reduces the foreseeable technical debt of porting to Python 3 for operations.
-
-Unit testing policy is described in the \href{https://developer.lsst.io}{DM Developer guide} under Unit Test Policy.
+Per the \href{https://developer.lsst.io/coding/unit-test-policy.html}{Software Unit Test Policy} described in the \href{https://developer.lsst.io}{DM Developer guide}, all DM code must be accompanied by an appropriate unit test suite.
+This suite is regularly executed by a continuous integration (CI) service\footnote{Currently based on Jenkins; \url{https://jenkins.io}}, which is available for on-demand use by developers and for periodic testing (\S\S \ref{sect:ldm-503-nly} \& \ref{sect:ldm-503-wly}).
+Irrespective of formally supported platforms, we have a practice of verifying that the codebase can run on at least two distinct operating systems/platforms as portability is often a good proxy for maintainability.
 
 Roles and responsibilities in this area include:
 
 \begin{itemize_single}
 
-\item The DM Systems Engineering Team team is responsible for approving dependencies and setting strategy such as the approach to Python 3 portability.
+\item{The DM Software Architect is responsible for setting the unit testing policy.}
 
-\item The DM Systems Engineering Team is responsible for setting the unit testing policy.
+\item{The SQuaRE team is responsible for developing, operating and supporting continuous integration services.}
 
-\item The SQuaRE team is responsible for developing, operating and supporting continuous integration services.
-
-\item The SQuaRE team determines platform release practice in conjunction with the other teams, notably including Architecture.
+\item{The SQuaRE team determines platform release practice in conjunction with the other teams, notably including Architecture.}
 
 \end{itemize_single}
 
-At the time of this revision we do not have unit test coverage tooling for Python. This will be remedied with an upcoming switch to the \href{http://www.pytest.org}{pytest} framework.
+At the time of writing, we can calculate but do not formally track the code coverage of our unit test suite.
+A system to track this metric will be forthcoming.
 
 \subsection{Code Reviews}
 
-DM’s process requires that every story resulting in code changes to the stack is reviewed prior to being merged to master. This is both as code quality verification and also to ensure that at least one other team-member has some familiarity with a particular part of the codebase. DM’s Code Review process is described in the \href{https://developer.lsst.io}{DM Developer guide} under the section DM Code Review and Merging Process.
+DM’s process requires that every code change is subjected to peer review prior to being merged to the \texttt{master} branch.
+This is both as code quality verification and also to ensure that at least one other team-member has some familiarity with a particular part of the codebase.
+The code review process is described in the \href{https://developer.lsst.io/work/flow.html#review-preparation}{DM Developer Guide}.
 
 Roles and responsibilities in this area include:
 
 \begin{itemize_single}
 
-\item The DM Systems Engineering Team defines the development process and style guide including the code review standard.
+\item{The DM Systems Engineering Team defines the development process and style guide including the code review standard.}
 
-\item SQuaRE is responsible for supporting tooling to assist code review (e.g.\ linters, JIRA-GitHub integration, etc).
+\item{SQuaRE is responsible for supporting tooling to assist code review (e.g.\ linters, Jira-GitHub integration, etc).}
 
 \end{itemize_single}
 
-\subsection{Automated Requirements Verification and KPM Measurement}
+\subsection{Automated Requirements Verification and Metric calculation}
 
-DM uses a harness for continuous metric verification. In the software development context this is used for:
+DM uses a harness for continuous metric verification.
+In the software development context this is used for:
 
 \begin{itemize_single}
 
-\item Calculating KPMs where available and alerting when they exceed specification.
+\item Calculating performance metrics and alerting when they fail to meet requirements.
 
-\item A regression testing framework for any developer-supplied metric, with optional alerts when excursions occur from past values to verify that performance is not being degraded by new code or environments.
+\item Regression testing framework for any developer-supplied metric, with optional alerts when excursions occur from past values to verify that performance is not being degraded by new code or environments.
 
 \item Visualizing these results and linking them back to build and pull request information.
 
-\item  Drill-down of those metrics in pre-defined visualization templates geared towards specific verification use-cases.
+\item Drill-down of those metrics in pre-defined visualization templates geared towards specific verification use-cases.
 
 \end{itemize_single}
 
@@ -58,10 +64,10 @@ Roles and responsibilities in this area include:
 
 \begin{itemize_single}
 
-\item The pipeline teams are responsible for providing the code and data to calculate the KPMs.
+\item The pipeline teams are responsible for providing the code and data to demonstrate compliance with requirements.
 
 \item SQuaRE is responsible for developing and operating the continuous metric verification services.
 
-\item Individual developers contribute non-KPM metrics as desired.
+\item Individual developers may contribute additional metrics as desired.
 
 \end{itemize_single}

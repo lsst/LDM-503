@@ -1,28 +1,45 @@
-
 \section{Introduction \label{sect:intro}}
-In this document  we lay out  the verification and validation approach for LSST Data Management. In addition we outline some of the high level test milestones in \secref{sect:schedule} and our planned schedule for demonstrating interim verification status.
+
+This document provides an introduction to and overview of the approach to verification and validation which bas been adopted by the LSST \product{} Subsystem.
+Broadly, this approach consists of three aspects:
+
+\begin{itemize}
+
+  \item{\emph{Verification} that the \product{} system as delivered meets the requirements placed upon it;}
+  \item{\emph{Validation} that the system as delivered meets the needs of the scientific community;}
+  \item{\emph{Rehearsing} the sustained operation of the system in operational scenarios.}
+
+\end{itemize}
+
+This documentation describes how LSST \product{} is addressing each of these three requirements, and describes a series of high-level milestones and the accompanying test schedule.
+In addition, it briefly discusses the software development infrastructure that has been developed to support all three of these aspects of testing.
 
 \subsection{Objectives \label{sect:objectives}}
 
-We describe the test and verification approach for DM and describe various constraints and limitations in the testing to be performed.
-We also describe the validation tests to be performed on the partially and fully integrated system.
-We do not describe all tests in detail; those are described in dedicated test specifications for major components of \product. Here we outline the required elements for those specifications as well as the tools we use to for continuous verification.
+We describe the test and verification approach for \product{} and describe various constraints and limitations in the testing to be performed.
+We also describe the program of rehearsals which will be undertaken to demonstrate the sustained operation of the \product{} system, and the validation exercises which will be performed on the partially and fully integrated system.
+We do not describe all tests in detail; those are described in dedicated test specifications for major components of \product{}.
 
 \subsection{Scope \label{sect:scope}}
 
-This provides the approach and plan for all of \product. It covers interfaces between \product\ and components from other LSST subsystems but nothing outside of \product.
+This provides the approach and plan for all of \product{}.
+It covers interfaces between \product{} and components from other LSST subsystems but nothing outside of \product{}.
 This document is change-controlled by the DMCCB and will be updated in response to any requirements updates or changes of approach.
 
 \subsection{Assumptions}
-We will run large scale Science Validations in order to demonstrate the system's end-to-end capability against its design specifications. A large amount of informal science validation will be done in the the teams and documented in technical notes; in this test plan we are looking for validation of the broader system and specifically \emph{operability} i.e. whether we can run this system every day for the 10 year planned survey with a reasonable level of operational support.
+
+We will run large scale verification exercisess in order to demonstrate the system's end-to-end capability against its design specifications.
+A large amount of informal science verification and validation will be done in the the teams and documented in technical notes; in this test plan we are looking for verification of the broader system, demonstration of its \emph{operability} --- i.e. whether it can be run every day for the 10 year planned survey with a reasonable level of operational support --  and to validate its capability to meet the scientific expectations of the community.
 
 \subsection{Applicable Documents \label{sect:ad}}
+
 When applicable documents change a change may be required in this document.
 \begin{tabbing}
 AUTH-NUM\= \kill
-\citeds{LPM-55}\>	LSST Quality  Assurance Plan \\
+\citeds{LPM-55} \>	LSST Quality  Assurance Plan \\
+\citeds{LDM-148} \>	DM Architecture\\
 \citeds{LDM-294} \>	DM Project Management Plan   \\
-\citeds{LDM-148}\>	DM Architecture\\
+\citeds{LDM-639} \>	DM Acceptance Test Specification \\
 % perhaps \citell{LL:AUTH-code}\>	Software Requirements Specification for \CU,\\
 \end{tabbing}
 

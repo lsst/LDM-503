@@ -8,6 +8,9 @@ python:
 before_install:
   - "pip install 'lander>=0.1.0,<0.2'"
   - "pip install xlrd"
+  - "pip install numpy"
+  - "pip install pandas"
+  - "pip install matplotlib"
 script:
   # Run Python scripts in Travis's Python environment
   - "make dmtestmilestones.tex"
