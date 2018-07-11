@@ -1,3 +1,5 @@
+export TEXMFHOME = lsst-texmf/texmf
+
 all: $(tex) dmtestgantt.tex dmtestmilestones.tex testsections.tex acronyms.tex
 	latexmk -bibtex -pdf -f LDM-503.tex
 
