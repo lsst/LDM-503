@@ -13,10 +13,10 @@ tex=LDM-503.tex TopLevelTestSpecs.tex approach.tex approach.tex body.tex body.te
 #	acronyms.csh $(tex)
 
 dmtestmilestones.tex: milestones/milestones.py
-	python milestones/milestones.py ldm503 --table $@
+	python3 milestones/milestones.py ldm503 --table $@
 
 dmtestgantt.tex: milestones/milestones.py
-	python milestones/milestones.py ldm503 --gantt $@
+	python3 milestones/milestones.py ldm503 --gantt $@
 
 testsections.tex: milestones/milestones.py
-	python milestones/milestones.py ldm503 --commentary $@
+	python3 milestones/milestones.py ldm503 --commentary $@
