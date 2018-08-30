@@ -82,9 +82,10 @@ The test items covered in this test plan are:
 
 \end{itemize_single}
 
-{\small
-\begin{longtable}[]{p{8cm}|p{2cm}|p{2cm}}\hline
+{\footnotesize
+\begin{longtable}[]{p{5cm}|p{2cm}|p{2cm}}\hline
 {\bf Component} & {\bf Req. Spec} & {\bf Test Spec} \\ \hline
+\endhead
 Data Backbone Services & \cellcolor{pastelyellow} LDM-635 & \cellcolor{pastelyellow} LDM-535 \\\hline
 LSP Services & \cellcolor{pastelyellow} LDM-554 & \cellcolor{pastelyellow} LDM-540 \\\hline
 Bulk Distribution Service & & \\\hline
@@ -130,10 +131,27 @@ Data Management Acceptance & \cellcolor{ballblue} LSE-61 & \cellcolor{pasteloran
 \end{longtable}
 }
 
+Following the test approach here descibed, the milestone consist in a Jira test plan and one or more test cycles.
+The test cases to be executed in a milestone, and listed in the test cycle, may come from different component's test specification.
+Therefore, for each milestone descibed in \secref{sect:schedule} and \secref{sect:milestones}, shall be specified which components are involved.
+
 %\subsection{Testing Specification Document Format}\label{sect:tsform}
 \subsection{Test Approach Overview}\label{sect:tsform}
 
 This section gives an overview of the approach, facilities and documents involved in the verification process.
+
+In the \figref{fig:doctreestructure} you can see the DM document tree structure and how each document is related with the others.
+
+
+\begin{figure}[htbp]
+        \begin{center}
+                \includegraphics[width=0.9\textwidth, trim={0cm 15cm 0cm 0cm}]{DMDocTreeStructure}
+                \caption{DM components as deployed during Operations. For details, refer to \citeds{LDM-148}.
+                \label{fig:doctreestructure}}
+        \end{center}
+\end{figure}
+
+
 
 \subsubsection{Tools}
 
