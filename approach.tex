@@ -12,15 +12,16 @@ Each of these requirements documents is accompanied by a test specification (\ci
 
 In summer 2018, a major update of the \product{} product tree has been performed. The new lower-level products will be covered by requirements and test documents as per need bases, and depending on the resources available.
 
-In general, in order to avoid duplication of test definition and execution, when a requirement is flow down to lower-level requirements, and therefore tested at lower level, the high level test activity may be just an inspection.
+In general, in order to avoid duplication of test definition and execution, when a requirement is flowed down to lower-level requirements, and therefore tested at lower level, the high level test activity may be just an inspection.
 Detailed high level test cases are required, in case that a LSE-61 requirement is not decomposed in lower-level product requirements.
+Detailed high level test cases are required if an  LSE-61 requirement is not decomposed in lower-level product requirements.
 
 Although individual test cases may be executed at any time, it is anticipated that major testing campaigns will be undertaken to demonstrate the successful completion of major milestones in the \product{} construction effort.
 The schedule for these milestones is shown in \secref{sect:schedule}, while \secref{sect:milestones} provides further details as to the contents of each one.
 In addition, each low level product owner, can define specific test campaign to verify the coverage of the lover level requirements.
 An example could be a specific software release made for a specific purpose (start of commissioning).
 
-As explained at the beginning of tis section, the validation of the LDM-61 requirements will prove that the \product{} requirements have been properly implemented, therefor this will be done at the end of the verification process.
+As explained at the beginning of this section, the validation of the LDM-61 requirements will prove that the \product{} requirements have been properly implemented, therefor this will be done at the end of the test activity.
 LDM-61 requirements have a specific priority assigned. Each of them will be verified depending on the priority assigned.
 
 \subsection{Managing and Reporting Test Execution}
@@ -66,28 +67,26 @@ The \figref{fig:dmvaldoctree} highlights the different DM validation documents t
 \subsection{Components Under Test}\label{sect:components}
 
 The components of the DM system are outlined in \citeds{LDM-294} and described in detail in \citeds{LDM-148}; a summary is shown in \figref{fig:dmsdeploy}.
-The test specifications covering these components are shown in \tabref{tab:testspecs}.
+The test specifications covering these components are shown in \tabref{tab:testspecs}, but note that, at time of writing, the document tree is being refactored and document numbers are not currently available for all components (refactored as expected).
 Based on those components we can see the set of Test Specifications needed in \tabref{tab:testspecs}.
-At time of writing, document numbers are not available for all second-level components.
 
 The test items covered in this test plan are:
 
 \begin{itemize_single}
 
-\item The \product{} System and its primary components for testing and integration purposes. These are listed in Table \ref{tab:testspecs}. 
-All components listed in orange and yellow have specifications in the corresponding documents listed. 
+\item The \product{} System and its primary components for testing and integration purposes. These are listed in Table \ref{tab:testspecs}.
+All components listed in orange and yellow have specifications in the corresponding documents listed.
 Major sub-components in white may have individual test specifications or be addressed in the component they are under depending on applicable factors such as whether they are scheduled for testing at the same time and/or whether they share architectural components or are largely distinct.
 Other components from the product tree may be covered on best effort.
 
-\item The external interfaces between \product{} and other sub-systems. These are described in \href{https://ls.st/Collection-5201}{DocuShare collection 5201}. These verification activities will concur to the global coverage of LSST requirements, but will not be included in the calculation of the DM verification control document. 
+\item The external interfaces between \product{} and other sub-systems. These are described in \href{https://ls.st/Collection-5201}{DocuShare collection 5201}. These verification activities will concur to the global coverage of LSST requirements, but will not be included in the calculation of the DM verification control document.
 
-\item Operational procedures like Data Release Process. These test activities are mainly covered by test milestones, where multiple Operation rehearsals have been planned.
+
+\item Operational procedures like Data Release Process  are mainly covered by test milestones. These include  multiple Operation rehearsals have been planned.
 
 \end{itemize_single}
 
-{\footnotesize
 \input{TopLevelTestSpecs}
-}
 
 Following the test approach here described, the milestone consist in a Jira test plan and one or more test cycles.
 The test cases to be executed in a milestone, and listed in the test cycle, may come from different component's test specification.
@@ -113,33 +112,31 @@ This section gives an overview of the approach, facilities and documents involve
 \subsubsection{Requirements and Test Objects}
 
 {\bf Requirements}: are defined in MagicDraw and the change control process is applied to them. High level requirements, like the one documented in LSE-61, are managed by the project CCB, the low level requirements are change controlled by the DM CCB.
-Requirements are collected in Requirements Specification documents.
-Requirements are not synchronized in Jira.
-Requirements are not described here in this document.
+Requirements are collected in Requirements Specification documents and  are not synchronized in Jira.
 
-{\bf Verification Elements}: each requirement is decomposed in one or more verification element. A verification element is an aspect of the requirement that can be tested, without considering the full requirement. 
-The verification elements are created in MagicDraw and synchronized in Jira. 
-Product owner are requested to update them in Jira with a proper description and other characterization parameter.
-System Engineering will synchronize them back in MagicDraw once the update is completed.
+{\bf Verification Elements}: each requirement is decomposed in one or more verification elements. A verification element is an aspect of the requirement that can be tested, without considering the full requirement.
+The verification elements are created in MagicDraw and synchronized with Jira.
+Product owners must update them in Jira with a proper description and other characterization parameters.
+System Engineering will synchronize them with MagicDraw once the update is complete.
 Verification elements in Jira are implemented with a specific issue type, and are normal Jira issues.
 
 {\bf Test Cases}: are the definition of test procedure to be executed in order to prove that the related verification elements are properly tested. A test case can be related with many verification elements. It is not a Jira issue, but a test object provided by ATM.
 
-{\bf Test Plans}: are the definition of the test activity to be executed in a specific moment in time in order to fulfill a specific purpose, for example validate a release or complete a verification milestone. 
-The test plan is just the definition of the activity, and will not contain nor will relate directly to any test case. 
-A Test Plan can be related to multiple Test Cycles and the test cycles will be related to the test cases. 
+{\bf Test Plans}: are the definition of the test activity to be executed  at a specific moment in time in order to fulfill a specific purpose, for example validate a release or complete a verification milestone.
+The test plan is just the definition of the activity, and will not contain nor relate directly to any test case.
+A Test Plan can be related to multiple Test Cycles and the test cycles will be related to the test cases.
 It is not a Jira issue, but a test object provided by ATM.
 
 {\bf Test Cycles}: orchestrate the execution of the test. In the documentation are called sometime Test Runs.
-They are Jira objects that include multiple test cases to be executed in a specific order and configuration. 
-Test Cycles are related to Test Plans, and contains list of test cases. 
+They are Jira objects that include multiple test cases to be executed in a specific order and configuration.
+Test Cycles are related to Test Plans, and contains list of test cases.
 A test case can be included only once in a test cycle. If a test case need to be executed with two different configuration during a test activity, two different test cycles need to be used.
 It is not a Jira issue, but a test object provided by ATM.
 
-{\bf Deviations}: in the case that it is not possible to sucessfuly verify a Verification element, due to a test failure, a request for deviation can be open, asking to deviate from what agreed and approved in the requirement. 
+{\bf Deviations}: in the case that it is not possible to successfully verify a Verification element, due to a test failure, a request for deviation can be opened.
 This is implemented trough Deviation Jira issue types.
 
-For more details on the different Jira objects and how to use them, refer to the following confluence page 
+For more details on the different Jira objects and how to use them, refer to the following confluence page
 \url{https://confluence.lsstcorp.org/display/DM/DM+Test+Approach}.
 
 Workflows on the different objects are available in SE documentation.
@@ -147,11 +144,10 @@ Workflows on the different objects are available in SE documentation.
 
 \subsubsection{Test Documents}
 
-Despite all information is contained in MagicDraw and Jira, it is important to have this baselined as appropriate. This is already happening for the requirements that are captured in requirements documents, and when approved issued into Docushare.
-The same shall happen for the test information, that live dynamically in Jira.
+Though all tests information is contained in MagicDraw and Jira, it is important to have a  baselined test documentation in Docushare. .
 
-The {\bf Test Specification} document consist on a collections of test cases that covers a specific \product{} product as defined in the document tree and in \secref{sect:components}. 
-These collections of test cases are available in in Jira as views in the ``LSST Verification and Validation'' project, organized in folders.
+The {\bf Test Specification} document consists of a collections of test cases that cover a specific \product{} product as defined in the document tree and in \secref{sect:components}.
+These collections of test cases are available in in Jira as views in the ``LSST Verification and Validation'' project, and are organized in folders.
 
 The test specification sections are organized as follows:
 
@@ -162,7 +158,7 @@ The test specification sections are organized as follows:
 \item Test Case Specification: this section will include all test cases details extracted automatically from Jira. Do not edit it manually, al changes need to be done in Jira.
 \end{itemize}
 
-One additional section or a first appendix will be added in order to provide proper document location on the verification elements.
+One additional appendix will be added to the test specification to baseline the corresponding verification elements.
 
 Additional sections can be added in appendix.
 
@@ -173,8 +169,8 @@ Note: never update a test specification in section 3 or 4, since this will be ov
 Taking advantage of the continuous integration process executed in Travis, the {\bf extraction scripts} will be integration in the build of the pdf in order to extract dynamically the section 3 and 4 content from Jira, on a regular basis, to be defined.
 
 
-The {\bf Test Plan and Report} is the documented that will include all information related to a test campaign. 
-This includes all information from the test plan and the related test runs. 
+The {\bf Test Plan and Report} is the documented that will include all information related to a test campaign.
+This includes all information from the test plan and the related test runs.
 Do not edit it directly, all change need to be done in Jira.
 
 The author need to define the structure of the document and upload it in github. The continuous integration in Travis will take care to build the document on a regular bases, to be defined, downloading the corresponding information from Jira.
@@ -182,8 +178,8 @@ The author need to define the structure of the document and upload it in github.
 The test plan and report scope is constrained on a single major test activity. It may only be updated, generating a new issues of the document, in case of re-execution of a subset of tests after the test campaign is concluded and the document is already in Docushare.
 In general a new test activity, due to a new milestone or release to be tested, imply a creation of a new test plan and report.
 
-Note that in the past this document was identified as "Test Report".
-Now it is proposed to rename it to "Test Plan and Report" in order to better identify the two types of information it contains: planning of the test activity and report on the executed test cases. However, the document type acronym should still be DMTR. 
+Note that in the past this document was identified as "Test Report" but is now
+the "Test Plan and Report" in order to better identify the two types of information it contains: planning of the test activity and report on the executed test cases. The document type acronym will remain DMTR.
 
 Note also that, the reports considered in this context are only the documents which scope is to provide information on test campaigns documented and executed using the test management infrastructure in Jira. Release characterization reports are not relevant here, unless their documentation, planning and execution will not follows these guidelines and use the same tooling.
 
@@ -199,16 +195,17 @@ The approval of the test plan and report, is a bit different.
 For practical reasons, the test report is completed in 2 steps:
 
 \begin{itemize}
-\item before the test execution: the test plan and few information in the test cycle shall be provided in Jira, in order to demonstrate that the test is ready to start. 
+\item before the test execution: the test plan and the test cycle should be created in Jira, in order to demonstrate that the test is ready to start.
 \item after the test execution: the document is finalized including the reports and comments on the execution of the test cases, issues raised during the test campaign and the a statement summarizing the global test campaign result.
 \end{itemize}
 
-Despite only the final document is relevant for deriving the global coverage of the DM requirements, it is important that both steps are consolidated and approved separately. 
-Going to execute the test campaign without ensuring that everything is ready for it, it may imply the failure of the test campaign, or making the test useless, since it may not be possible to guarantee the conditions in which the test has been executed.
+Only the final document is relevant for deriving the global coverage of the DM requirements, but it is important that both steps are approved separately. In this way we ensure all conditions are met to  execute the tests.
 
-The approval of the first step, comes after verification from the product owner, that all needed information are provided in Jira and therefore in the test plan and report document. 
-The formality to issue the document in Docushare can be skip, but a coherent draft has to be available in DMTR-XXX.lsst.io and the status of the corresponding test plan has to be set to "approved". 
-Stakeholders that may have some expectation on the activity results, like scientists, T/CAMs or others, can be involved before the approval.
+The approval of the first step comes after verification,  by the product owner, that all needed information is provided in Jira and therefore in the test plan and report document.
+The formality of  issuing  the document in Docushare can be skipped, but a coherent draft has to be available in DMTR-XXX.lsst.io and the status of the corresponding test plan has to be set to "approved".
+% In Jira ???
+Stakeholders that may have some expectation on the activity results, like scientists, T/CAMs or others, should  be involved before the approval.
+% SO we are using RFC ??
 
 The final approval of the document, after the test activity is concluded and all information is collected in Jira, should be explicitly given by whoever requested the test activity to be carried out.
 
@@ -217,9 +214,9 @@ The final approval of the document, after the test activity is concluded and all
 The global project wide verification control document will be obtained from MagicDraw by the System Engineering team.
 
 However, Data Management will be able to provide a DM specific verification control document, that will show the coverage of each system specific requirement, and their relation with test cases and test executions.
-This information will be derived only from Jira using the ``extraction scrips'' already used for the generation of the test specification and test plan and report.
+This information will be derived only from Jira using the ``extraction scripts'' already used for the generation of the test specification and test plan and report.
 
-In following \tabref{tab:dmvcd} is reported an example of VDC structure that will be produced.
+An example, at least in structure, of the VCD is given in \tabref{tab:dmvcd}.
 
 \input{DMVcdExample}
 
@@ -227,7 +224,7 @@ In following \tabref{tab:dmvcd} is reported an example of VDC structure that wil
 \label{sect:roles}
 
 
-For each test case is required to specify the ``owner''. 
+For each test case is required to specify the ``owner''.
 This in general is the \emph{tester} that will be in charge of executing the test case.
 However, when assigning a test case to a specific test cycle, it is possible to specify a different name.
 
@@ -237,7 +234,7 @@ Testers submit details of test execution to Jira project, where it is used to lo
 The information captured in Jira will also be used to populate the Verification Control Document (see \secref{sect:approach}).
 
 Tests and procedures will sometimes fail: a test case may be re-run several times until it passes, but testers will log an explanation than indicates that any failures were understood (e.g.\ they were due to a fault that was fixed) or repeated sufficient times to ensure that passing the test was not transient success.
-Issues which cannot be resolved by the tester in the course of carrying out the test willl be reported as ``Software Problem Reports'' (SPRs) through the \product{} ticketing system (the Jira ``Data Management'' project at the time of this document revision).
+Issues which cannot be resolved by the tester in the course of carrying out the test will be reported as ``Software Problem Reports'' (SPRs) through the \product{} ticketing system (the Jira ``Data Management'' project at the time of this document revision).
 The DMCCB, or an individual designated by it, will be tasked with assessing the SPRs determining the timescale for re-executing the test procedure.
 If a new version of the software is provided, a test cycle can be create in order to document the new run in a separate Jira element, and keep track of the history.
 
