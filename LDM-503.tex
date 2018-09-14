@@ -1,5 +1,11 @@
 \documentclass[DM,STP,toc,lsstdraft]{lsstdoc}
 \usepackage{milestones/texmf/pgfgantt}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\colorlet{dmyellow}{yellow!50!white}
+\colorlet{dmblue}{cyan!50!white}
+\colorlet{dmorange}{orange!50!white}
+
 
 %set the WP number or product here for the requirements
 \def\product{Data Management}
@@ -10,7 +16,7 @@
 %Product name first in title
 \title    [Test Plan]  { \product ~Test Plan}
 
-\author   {William O'Mullane, John Swinbank, Mario Juric, Frossie Economou}                % the author(s)
+\author   {William O'Mullane, John Swinbank, Mario Juric, Frossie Economou, Gabriele Comoretto}                % the author(s)
 \setDocRef      {LDM-503} % the reference code
 \setDocDate     {\today}              % the date of the issue
 \setDocUpstreamLocation{\url{https://github.com/lsst/LDM-503}}
@@ -30,7 +36,7 @@ This is the  Test Plan for \product. In it we define terms associated with testi
 	\addtohist{}{2018-06-18}{Milestone alignment with PMCS and derived from it }{J.D.~Swinbank}
 	\addtohist{1.3}{2018-06-18}{Approved in \jira{RFC-492}}{J.D.~Swinbank}
 	\addtohist{1.4}{2018-07-17}{Correct test specifications for LDM-503-04, 04b, 05, 08b. Link Pipelines releases to \citeds{LDM-564}. Approved in \jira{RFC-501}.}{J.D.~Swinbank}
-	\addtohist{TBD}{20XX-XX-XX}{Include updated doctree. Update milestones for month end June 2018.}{W.~O'Mullane}
+	\addtohist{TBD}{20XX-XX-XX}{Include updated doctree. Update milestones for month end June 2018, Decribe test approach with Jira.}{W.~O'Mullane, G.Comoretto}
 }
 
 
