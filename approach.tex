@@ -52,29 +52,24 @@ The VCD will provide the verification status of each DM requirement (in terms of
 
 The components of the DM system are outlined in \citeds{LDM-294} and described in detail in \citeds{LDM-148}; a summary is shown in \figref{fig:dmsdeploy}.
 The test specifications covering these components are shown in \tabref{tab:testspecs}, but note that, at time of writing, the document tree is being refactored and document numbers are not currently available for all components.
-Based on those components we can see the set of Test Specifications needed in \tabref{tab:testspecs}.
 
-The test items covered in this test plan are:
+In addition, the test plan presented in this document covers:
 
-\begin{itemize_single}
+\begin{itemize}
 
-\item The \product{} System and its primary components for testing and integration purposes. These are listed in Table \ref{tab:testspecs}.
-All components listed in orange and yellow have specifications in the corresponding documents listed.
-Major sub-components in white may have individual test specifications or be addressed in the component they are under depending on applicable factors such as whether they are scheduled for testing at the same time and/or whether they share architectural components or are largely distinct.
-Other components from the product tree may be covered on best effort.
+\item{The external interfaces between \product{} and other LSST systems.
+These are described in \href{https://ls.st/Collection-5201}{DocuShare collection 5201}.
+These verification activities will contribute to the global coverage of LSST requirements, but will not be included in the generation of the DM VCD.}
 
-\item The external interfaces between \product{} and other sub-systems. These are described in \href{https://ls.st/Collection-5201}{DocuShare collection 5201}. These verification activities will concur to the global coverage of LSST requirements, but will not be included in the calculation of the DM verification control document.
+\item{Operational procedures, such as the Data Release Production process.
+These are addressed by means of \textit{operations rehearsals} which constitute some of the level two milestones.}
 
-
-\item Operational procedures, like for example Data Release Process. Multiple Operation Rehearsals have been included in the planned milestones.
-
-\end{itemize_single}
+\end{itemize}
 
 \input{TopLevelTestSpecs}
 
-Following the test approach described lather in \secref{sect:testobjects}, a test milestone is implemented using a Jira test plan and one or more test cycles.
-The test cases to be executed in a milestone, and listed in the test cycle, may come from different component's test specification.
-Therefore, for each milestone described in \secref{sect:schedule} and \secref{sect:milestones}, shall be specified which components are involved.
+The tests associated with each milestone may encompass more than one component of the DM system.
+The relevant components must therefore be included in the description of the milestone in \secref{sect:milestones}.
 
 \subsection{Test Approach Overview}\label{sect:tsform}
 
