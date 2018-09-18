@@ -6,22 +6,19 @@ We regard the system as being successfully completed when all of the high level 
 The approach which will be taken to verifying each requirement is described in \citeds{LDM-639}, the \emph{DM Acceptance Test Specification}.
 This test specification covers all aspects of the tests, as described in \secref{sect:tsform}.
 Any given requirement may have multiple test cases associated with it in the specification, and these tests will be phased to account for incremental delivery depending on the need for certain functionality at a specific time.
+We anticipate that this phasing will align with the priorities assigned to requirements in \citeds{LSE-61} --- that is, that high priority requirements will be verified first --- but this is not, in itself, required.
 
 In addition to the high level requirements on the overall \product{} system, lower-level requirements documents describe requirements placed upon specific parts of the system (for example, \citeds{LDM-554} provides requirements on the LSST Science Platform, and \citeds{LDM-555} on the DM database system).
 Each of these requirements documents is accompanied by a test specification (\citeds{LDM-540} and \citeds{LDM-552} in the case of the previous examples; see also Table \ref{tab:testspecs}), with the relationship between them being the same as for the high-level requirements.
-
-In summer 2018, a major update of the \product{} product tree has been performed. The new lower-level products will be covered by requirements and test documents as per need bases, and depending on the resources available.
+These lower-level requirements documents and test specifications are defined on an as-needed basis: some \product{} products are adequately specified and tested by the high-level documentation.
 
 In general, in order to avoid duplication of test definition and execution, when a requirement is flowed down to lower-level requirements, and therefore tested at lower level, the high level test activity may be just an inspection.
 Detailed high level test cases are required if an LSE-61 requirement is not decomposed in lower-level product requirements.
 
 Although individual test cases may be executed at any time, it is anticipated that major testing campaigns will be undertaken to demonstrate the successful completion of major milestones in the \product{} construction effort.
 The schedule for these milestones is shown in \secref{sect:schedule}, while \secref{sect:milestones} provides further details as to the contents of each one.
-In addition, each low level product owner, can define specific test campaign to verify the coverage of the lower level requirements.
-An example could be a specific software release made for a specific purpose.
-
-As explained at the beginning of this section, the validation of the LDM-61 requirements will prove that all \product{} requirements have been properly implemented, therefor this will be done at the end of the test activity.
-LDM-61 requirements have a specific priority assigned. Each of them will be verified depending on that priority.
+In addition, each low level product owner can define specific test campaigns to verify compliance with the relevant requirements.
+For example, such a test campaign may be associated with a software release made for a specific purpose.
 
 \subsection{Managing and Reporting Test Execution}
 \label{sect:reports}
@@ -29,7 +26,7 @@ LDM-61 requirements have a specific priority assigned. Each of them will be veri
 As described above, requirements and test specifications are provided in baselined documents.
 These documents provide curated views on the Jira \emph{LSST Verification and Validation} project which underlies the LSST-wide test effort.
 The Jira system provides ``test scripts'' that testers will follow when carrying out tests, and tracks information about test execution and results.
-This information enables us to generate reports on the execution of each test\footnote{These test reports may, on occasion, be issued as Word or LaTeX documents, but this is not, in general, required.}, and ultimately to build a Verification Control Document (VCD; see \figref{fig:doctree}).
+This information enables us to generate reports on the execution of each test\footnote{These test reports may, on occasion, be issued as Word or \LaTeX{} documents, but this is not, in general, required.}, and ultimately to build a Verification Control Document (VCD; see \figref{fig:doctree}).
 The VCD will provide the verification status of each DM requirement (in terms of the fraction of test cases pertaining to that requirement which have been successfully executed).
 
 
