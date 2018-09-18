@@ -1,29 +1,32 @@
-\begin{longtable}{p{0.4\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}}
-\multicolumn{1}{c}{\textbf{Component}} & \multicolumn{1}{c}{\textbf{Requirement Specification}} &  \multicolumn{1}{c}{\textbf{Test Specification}} \\ \hline
-
-Data Backbone                     & \cellcolor{dmorange} LDM-635 & \cellcolor{dmyellow} LDM-535 \\\hline
-LSP Services                      &   \cellcolor{dmblue} LDM-554 &   \cellcolor{dmblue} LDM-540 \\\hline
-Alert Distribution service        & \cellcolor{dmyellow} LDM-638 &                              \\\hline
-Archiving service                 & \cellcolor{dmyellow} LDM-638 &   \cellcolor{dmblue} LDM-538 \\\hline
-Prompt Processing service         & \cellcolor{dmyellow} LDM-638 &   \cellcolor{dmblue} LDM-533 \\\hline
-Batch Production Software         &                              &                              \\\hline
-Alert Distribution Software       &                              &   \cellcolor{dmblue} LDM-533 \\\hline
-EFD Transformation Software       &                              &                              \\\hline
-Header Service Software           &                              &                              \\\hline
-Alert Production Software         &   \cellcolor{dmblue} LDM-602 &   \cellcolor{dmblue} LDM-533 \\\hline
-Calibration Software              &                              &                              \\\hline
-DR Production Software            &    \cellcolor{dmblue} LDM562 &   \cellcolor{dmblue} LDM-534 \\\hline
-Data Butler                       &                              &                              \\\hline
-Distributed Database (Qserv)      &                              &   \cellcolor{dmblue} LDM-552 \\\hline
-Commissioning Cluster Enclave     &                              & \cellcolor{dmyellow} LDM-541 \\\hline
-DAC Enclaves                      &                              & \cellcolor{dmyellow} LDM-539 \\\hline
-Offline Production Enclave (NCSA) &                              & \cellcolor{dmyellow} LDM-532 \\\hline
-Prompt Enclaves                   &                              &                              \\\hline
-Data Management Acceptance        &    \cellcolor{dmblue} LSE-61 & \cellcolor{dmorange} LDM-639 \\\hline
+\begin{longtable}{p{0.4\textwidth}p{0.2\textwidth}p{0.2\textwidth}}
 
 \caption{Components of the \product{} system with the test specifications to verify them.
-A cyan background indicates that a test specification is currently available; yellow, that one is being drafted at time of writing; orange, 
-that the existing test specification is under revision. }
-\label{tab:testspecs}
+A cyan background indicates that a test specification is currently available; yellow, that one is being drafted at time of writing; orange, that the existing test specification is under revision.
+\label{tab:testspecs}} \\
+
+\hline
+                                       & \multicolumn{2}{c}{\textbf{Specification}} \\
+\multicolumn{1}{c}{\textbf{Component}} & \multicolumn{1}{c}{\textbf{Requirement}} & \multicolumn{1}{c}{\textbf{Test}} \\
+\hline
+Data Backbone                     & \cellcolor{dmorange} LDM-635 & \cellcolor{dmyellow} LDM-535 \\
+LSP Services                      &   \cellcolor{dmblue} LDM-554 &   \cellcolor{dmblue} LDM-540 \\
+Alert Distribution service        & \cellcolor{dmyellow} LDM-638 &                              \\
+Archiving service                 & \cellcolor{dmyellow} LDM-638 &   \cellcolor{dmblue} LDM-538 \\
+Prompt Processing service         & \cellcolor{dmyellow} LDM-638 &   \cellcolor{dmblue} LDM-533 \\
+Batch Production Software         &                              &                              \\
+Alert Distribution Software       &                              &   \cellcolor{dmblue} LDM-533 \\
+EFD Transformation Software       &                              &                              \\
+Header Service Software           &                              &                              \\
+Alert Production Software         &   \cellcolor{dmblue} LDM-602 &   \cellcolor{dmblue} LDM-533 \\
+Calibration Software              &                              &                              \\
+DR Production Software            &    \cellcolor{dmblue} LDM562 &   \cellcolor{dmblue} LDM-534 \\
+Data Butler                       &                              &                              \\
+Distributed Database (Qserv)      &                              &   \cellcolor{dmblue} LDM-552 \\
+Commissioning Cluster Enclave     &                              & \cellcolor{dmyellow} LDM-541 \\
+DAC Enclaves                      &                              & \cellcolor{dmyellow} LDM-539 \\
+Offline Production Enclave (NCSA) &                              & \cellcolor{dmyellow} LDM-532 \\
+Prompt Enclaves                   &                              &                              \\
+Data Management Acceptance        &    \cellcolor{dmblue} LSE-61 & \cellcolor{dmorange} LDM-639 \\
+\hline
 
 \end{longtable}
