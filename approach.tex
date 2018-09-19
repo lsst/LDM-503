@@ -103,37 +103,47 @@ Product owners and individuals carrying out tests will interact with Jira.
 
 Only members of the DM Systems Engineering Team (\citeds{LDM-294}) will interface directly with MagicDraw.
 
-\subsubsection{Requirements and Test Objects}\label{sect:testobjects}
+\subsubsection{Requirements and Test Objects}
+\label{sect:testobjects}
 
-{\bf Requirements}: are defined in MagicDraw and the change control process is applied to them. High level requirements, like the one documented in LSE-61, are managed by the project CCB, the low level requirements are change controlled by the DM CCB.
-Requirements are collected in Requirements Specification documents.
+This section provides an overview of the key concepts and vocabulary used in the test system.
 
-{\bf Verification Elements}: each requirement is decomposed in one or more verification elements. A verification element is an aspect of the requirement that can be tested, without considering the full requirement.
-The verification elements are created in MagicDraw and synchronized with Jira.
-Product owners must update them in Jira with a proper description and other characterization parameters.
-System Engineering will synchronize them with MagicDraw once the update is complete.
-Verification elements in Jira are implemented with a specific issue type, and are normal Jira issues.
+\begin{description}
 
-{\bf Test Cases}: are the definition of test procedure to be executed in order to prove that the related verification elements are properly tested. A test case can be related with many verification elements. 
-It is not a Jira issue, but a test object provided by ATM with limited workflow capabilities.
+\item[Requrement] \hfill \\
+Requirements are defined in MagicDraw and then synchronized with Jira.
+For change control and for distribution to the wider project, they are extracted from MagicDraw to baselined documents.
+The level of change control applied to each requirement depends on which document it appears in: high level requirements appear in \citeds{LSE-61} and are subject to project-level change control, while lower level requirements appear in LDM-series documents and are managed by the DM-CCB.
 
-{\bf Test Plans}: are the definition of the test activity to be executed at a specific moment in time in order to fulfill a specific purpose, for example validate a release or complete a verification milestone from \secref{sect:schedule} and \secref{sect:milestones}.
-The test plan is just the definition of the activity, and will not contain nor relate directly to any test case.
-A Test Plan can be related to multiple Test Cycles and the test cycles will be related to the test cases.
-Like the test case, it is not a Jira issue.
+\item[Verification Element] \hfill \\
+Each requirement is decomposed into one or more verification elements.
+A verification element is an aspect of the reuqirement which can be independently tested.
+Verification elements are created and updated in MagicDraw and synchronized with Jira; in Jira, it appears as a normal issue with a specific type.
+Updates made in Jira can be propagated back to MagicDraw \textit{with the cooperation of the Systems Engineering Group}\footnote{What's the process for this? Do you file a ticket on SE and ask them to do an update? Or...?}.
 
-{\bf Test Cycles}: orchestrate the execution of the test. In the documentation are called sometime Test Runs.
-Each Test Cycle is related to only one Test Plan and contains a list of test cases to be executed in a specific order and context (configuration, input data, etc).
-A test case can be included only once in a test cycle. If a test case need to be executed with two different configuration during a test activity, two different test cycles need to be used.
-Like the test case, it is not a Jira issue.
+\item[Test Case] \hfill \\
+A test case is the definition of a procedure to be executed to test the related verification elements.
+A single test case may test many verification elements.
+Test cases are represented as special objects in Jira provided by the ATM system.
 
-{\bf Deviations}: in the case that it is not possible to verify successfully a Verification element, due to a test failure, a request for deviation has to be opened.
-This is implemented trough Deviation Jira issue type.
+\item[Test Cycle] \hfill \\
+A test cycle is list of test cases to be carried out in a particular order under a specified environtment to achieve some specific goal.
+Each test cycle may contain only one instance of a particular test case: re-executing a test case with (e.g.) a different configuration must be done in a separate cycle.
+Test cycles are represented as special objects in Jira provided by the ATM system.
 
-For more details on the different Jira objects and how to use them, refer to the following confluence page
-\url{https://confluence.lsstcorp.org/display/DM/DM+Test+Approach}.
+\item[Test Plan] \hfill \\
+A test plan defines the overall plan for achieving some particular goal, such as verifying a software release or completing a milestone (\secref{sect:milestones}).
+Each test plan may include several test cycles.
+Test plans are represented as special objects in Jira provided by the ATM system.
 
-Workflows on the different objects are available in SE documentation.
+\item[Deviation] \hfill \\
+When a test failure renders it impossible to successfully verify a verification element, a Jira issue of type ``deviation'' should be opened to capture this outcome.
+
+\end{description}
+
+More details on the various Jira objects and detailed instructions on their use are available on Confluence\footnote{https://confluence.lsstcorp.org/display/DM/DM+Test+Approach}.
+
+Workflows for the different types of objects are described in project-level Systems Engineering documentation.
 
 
 \subsubsection{Test Documents}
