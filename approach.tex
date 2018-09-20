@@ -145,69 +145,43 @@ More details on the various Jira objects and detailed instructions on their use 
 
 Workflows for the different types of objects are described in project-level Systems Engineering documentation.
 
-
 \subsubsection{Test Documents}
+\label{sect:testdocs}
 
-Though all tests information is contained in MagicDraw and Jira, it is important to have a  baselined test documentation in Docushare. .
+Though all test information is contained in MagicDraw and Jira, it is important to have baselined test documentation in Docushare.
 
-The {\bf Test Specification} document consists of a collections of test cases that cover a specific \product{} product, as defined in the document tree and in \secref{sect:components}.
-These collections of test cases are available in Jira as views in the ``LSST Verification and Validation'' project and are organized in folders.
+The \textbf{Test Specification} for a product collects all of the test cases that cover that particular product.
+Test specifications are subject to approval by the responsible change control board, and therefore from part of the project baseline.
+However, they are also living documents: as test cases are added or updated in Jira, new editions of the document will be produced, basedlined and provided through Docushare.
 
-The sections in a test specification document are organized as follows:
+Test Specifications consist of a mixture of material which are directly written and curated in GitHub by the corresponding product owner, and sections which are automatically generated from the contents of Jira.
 
-\begin{itemize}
-\item Introduction: includes subsections ``Objective'' and ``Scope''. To edit and maintain manually by the author uploading changes in github.
-\item Approach: the relevant subsections are ``Tasks and criteria'', `` Features to be tested'', ``Features not to be tested'', ``Pass/fail criteria'', ``Suspension criteria'', ``Naming convention''. To edit and maintain manually by the author uploading changes in github.
-\item Test Cases Summary: this is a summary table extracted directly from Jira that summarizes all test cases included in the test specification. Do not edit it manually, all changes need to be done in Jira.
-\item Test Cases: this section includes all test cases details extracted automatically from Jira. Do not edit it manually, al changes need to be done in Jira.
-\item Appendix: Requirements traceability.
-\end{itemize}
-
-One additional appendix will be added in order to include in the baselined document the corresponding verification elements.
-
-The test specification is a living document: test cases may be added or updated in Jira and new issues of the same document will be generated, approved and uploaded in Docushare.
-
-Note: never update a test specification in section 3 or 4, since this will be overwritten by the extraction scripts. Note also that the old naming convention is not applicable anymore, since the test case identification is assigned automatically by Jira. Existing test cases will preserve the old identification in the subject.
-
-Taking advantage of the continuous integration process executed in Travis, the {\bf extraction scripts} will be integrated in the build of the pdf in order to extract dynamically the section 3 and 4 content from Jira, on a regular basis, to be defined.
-
-
-The {\bf Test Plan and Report} is the documented that will include all information related to a test campaign.
-This includes all information from the test plan and the related test runs.
-Do not edit it directly, all changes need to be done in Jira.
-
-The author need to define the structure of the document and upload it in github. The continuous integration in Travis will take care to build the document on a regular bases, to be defined, downloading the content from Jira.
-
-The test plan and report scope is constrained on a single major test activity. It may only be updated, generating a new issues of the document, in case of re-execution of a subset of tests after the test campaign is concluded and the document is already in Docushare.
-In general a new test activity, due to a new milestone or release to be tested, imply a creation of a new test plan and report, with a different document title and code.
-
-Note that in the past this document was identified as "Test Report" but is now
-the "Test Plan and Report" in order to better identify the two types of information it contains: planning of the test activity and report on the executed test cases. The document type acronym will remain DMTR.
-
-Note also that, the reports considered in this context are only the documents which scope is to provide information on test campaigns documented and executed using the test management infrastructure in Jira. For example, release characterization reports are not relevant here, unless their documentation, planning and execution follow these guidelines and use the same tooling.
-
+The \textbf{Test Plan and Report}\footnote{For historical reasons, test plan and report documents use the handle ``DMTR''.}  describes all the information related to a particular test ``campaign'' --- that is, they describe the contents a test plan and the results of executing it.
+Since test plans and reports describe the results of a particular campaign, updates are limited to minor corrections (for example, to spelling).
+A new test campaign, even one which repeated the same test plan, would result in the creation of a new document to describe the new results.
 
 \subsubsection{Approval Procedure}
 
-The approval of the test specification is already addressed via RFC as done for all the DM-CCB controlled documents.
+Test specifications are part of the project baseline.
+As such, they must be approved by the relevant change control board (project-level for LSE-handled documents such as \citeds{LSE-61}; DM-level for LDM-handles).
 
-New or updated test cases shall be in status ``draft''. After the test specification has been approved via RFC, their status need to be set to ``approved''.
-Only then the document can be regenerated and uploaded in Docushare.
+New test cases, which are not yet part of an accepted specification, or test cases which have been updated since the relevant specification was baselined, will be in the ``draft'' status.
+When the relevant specification is accepted, they should be moved to ``approved'' status, at which point the specification document is regenerated and placed in Docushare.
 
-The approval of the test plan and report is a bit different since it is completed in 2 steps:
+Test cases may also be removed from the baseline in an analagous process.
+These test cases should be marked as ``deprecated''.
+
+Test plan and report documents are not change controlled (indeed, per \S\ref{sect:testdocs} they should not be changed).
+However, they should be approved by whoever is responsible for requesting that the test be carried out.
+For high-level milestones (i.e., those listed in \secref{sect:milestones}), that should be taken to mean the combination of the DM Project Manager and the DM Subsystem Scientist.
+Note that approval for these documents must be sought in two stages:
 
 \begin{itemize}
-\item before the test execution: the test plan and the test cycle(s) should be created in Jira, and information should be provided in order to demonstrate that the test is ready to start.
-\item after the test execution: the document is finalized including the reports and comments on the execution of the test cases, issues raised during the test campaign and the final statement summarizing the global test campaign result (overall assessment in the test plan in Jira).
+
+  \item{The test plan should be approved before the test campaign is carried out;}
+  \item{The results should be approved after the campaign has been completed.}
+
 \end{itemize}
-
-Only the final document is relevant for deriving the global coverage of the DM requirements, but it is important that both steps are approved separately. In this way we ensure all conditions are met to  execute the tests.
-
-The approval of the first step comes after verification,  by the product owner, that all needed information is provided in Jira and therefore in the test plan and report document.
-The formality of  issuing  the document in Docushare can be skipped, but a coherent draft has to be available in DMTR-XXX.lsst.io and the status of the corresponding test plan jira object has to be set to "approved".
-Stakeholders that may have some expectation on the activity results, like scientists, T/CAMs or others, should  be involved before the approval.
-
-The final approval of the test plan and report document, after the test activity is concluded and all information is collected in Jira, should be explicitly given by whoever requested the test activity to be carried out.
 
 \subsubsection{The DM VCD}
 
