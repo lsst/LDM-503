@@ -10,14 +10,14 @@ We anticipate that this phasing will align with the priorities assigned to requi
 
 In addition to the high level requirements on the overall \product{} system, lower-level requirements documents describe requirements placed upon specific parts of the system (for example, \citeds{LDM-554} provides requirements on the LSST Science Platform, and \citeds{LDM-555} on the DM database system).
 Each of these requirements documents is accompanied by a test specification (\citeds{LDM-540} and \citeds{LDM-552} in the case of the previous examples; see also Table \ref{tab:testspecs}), with the relationship between them being the same as for the high-level requirements.
-These lower-level requirements documents and test specifications are defined on an as-needed basis: some \product{} products are adequately specified and tested by the high-level documentation.
+These lower-level requirements documents and test specifications are defined on an as-needed basis: some \product{} components are adequately specified and tested by the high-level documentation.
 
 In general, in order to avoid duplication of test definition and execution, when a requirement is flowed down to lower-level requirements, and therefore tested at lower level, the high level test activity may be just an inspection.
-Detailed high level test cases are required if an LSE-61 requirement is not decomposed in lower-level product requirements.
+Detailed high level test cases are required if an LSE-61 requirement is not decomposed in lower-level component requirements.
 
 Although individual test cases may be executed at any time, it is anticipated that major testing campaigns will be undertaken to demonstrate the successful completion of major milestones in the \product{} construction effort.
 The schedule for these milestones is shown in \secref{sect:schedule}, while \secref{sect:milestones} provides further details as to the contents of each one.
-In addition, each low level product owner can define specific test campaigns to verify compliance with the relevant requirements.
+In addition, each low level component owner can define specific test campaigns to verify compliance with the relevant requirements.
 For example, such a test campaign may be associated with a software release made for a specific purpose.
 
 \subsection{Managing and Reporting Test Execution}
@@ -26,7 +26,7 @@ For example, such a test campaign may be associated with a software release made
 As described above, requirements and test specifications are provided in baselined documents.
 These documents provide curated views on the Jira \emph{LSST Verification and Validation} project which underlies the LSST-wide test effort.
 The Jira system provides ``test scripts'' that testers will follow when carrying out tests, and tracks information about test execution and results.
-This information enables us to generate reports on the execution of each test\footnote{These test reports may, on occasion, be issued as Word or \LaTeX{} documents, but this is not, in general, required.}, and ultimately to build a Verification Control Document (VCD; see \figref{fig:doctree}).
+This information enables us to generate reports on the execution of each test, and ultimately to build a Verification Control Document (VCD; see \figref{fig:doctree}).
 The VCD will provide the verification status of each DM requirement (in terms of the fraction of test cases pertaining to that requirement which have been successfully executed).
 
 \begin{figure}
@@ -113,13 +113,11 @@ This section provides an overview of the key concepts and vocabulary used in the
 \item[Requrement] \hfill \\
 Requirements are defined in MagicDraw and then synchronized with Jira.
 For change control and for distribution to the wider project, they are extracted from MagicDraw to baselined documents.
-The level of change control applied to each requirement depends on which document it appears in: high level requirements appear in \citeds{LSE-61} and are subject to project-level change control, while lower level requirements appear in LDM-series documents and are managed by the DM-CCB.
 
 \item[Verification Element] \hfill \\
 Each requirement is decomposed into one or more verification elements.
 A verification element is an aspect of the reuqirement which can be independently tested.
 Verification elements are created and updated in MagicDraw and synchronized with Jira; in Jira, it appears as a normal issue with a specific type.
-Updates made in Jira can be propagated back to MagicDraw \textit{with the cooperation of the Systems Engineering Group}\footnote{What's the process for this? Do you file a ticket on SE and ask them to do an update? Or...?}.
 
 \item[Test Case] \hfill \\
 A test case is the definition of a procedure to be executed to test the related verification elements.
@@ -143,18 +141,18 @@ When a test failure renders it impossible to successfully verify a verification 
 
 More details on the various Jira objects and detailed instructions on their use are available on Confluence\footnote{https://confluence.lsstcorp.org/display/DM/DM+Test+Approach}.
 
-Workflows for the different types of objects are described in project-level Systems Engineering documentation.
+Workflows for the different types of objects are described in project-level Systems Engineering documentation (\url{https://confluence.lsstcorp.org/display/SYSENG/LSST+Verification+Architecture}).
 
 \subsubsection{Test Documents}
 \label{sect:testdocs}
 
 Though all test information is contained in MagicDraw and Jira, it is important to have baselined test documentation in Docushare.
 
-The \textbf{Test Specification} for a product collects all of the test cases that cover that particular product.
+The \textbf{Test Specification} for a component collects all of the test cases that cover that particular component.
 Test specifications are subject to approval by the responsible change control board, and therefore from part of the project baseline.
 However, they are also living documents: as test cases are added or updated in Jira, new editions of the document will be produced, basedlined and provided through Docushare.
 
-Test Specifications consist of a mixture of material which are directly written and curated in GitHub by the corresponding product owner, and sections which are automatically generated from the contents of Jira.
+Test Specifications consist of a mixture of material which are directly written and curated in GitHub by the corresponding component owner, and sections which are automatically generated from the contents of Jira.
 
 The \textbf{Test Plan and Report}\footnote{For historical reasons, test plan and report documents use the handle ``DMTR''.}  describes all the information related to a particular test ``campaign'' --- that is, they describe the contents a test plan and the results of executing it.
 Since test plans and reports describe the results of a particular campaign, updates are limited to minor corrections (for example, to spelling).
@@ -192,21 +190,33 @@ A conceptual example of the structure of the VCD is given in \tabref{tab:dmvcd}.
 
 \input{DMVcdExample}
 
+The table is organized as follows:
+
+\begin{itemize}
+
+  \item{The font size is made in order to put in evidence a specific Requirement, the corresponding verification element, the test case and the last execution information;}
+  \item{Parent and child reuirement are represented using smaller font size, and now additional information is provided for them}
+
+\end{itemize}
+
+What is provided here is just an example. When the DM VCD will be produced, the layout, including spacing and font size, can be different.
+
 \subsection{Roles and Personnel}
 \label{sect:roles}
 
 
-For each test case is required to specify the ``owner''.
-This in general is the \emph{tester} that will be in charge of executing the test case.
-However, when assigning a test case to a specific test cycle, it is possible to specify a different name.
+For each test case is required to specify the ``owner'', that is in charge to write and maintain the test case.
 
-The tester is responsible for executing the test cases following the script provided in the Jira ``LSST Verification and Validation'' project (\secref{sect:tsform}).
+The \emph{tester} in charge of executing the test case, will be specified when a test campaign is instantiated and can be different from the ``owner''.
+
+The tester will execute the test cases following the script provided in the Jira ``LSST Verification and Validation'' project (\secref{sect:tsform}).
 
 Testers have to report the test execution details into the corresponding fields provided in Jira by the ``test player'',  so they can be used to generate test reports.
 The information captured in Jira will also be used to populate the Verification Control Document (see \secref{sect:approach}).
 
 Tests and procedures will sometimes fail: a test case may be re-run several times until it passes, but testers will log an explanation than indicates that any failures were understood (e.g.\ they were due to a fault that was fixed) or repeated sufficient times to ensure that passing the test was not transient success.
-Issues which cannot be resolved by the tester in the course of carrying out the test will be reported as ``Software Problem Reports'' (SPRs) through the \product{} ticketing system (the Jira ``Data Management'' project at the time of this document revision).
+Issues which cannot be resolved by the tester in the course of carrying out the test will be reported as ``Software Problem Reports'' (SPRs) through the \product{} ticketing system (the Jira ``Data Management'' project at the time of this document revision). 
+These SPRs are issues related to the software product under test.
 The DM-CCB, or an individual designated by it, will be tasked with assessing the SPRs determining the timescale for re-executing the test procedure.
 If a new version of the software is provided, a new test cycle can be create in order to document the new run in a separate Jira element, and keep track of the history.
 
@@ -238,6 +248,7 @@ A test case will be considered ``Failed'' when:
 Note that in \citeds{LPM-17} science requirements are described as having a minimum specification, a design specification and a stretch goal.
 While we preserve these distinctions in some DM tooling for internal tracking purposes, for the purposes of these tests, it is the design specification that is verified as having been met for a test to pass without intervention of the DMCCB.
 Ultimately, if it proves impossible to satisfy a requirement at design specification, LSST Project level approval is required to accept the minimum specification.
+This has to be done using a Deviation issue.
 
 \subsection{Constraints and Limitations}
 
