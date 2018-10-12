@@ -146,9 +146,9 @@ This ultimately represents a request to change the baseline to remove or relax t
 Such a change can only be made with the approval of the relevant (Project or DM) Change Control Board.
 
 \item[Test Campaign] \hfill \\
-A test campaign is the sum of all activities needed to plan, execute and report the tests done for a specific milestone or requested otherwise.
-All information relevant for a test campaign is collected in a Jira Test Plan and related Test Cycle(s).
-Each Test Plan and Report will refer to a specific test campaign.
+A test campaign is the sum of all activities needed to plan, execute and report the testing carried out with a specific goal in mind (e.g.\ addressing a particular milestone).
+All information relevant for a test campaign is collected in the test plan and related test cycle(s).
+Each test plan and report refers to a specific test campaign.
 
 \end{description}
 
@@ -168,8 +168,8 @@ However, they are also living documents: as test cases are added or updated in J
 Test Specifications consist of a mixture of material which are directly written and curated in GitHub by the corresponding component owner, and sections which are automatically generated from the contents of Jira.
 
 The \textbf{Test Plan and Report}\footnote{For historical reasons, test plan and report documents use the handle ``DMTR''.}  describes all the information related to a particular test cycle --- that is, they describe the contents of the test cycle and the results of executing it.
-Since test plans and reports describe the results of a particular cycle, updates are limited to minor corrections (for example, to spelling).
-A new test cycle, even one which repeated the same test plan, would result in the creation of a new document to describe the new results.
+Since test plans and reports describe the results of a particular campaign, updates are limited to minor corrections (for example, to spelling).
+A new test campaign, even one which repeated the same test plan, would result in the creation of a new document to describe the new results.
 
 \subsubsection{Approval Procedure}
 
@@ -189,8 +189,8 @@ Note that approval for these documents must be sought in two stages:
 
 \begin{itemize}
 
-  \item{The test plan should be approved before the test cycle is carried out;}
-  \item{The results should be approved after the cycle has been completed.}
+  \item{The test plan should be approved before the test campaign is carried out;}
+  \item{The results should be approved after the campaign has been completed.}
 
 \end{itemize}
 
@@ -198,7 +198,7 @@ Note that approval for these documents must be sought in two stages:
 
 A global, project-wide verification control document will be derived from MagicDraw by the Systems Engineering team.
 However, per \secref{sect:reports}, a Data Management-specific VCD will also be provided.
-This will show the test coverage of each requirement on the subsystem and its relationship to test cases and test cycles.
+This will show the test coverage of each requirement its relationship to test cases and their execution.
 A conceptual example of the structure of the VCD is given in \tabref{tab:dmvcd}.
 
 \input{DMVcdExample}
@@ -209,7 +209,7 @@ A conceptual example of the structure of the VCD is given in \tabref{tab:dmvcd}.
 Each test case is assigned an \emph{owner}, who is responsible for defining and maintaining it.
 
 Executing the test case is the responsibility of the \emph{tester}, who may be different from the owner.
-A given test case may be executed as part of multiple test cycles; each time, it may be the responsibility of the a different tester.
+A given test case may be executed as part of multiple test campaigns; each time, it may be the responsibility of the a different tester.
 Test cases are executed following the script provided in the Jira ``LSST Verification and Validation'' project (\secref{sect:tsform}).
 
 Testers have to report the test execution details into the corresponding fields provided in Jira by the ``test player'',  so they can be used to generate test reports.
@@ -233,7 +233,7 @@ Product owners are responsible for reviewing SPRs relating to components which t
 
 A test case cannot be regarded as passing while there are open SPRs preventing its execution.
 If the SPRs cannot be resolved in a timely fashion, the test case should be recorded as a failure.
-It may be re-executed as part of a fresh test cycle when the SPRs have been resolved.
+It may be re-executed as part of a fresh test campaign when the SPRs have been resolved.
 
 \subsection{Constraints and Limitations}
 
