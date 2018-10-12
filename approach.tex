@@ -13,7 +13,7 @@ Each of these requirements documents is accompanied by a test specification (\ci
 These lower-level requirements documents and test specifications are defined on an as-needed basis: some \product{} components are adequately specified and tested by the high-level documentation.
 
 In general, in order to avoid duplication of test definition and execution, when a requirement is flowed down to lower-level requirements, and therefore tested at lower level, the high level test activity may be just an inspection.
-Detailed high level test cases are required if an LSE-61 requirement is not decomposed in lower-level component requirements.
+Detailed high level test cases are required if an \citeds{LSE-61} requirement is not decomposed into lower-level component requirements.
 
 Although individual test cases may be executed at any time, it is anticipated that major testing campaigns will be undertaken to demonstrate the successful completion of major milestones in the \product{} construction effort.
 The schedule for these milestones is shown in \secref{sect:schedule}, while \secref{sect:milestones} provides further details as to the contents of each one.
@@ -141,7 +141,7 @@ When a test failure renders it impossible to successfully verify a verification 
 
 More details on the various Jira objects and detailed instructions on their use are available on Confluence\footnote{https://confluence.lsstcorp.org/display/DM/DM+Test+Approach}.
 
-Workflows for the different types of objects are described in project-level Systems Engineering documentation (\url{https://confluence.lsstcorp.org/display/SYSENG/LSST+Verification+Architecture}).
+Workflows for the different types of objects are described in project-level Systems Engineering documentation\footnote{\url{https://confluence.lsstcorp.org/display/SYSENG/LSST+Verification+Architecture}}.
 
 \subsubsection{Test Documents}
 \label{sect:testdocs}
@@ -193,18 +193,17 @@ A conceptual example of the structure of the VCD is given in \tabref{tab:dmvcd}.
 \subsection{Roles and Personnel}
 \label{sect:roles}
 
+Each test case is assigned an \emph{owner}, who is responsible for defining and maintaining it.
 
-For each test case is required to specify the ``owner'', that is in charge to write and maintain the test case.
-
-The \emph{tester} in charge of executing the test case, will be specified when a test campaign is instantiated and can be different from the ``owner''.
-
-The tester will execute the test cases following the script provided in the Jira ``LSST Verification and Validation'' project (\secref{sect:tsform}).
+Executing the test case is the responsibility of the \emph{tester}, who may be different from the owner.
+A given test case may be executed as part of multiple test campaigns; each time, it may be the responsibility of the a different tester.
+Test cases are executed following the script provided in the Jira ``LSST Verification and Validation'' project (\secref{sect:tsform}).
 
 Testers have to report the test execution details into the corresponding fields provided in Jira by the ``test player'',  so they can be used to generate test reports.
 The information captured in Jira will also be used to populate the Verification Control Document (see \secref{sect:approach}).
 
 Tests and procedures will sometimes fail: a test case may be re-run several times until it passes, but testers will log an explanation than indicates that any failures were understood (e.g.\ they were due to a fault that was fixed) or repeated sufficient times to ensure that passing the test was not transient success.
-Issues which cannot be resolved by the tester in the course of carrying out the test will be reported as ``Software Problem Reports'' (SPRs) through the \product{} ticketing system (the Jira ``Data Management'' project at the time of this document revision). 
+Issues which cannot be resolved by the tester in the course of carrying out the test will be reported as ``Software Problem Reports'' (SPRs) through the \product{} ticketing system (the Jira ``Data Management'' project at the time of this document revision).
 These SPRs are issues related to the software product under test.
 The DM-CCB, or an individual designated by it, will be tasked with assessing the SPRs determining the timescale for re-executing the test procedure.
 If a new version of the software is provided, a new test cycle can be create in order to document the new run in a separate Jira element, and keep track of the history.
