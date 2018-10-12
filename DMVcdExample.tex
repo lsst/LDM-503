@@ -19,34 +19,35 @@
 \setlength{\LTcapwidthold}{\LTcapwidth}
 \setlength{\LTcapwidth}{\textheight}
 
-\begin{longtable}{lllllll}
+\begin{longtable}{lllll}
 
 \caption{
 An example of the structure of the Verification Control Document.
 Identifiers are intented to be illustrative only, and may not correspond to existing documents, requirements, verification elements, test cases, or test plans and reports.
-In this example, DMS-REQ-0001 is a requirement which originates within DM (ie, it has no higher level parent.
-It is verified directly by test case LVV-T2, and has a child requirement (DMS-LSP-REQ-0002) which is verified by both LVV-T1 and LVV-T4.
-DMS-REQ-0002 is a child of OSS-REQ-0007, but itself has no parents.
-It contains one verification element, which is, in turn, verified by a two test cases.
+In this example, DMS-REQ-001 is a high-level DM requirement (described in \citeds{LSE-61}) which is associated with two verification elements: DMS-REQ-0001-V-01, which is tested by test cases LVV-T1 and LVV-T2, and DMS-REQ-0001-V-02, which is tested by the single test case LVV-T2.
+DMS-LSP-REQ-002 is a lower level requirement falling under DM change control (iit appears in a document with an ``LDM'' handle).
+It is covered by a single verification element, which is tested by two test cases.
 }
 \label{tab:dmvcd}
 
 \\
 \toprule
-\textbf{Parent} & \textbf{Requirement} & \textbf{Child} & \textbf{Verification Element} & \textbf{Test Case} & \textbf{Run Date} & \textbf{Test Status} \\
+\textbf{Requirement} & \textbf{Verification Element} & \textbf{Test Case} & \textbf{Run Date} & \textbf{Test Status} \\
 \toprule
 
-                   & DMS-REQ-0001       & DMS-LSP-REQ-0002    & DMS-REQ-0001-V-01  & LVV-T1              & 2018-11-11           & \pass{} \\
-                   & \vcdDocRef{LSE-61} & \vcdDocRef{LDM-554} & \vcdJiraRef{LVV-1} & \vcdDocRef{LDM-639} & \vcdDocRef{DMTR-099} & \cellcolor{dmgreen} \\ \cmidrule{5-7}
-                   &                    &                     &                    & LVV-T4              & 2018-11-11           & \pass{} \\
-                   &                    &                     &                    & \vcdDocRef{LDM-639} & \vcdDocRef{DMTR-099} & \cellcolor{dmgreen} \\ \cmidrule{3-7}
-                   &                    &                     & DMS-REQ-0001-V-02  & LVV-T2              &                      & \nr{} \\
-                   &                    &                     & \vcdJiraRef{LVV-1} & \vcdDocRef{LDM-535} &                      & \cellcolor{dmorange} \\ \cmidrule{1-7}
+DMS-REQ-0001       & DMS-REQ-0001-V-01       & LVV-T1              & 2011-11-11           & \pass{} \\
+\vcdDocRef{LSE-61} & \vcdJiraRef{LVV-1}      & \vcdDocRef{LDM-639} & \vcdDocRef{DMTR-999} & \cellcolor{dmgreen} \\ \cmidrule{3-5}
+                   &                         & LVV-T4              & 2011-11-11           & \pass{} \\
+                   &                         & \vcdDocRef{LDM-639} & \vcdDocRef{DMTR-999} & \cellcolor{dmgreen} \\ \cmidrule{2-5}
+                   & DMS-REQ-0001-V-02       & LVV-T2              &                      & \nr{} \\
+                   & \vcdJiraRef{LVV-1}      & \vcdDocRef{LDM-639} &                      & \cellcolor{dmorange} \\
 
-OSS-REQ-0007       & DMS-REQ-0002       &                     & DMS-REQ-0002-V-01  & LVV-T3              & 2018-11-11           & \fail{} \\
-\vcdDocRef{LSE-30} & \vcdDocRef{LSE-61} &                     & \vcdJiraRef{LVV-3} & \vcdDocRef{LDM-639} & \vcdDocRef{DMTR-099} & \cellcolor{dmred} \\ \cmidrule{5-7}
-                   &                    &                     &                    & LVV-T2              &                      & \nr{} \\
-                   &                    &                     &                    & \vcdDocRef{LDM-535} &                      & \cellcolor{dmorange} \\
+\midrule
+
+DMS-LSP-REQ-0002    & DMS-LSP-REQ-0002-V-01  & LVV-T3              & 2011-11-11           & \fail{} \\
+\vcdDocRef{LDM-554} & \vcdJiraRef{LVV-3}     & \vcdDocRef{LDM-639} & \vcdDocRef{DMTR-999} & \cellcolor{dmred} \\ \cmidrule{3-5}
+                    &                        & LVV-T5              &                      & \nr{} \\
+                    &                        & \vcdDocRef{LDM-639} &                      & \cellcolor{dmorange} \\
 
 \bottomrule
 
