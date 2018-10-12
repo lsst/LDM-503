@@ -12,7 +12,7 @@
 
 % Ugly hack for centering on page
 \null
-\vspace{3.0cm}
+\vspace{1.0cm}
 
 % Use a long caption width, then set back to the old value later.
 \newlength{\LTcapwidthold}
@@ -21,7 +21,14 @@
 
 \begin{longtable}{lllllll}
 
-\caption{An illustration of the structure of the Verification Control Document.}
+\caption{
+An example of the structure of the Verification Control Document.
+Identifiers are intented to be illustrative only, and may not correspond to existing documents, requirements, verification elements, test cases, or test plans and reports.
+In this example, DMS-REQ-0001 is a requirement which originates within DM (ie, it has no higher level parent.
+It is verified directly by test case LVV-T2, and has a child requirement (DMS-LSP-REQ-0002) which is verified by both LVV-T1 and LVV-T4.
+DMS-REQ-0002 is a child of OSS-REQ-0007, but itself has no parents.
+It contains one verification element, which is, in turn, verified by a two test cases.
+}
 \label{tab:dmvcd}
 
 \\
@@ -31,12 +38,12 @@
 
                    & DMS-REQ-0001       & DMS-LSP-REQ-0002    & DMS-REQ-0001-V-01  & LVV-T1              & 2018-11-11           & \pass{} \\
                    & \vcdDocRef{LSE-61} & \vcdDocRef{LDM-554} & \vcdJiraRef{LVV-1} & \vcdDocRef{LDM-639} & \vcdDocRef{DMTR-099} & \cellcolor{dmgreen} \\ \cmidrule{5-7}
-                   &                    & DMS-LSP-REQ-0012    &                    & LVV-T4              & 2018-11-11           & \pass{} \\
-                   &                    & \vcdDocRef{LDM-554} &                    & \vcdDocRef{LDM-639} & \vcdDocRef{DMTR-099} & \cellcolor{dmgreen} \\ \cmidrule{4-7}
+                   &                    &                     &                    & LVV-T4              & 2018-11-11           & \pass{} \\
+                   &                    &                     &                    & \vcdDocRef{LDM-639} & \vcdDocRef{DMTR-099} & \cellcolor{dmgreen} \\ \cmidrule{3-7}
                    &                    &                     & DMS-REQ-0001-V-02  & LVV-T2              &                      & \nr{} \\
                    &                    &                     & \vcdJiraRef{LVV-1} & \vcdDocRef{LDM-535} &                      & \cellcolor{dmorange} \\ \cmidrule{1-7}
 
-OSS-REQ-007        & DMS-REQ-0002       &                     & DMS-REQ-0002-V-01  & LVV-T3              & 2018-11-11           & \fail{} \\
+OSS-REQ-0007       & DMS-REQ-0002       &                     & DMS-REQ-0002-V-01  & LVV-T3              & 2018-11-11           & \fail{} \\
 \vcdDocRef{LSE-30} & \vcdDocRef{LSE-61} &                     & \vcdJiraRef{LVV-3} & \vcdDocRef{LDM-639} & \vcdDocRef{DMTR-099} & \cellcolor{dmred} \\ \cmidrule{5-7}
                    &                    &                     &                    & LVV-T2              &                      & \nr{} \\
                    &                    &                     &                    & \vcdDocRef{LDM-535} &                      & \cellcolor{dmorange} \\
