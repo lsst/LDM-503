@@ -1,104 +1,57 @@
-\begin{longtable}[]{|p{1.5cm}|p{2.7cm}|p{1.5cm}|p{3.2cm}|p{1.5cm}|p{1.7cm}|p{1.5cm}|}
-\hline
-{\scriptsize \bf Parent Req.} &
-\begin{minipage}[t]{0.9\columnwidth}
-{\small \bf Requirement}\newline
-{\scriptsize (req. doc.)}
-\end{minipage} &
-{\scriptsize \bf Child Req.} &
-\begin{minipage}[t]{0.9\columnwidth}
-{\small \bf Verification El.}\newline
-{\scriptsize (jira id)}
-\end{minipage}&
-\begin{minipage}[t]{0.9\columnwidth}
-{\small \bf Test Case}\newline
-{\scriptsize (test spec.)}
-\end{minipage} &
-\begin{minipage}[t]{0.9\columnwidth}
-{\small \bf Run Date}\newline
-{\scriptsize (test report)}
-\end{minipage} &
-{\bf Test Status} \\ \hline
+% Status
+\newcommand{\pass}{\cellcolor{dmgreen} \textbf{Passed}}
+\newcommand{\fail}{\cellcolor{dmred} \textbf{Failed}}
+\newcommand{\nr}{\cellcolor{dmorange} \textbf{Not run}}
 
-\multirow{3}{*}{} &
-\multirow{3}{*}{
-\begin{minipage}[t]{0.9\columnwidth}
-{\small DMS-REQ-0001}\newline
-{\scriptsize (LSE-61)}
-\end{minipage}} &
-\multirow{3}{*}{
-\begin{minipage}[t]{0.9\columnwidth}
-{\tiny LSP-REQ-0002 \newline LSP-REQ-0312 }
-\end{minipage}} &
-\multirow{2}{*}{
-\begin{minipage}[t]{0.9\columnwidth}
-{\small DMS-REQ-0001-V-01}\newline
-{\scriptsize (LVV-1)}
-\end{minipage}} &
-\begin{minipage}[t]{0.9\columnwidth}
-{\small LVV-T1}\newline
-{\scriptsize (LDM-639)}
-\end{minipage} &
-\begin{minipage}[t]{0.9\columnwidth}
-{\small 2018-11-11}\newline
-{\scriptsize (DMTR-099)}
-\end{minipage} &
-{\small \bf Passed} \\ \cline{5-7}
- & & & &
-\begin{minipage}[t]{0.9\columnwidth}
-{\small LVV-T4}\newline
-{\scriptsize (LDM-639)}
-\end{minipage} &
-\begin{minipage}[t]{0.9\columnwidth}
-{\small 2018-11-11}\newline
-{\scriptsize (DMTR-099)}
-\end{minipage} &
-{\small \bf Passed} \\\cline{4-7}
- & & &
-\multirow{1}{*}{
-\begin{minipage}[t]{0.9\columnwidth}
-{\small DMS-REQ-0001-V-02}\newline
-{\scriptsize (LVV-1)}
-\end{minipage} }&
-\begin{minipage}[t]{0.9\columnwidth}
-{\small LVV-T2}\newline
-{\scriptsize (LDM-535)}
-\end{minipage} &
- &
-{\small \bf Not Run}
-\\\hline
+% References
+\newcommand{\vcdJiraRef}[1]{\scriptsize{#1}}
+\newcommand{\vcdDocRef}[1]{\scriptsize{#1}}
 
-\multirow{2}{*}{
-\tiny OSR-REQ-007} &
-\multirow{2}{*}{
-\begin{minipage}[t]{0.9\columnwidth}
-{\small DMS-REQ-0002}\newline
-{\scriptsize (LSE-61)}
-\end{minipage}} &
-\multirow{2}{*}{} &
-\multirow{2}{*}{
-\begin{minipage}[t]{0.9\columnwidth}
-{\small DMS-REQ-0002-V-01}\newline
-{\scriptsize (LVV-3)}
-\end{minipage}} &
-\begin{minipage}[t]{0.9\columnwidth}
-{\small LVV-T3}\newline
-{\scriptsize (LDM-639)}
-\end{minipage} &
-\begin{minipage}[t]{0.9\columnwidth}
-{\small 2018-11-11}\newline
-{\scriptsize (DMTR-099)}
-\end{minipage} &
-{\small \bf Failed} \\ \cline{5-7}
- & & & &
-\begin{minipage}[t]{0.9\columnwidth}
-{\small LVV-T2}\newline
-{\scriptsize (LDM-535)}
-\end{minipage} &
- &
-{\small \bf Not Run}
-\\\hline
+\afterpage{
+\begin{landscape}
 
-\caption{DM VCD {\bf (example only)}, the elements displayed here are not real, will updated with real data as soon as available.}
+% Ugly hack for centering on page
+\null
+\vspace{1.0cm}
+
+% Use a long caption width, then set back to the old value later.
+\newlength{\LTcapwidthold}
+\setlength{\LTcapwidthold}{\LTcapwidth}
+\setlength{\LTcapwidth}{\textheight}
+
+\begin{longtable}{lllll}
+
+\caption{
+An example of the structure of the Verification Control Document.
+Identifiers are intented to be illustrative only, and may not correspond to existing documents, requirements, verification elements, test cases, or test plans and reports.
+In this example, DMS-REQ-001 is a high-level DM requirement (described in \citeds{LSE-61}) which is associated with two verification elements: DMS-REQ-0001-V-01, which is tested by test cases LVV-T1 and LVV-T2, and DMS-REQ-0001-V-02, which is tested by the single test case LVV-T2.
+DMS-LSP-REQ-002 is a lower level requirement falling under DM change control (iit appears in a document with an ``LDM'' handle).
+It is covered by a single verification element, which is tested by two test cases.
+}
 \label{tab:dmvcd}
+
+\\
+\toprule
+\textbf{Requirement} & \textbf{Verification Element} & \textbf{Test Case} & \textbf{Run Date} & \textbf{Test Status} \\
+\toprule
+
+DMS-REQ-0001       & DMS-REQ-0001-V-01       & LVV-T1              & 2011-11-11           & \pass{} \\
+\vcdDocRef{LSE-61} & \vcdJiraRef{LVV-1}      & \vcdDocRef{LDM-639} & \vcdDocRef{DMTR-999} & \cellcolor{dmgreen} \\ \cmidrule{3-5}
+                   &                         & LVV-T4              & 2011-11-11           & \pass{} \\
+                   &                         & \vcdDocRef{LDM-639} & \vcdDocRef{DMTR-999} & \cellcolor{dmgreen} \\ \cmidrule{2-5}
+                   & DMS-REQ-0001-V-02       & LVV-T2              &                      & \nr{} \\
+                   & \vcdJiraRef{LVV-1}      & \vcdDocRef{LDM-639} &                      & \cellcolor{dmorange} \\
+
+\midrule
+
+DMS-LSP-REQ-0002    & DMS-LSP-REQ-0002-V-01  & LVV-T3              & 2011-11-11           & \fail{} \\
+\vcdDocRef{LDM-554} & \vcdJiraRef{LVV-3}     & \vcdDocRef{LDM-639} & \vcdDocRef{DMTR-999} & \cellcolor{dmred} \\ \cmidrule{3-5}
+                    &                        & LVV-T5              &                      & \nr{} \\
+                    &                        & \vcdDocRef{LDM-639} &                      & \cellcolor{dmorange} \\
+
+\bottomrule
+
 \end{longtable}
+\setlength{\LTcapwidth}{\LTcapwidthold}
+\end{landscape}
+}

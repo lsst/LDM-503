@@ -1,0 +1,69 @@
+AP:Alert Production
+ATM:Adaptavist Test Management
+AURA:Association of Universities for Research in Astronomy
+CAM:Control Account Manager
+CCB:Change Control Board
+CR:Change Request
+CTIO:Cerro Tololo Inter-American Observatory
+DAC:Data Access Center
+DAX:Data Access Services
+DBB:Data Backbone
+DC:Data Center
+DM:Data Management
+DMCCB:DM Change Control Board
+DMIS:DM Interface Scientist
+DMLT: DM Leadership Team
+DMO:Data Management Organization
+DMS:Data Management Sub-system
+DMSR:DM System Requirements
+DMSS:DM Subsystem Scientist
+DRP:Data Release Production
+EFD:Engineering Facilities Database
+EPO:Education and Public Outreach
+HSC:Hyper Suprime-Cam
+ID:Identifier (Identification)
+IPAC:Infrared Processing and Analysis Center
+IS:Interface Scientist
+ISR:Instrument Signal Removal
+IT:Integration Test
+JTM:Joint Technical Meeting
+KPM:Key Performance Metric
+LCR:LSST Change Request
+LPM:LSST Project Management (Document Handle)
+LSE:LSST Systems Engineering (Document Handle)
+LSST:Large Synoptic Survey Telescope
+MC:Monte-Carlo (simulation/process)
+NCOA:National Center for Optical-Infrared Astronomy
+NCSA: National Center for Supercomputing Applications
+NSF:National Science Foundation
+OCS:Observatory Control System
+OPS:Operations
+OSS:Observatory System Specifications
+PDAC:Prototype Data Access Center
+PDF:Portable Document Format
+PFS:Prime Focus Spectrograph
+PM:Project Manager
+PMCS:Project Management Control System
+PS:Project Scientist
+PST:Project Science Team
+Qserv:Proprietary LSST Database system
+RC:Reference Catalog
+SA:Science Alert(s)
+SAMP:Simple Application Messaging Protocol
+SEMP:Systems Engineering Management Plan
+SP:Software Product
+SQuaRE:Science Quality and Reliability Engineering
+SS:Subsystem Scientist
+STS:System Test Specification
+SUI:Science User Interface
+SUIT:Science User Interface and Tools
+SV:Science Validation
+SW:Software (also denoted S/W)
+TB:TeraByte
+TCAM:Technical Control/Account Manager
+TCT:Technical Control Team (Obsolete -- now DMCCB)
+TS:Test Specification
+US:United States
+UX:User Experience
+VCD:Verification Control Document
+VO:Virtual Observatory
