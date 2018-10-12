@@ -133,8 +133,17 @@ A test plan defines the overall plan for achieving some particular goal, such as
 Each test plan may include several test cycles.
 Test plans are represented as special objects in Jira provided by the ATM system.
 
+\item[Test Player] \hfill\\
+The Test Player is an interactive Jira tool which provides the tester (\secref{sect:roles}) with instructions and collects responses while a test case is being executed.
+
+\item[Software Problem Report] \hfill \\
+A Software Problem Report (SPR) describes a software failure or bug encountered when executing a test case.
+SPRs are represetned by Jira tickets in the ``Data Management'' Jira project.
+
 \item[Deviation] \hfill \\
-When a test failure renders it impossible to successfully verify a verification element, a Jira issue of type ``deviation'' should be opened to capture this outcome.
+When testing establishes that it is impossible to meet a particular requirement, a Jira issue of type ``Deviation'' is filed.
+This ultimately represents a request to change the baseline to remove or relax the requirement in question.
+Such a change can only be made with the approval of the relevant (Project or DM) Change Control Board.
 
 \end{description}
 
