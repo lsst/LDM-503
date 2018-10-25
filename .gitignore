@@ -3,6 +3,8 @@ dmtestmilestones.tex
 dmtestgantt.tex
 testsections.tex
 acronyms.tex
+venv
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
