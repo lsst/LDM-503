@@ -14,7 +14,7 @@ DMCCB:DM Change Control Board
 DMIS:DM Interface Scientist
 DMLT: DM Leadership Team
 DMO:Data Management Organization
-DMS:Data Management Sub-system
+DMS:Data Management Subsystem
 DMSR:DM System Requirements
 DMSS:DM Subsystem Scientist
 DRP:Data Release Production
