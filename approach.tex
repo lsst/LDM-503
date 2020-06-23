@@ -4,7 +4,7 @@ We regard the system as being successfully completed when all of the high level 
 The approach which will be taken to verifying each requirement is described in \citeds{LDM-639}, the \emph{DM Acceptance Test Specification}.
 This test specification covers all aspects of the tests, as described in \secref{sect:tsform}.
 Any given requirement may have multiple test cases associated with it in the specification, and these tests will be phased to account for incremental delivery depending on the need for certain functionality at a specific time.
-We anticipate that this phasing will align with the priorities assigned to requirements in \citeds{LSE-61} --- that is, that high priority requirements will be verified first --- but this is not, in itself, required.
+We anticipate that this phasing will align with the priorities assigned to requirements in \citeds{LSE-61} --- that is, that high priority requirements will be verified first --- but this is not, in itself, required, nor will it always be possible. 
 
 In addition to the high level requirements on the overall \product{} system, lower-level requirements documents describe requirements placed upon specific parts of the system (for example, \citeds{LDM-554} provides requirements on the LSST Science Platform, and \citeds{LDM-555} on the DM database system).
 Each of these requirements documents is accompanied by a test specification (\citeds{LDM-540} and \citeds{LDM-552} in the case of the previous examples; see also Table \ref{tab:testspecs}), with the relationship between them being the same as for the high-level requirements.
@@ -242,8 +242,9 @@ It may be re-executed as part of a fresh test campaign when the SPRs have been r
 \begin{itemize}
 
 
-  \item{The \product{} system must be verified before the complete LSST system can be completed. Verification is therefore carried out using precursor datasets~\footnote{e.g. from Hyper Suprime-Cam; \secref{LDM-503-02}}, simulated data, and --- where available --- with engineering and pre-release data from the as yet incomplete LSST system.}
-
+  \item{The \product{} system must be verified before the complete LSST system can be completed. Verification is therefore carried out using precursor datasets~\footnote{e.g. from Hyper Suprime-Cam; \secref{LDM-503-02}}, simulated data, and --- where available --- with engineering and pre-release data from the as yet incomplete LSST system~\footnote{e.g. from AuxTel, ComCam and LSSTCam commissioning activities;  \secref{LDM-503-08}, \secref{LDM-503-12a}}. Full verification of the \product{} system will depend critically on the availability of this data; if critical data is not available, it may not be possible to successfully complete verification of all the high-level requirements defined in \citeds{LSE-61} according to the specified prioritization, or at all before completion of the DM Construction Project. In such cases, requirements will be verified as best they can with the available data. The Test Plan and Report documents (\secref{sect:testdocs}) will make clear all deviations from the requirements due to the available data as well as any exercises that should be carried out once the necessary data becomes available to fully verify the requirement. 
+  } 
+ 
   \item{Metric measurements and operational rehearsals during construction may not involve critical operational systems that are still in development. For example, while computational performance is being measured, computationally dominant algorithmic steps such as deblending and multi-epoch fitting may only be modeled, since they have not yet been implemented; operational rehearsals are done without the factory LSST workflow system; etc.}
 
 \end{itemize}
