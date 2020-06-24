@@ -7,8 +7,8 @@ This document describes the validation, verification & test procedures in use by
 Links
 =====
 
-- Accepted version: https://ls.st/LDM-294
-- Drafts: https://ldm-294.lsst.io/v
+- Accepted version: https://ls.st/LDM-503
+- Drafts: https://ldm-503.lsst.io/v
 
 Building the PDF locally
 ========================
