@@ -1,10 +1,10 @@
 sudo: true
-dist: trusty
+dist: xenial
 services:
   - docker
 language: python
 python:
-  - '3.5'
+  - '3.7'
 before_install:
   - "pip install 'lander>=0.1.0,<0.2'"
   - "pip install xlrd"
