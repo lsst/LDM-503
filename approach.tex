@@ -7,11 +7,10 @@ Any given requirement may have multiple test cases associated with it in the spe
 We anticipate that this phasing will align with the priorities assigned to requirements in \citeds{LSE-61} --- that is, that high priority requirements will be verified first --- but this is not, in itself, required, nor will it always be possible. 
 
 In addition to the high level requirements on the overall \product{} system, lower-level requirements documents describe requirements placed upon specific parts of the system (for example, \citeds{LDM-554} provides requirements on the LSST Science Platform, and \citeds{LDM-555} on the DM database system).
-Each of these requirements documents is accompanied by a test specification (\citeds{LDM-540} and \citeds{LDM-552} in the case of the previous examples; see also Table \ref{tab:testspecs}), with the relationship between them being the same as for the high-level requirements.
-These lower-level requirements documents and test specifications are defined on an as-needed basis: some \product{} components are adequately specified and tested by the high-level documentation.
-
-In general, in order to avoid duplication of test definition and execution, when a requirement is flowed down to lower-level requirements, and therefore tested at lower level, the high level test activity may be just an inspection.
-Detailed high level test cases are required if an \citeds{LSE-61} requirement is not decomposed into lower-level component requirements.
+In general, these low-level requirements are not accompanied by test specification documents; rather, we regard all low-level requirements as being satisfied when the corresponding high-level requirements have been successfully verified according to the \citeds{LDM-639} test specification.
+An important exception to this is the Science Platform, for which a detailed test specification --- \citeds{LDM-540} --- is available.
+This is appropriate given the wide scope of, and detailed requirements on, this particular component of the DM system.
+Given this, the high-level (\citeds{LDM-639}) test activities for the Science Platform may be just inspections of the lower-level test results.
 
 Although individual test cases may be executed at any time, it is anticipated that major testing campaigns will be undertaken to demonstrate the successful completion of major milestones in the \product{} construction effort.
 The schedule for these milestones is shown in \secref{sect:schedule}, while \secref{sect:milestones} provides further details as to the contents of each one.
@@ -49,7 +48,6 @@ The VCD will provide the verification status of each DM requirement (in terms of
 \label{sect:components}
 
 The components of the DM system are outlined in \citeds{LDM-294} and described in detail in \citeds{LDM-148}; a summary is shown in \figref{fig:dmsdeploy}.
-The test specifications covering these components are shown in \tabref{tab:testspecs}, but note that, at time of writing, the document tree is being refactored and document numbers are not currently available for all components.
 
 In addition, the test plan presented in this document covers:
 
@@ -63,8 +61,6 @@ These verification activities will contribute to the global coverage of LSST req
 These are addressed by means of \textit{operations rehearsals} which constitute some of the level two milestones.}
 
 \end{itemize}
-
-\input{TopLevelTestSpecs}
 
 The tests associated with each milestone may encompass more than one component of the DM system.
 The relevant components must therefore be included in the description of the milestone in \secref{sect:milestones}.
