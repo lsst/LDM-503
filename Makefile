@@ -24,17 +24,17 @@ venv: milestones/requirements.txt
 dmtestmilestones.tex: milestones/milestones.py venv
 	( \
 		source $(VENVDIR)/bin/activate; \
-		python3 milestones/milestones.py ldm503 --table $@; \
+		python3 milestones/milestones.py ldm503 --table-location $@; \
 	)
 
 dmtestgantt.tex: milestones/milestones.py venv
 	( \
 		source $(VENVDIR)/bin/activate; \
-		python3 milestones/milestones.py ldm503 --gantt $@; \
+		python3 milestones/milestones.py ldm503 --gantt-location $@; \
 	)
 
 testsections.tex: milestones/milestones.py venv
 		( \
 		source $(VENVDIR)/bin/activate; \
-		python3 milestones/milestones.py ldm503 --commentary $@; \
+		python3 milestones/milestones.py ldm503 --text-location $@; \
 	)
