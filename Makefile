@@ -6,7 +6,10 @@ all: $(tex) dmtestgantt.tex dmtestmilestones.tex testsections.tex acronyms.tex
 
 clean :
 	latexmk -c
-	rm *.pdf
+	rm -f *.pdf
+	rm -f dmtestmilestones.tex
+	rm -f testsections.tex
+	rm -f dmtestgantt.tex
 	rm -rf $(VENVDIR)
 
 tex=LDM-503.tex DMVcdExample.tex approach.tex body.tex dmtestgantt.tex dmtestmilestones.tex dmvv.tex intro.tex rehearsal.tex reporting.tex roles.tex schedtab.tex schedule.tex scivalidation.tex testsections.tex
@@ -21,20 +24,14 @@ venv: milestones/requirements.txt
 		pip install -r milestones/requirements.txt; \
 	)
 
-dmtestmilestones.tex: milestones/milestones.py venv
+dmtestmilestones.tex testsections.tex &: bin/generate_milestones.py venv
 	( \
 		source $(VENVDIR)/bin/activate; \
-		python3 milestones/milestones.py ldm503 --table-location $@; \
+		PYTHONPATH=milestones python3 bin/generate_milestones.py \
 	)
 
 dmtestgantt.tex: milestones/milestones.py venv
 	( \
 		source $(VENVDIR)/bin/activate; \
-		python3 milestones/milestones.py ldm503 --gantt-location $@; \
-	)
-
-testsections.tex: milestones/milestones.py venv
-		( \
-		source $(VENVDIR)/bin/activate; \
-		python3 milestones/milestones.py ldm503 --text-location $@; \
+		PYTHONPATH=milestones python3 milestones/milestones.py gantt --embedded --output $@ \
 	)
