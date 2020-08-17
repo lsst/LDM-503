@@ -1,4 +1,4 @@
-export TEXMFHOME = lsst-texmf/texmf
+export TEXMFHOME ?= lsst-texmf/texmf
 VENVDIR = venv
 
 all: $(tex) dmtestgantt.tex dmtestmilestones.tex testsections.tex acronyms.tex
