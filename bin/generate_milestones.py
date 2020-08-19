@@ -22,7 +22,7 @@ def generate_commentary(milestones):
     for ms in sorted([ms for ms in milestones
                      if ms.code.startswith("LDM-503")],
                      key=lambda x: (x.due, x.code)):
-        output.write(f"\\subsection{{{escape_latex(ms.short_name)}")
+        output.write(f"\\subsection{{{escape_latex(ms.short_name)} ")
         output.write(f"(\\textbf{{{escape_latex(ms.code)}}})}}\n")
         output.write(f"\\label{{{escape_latex(ms.code)}}}\n\n")
         output.write("\\subsubsection{Execution Procedure}\n\n")
