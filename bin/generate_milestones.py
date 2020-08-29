@@ -1,6 +1,6 @@
 from io import StringIO
 
-from milestones import (escape_latex, write_output,
+from milestones import (escape_latex, format_latex, write_output,
                         get_latest_pmcs_path, get_local_data_path,
                         load_milestones)
 
@@ -28,15 +28,15 @@ def generate_commentary(milestones):
         output.write("\\subsubsection{Execution Procedure}\n\n")
         if ms.test_spec:
             output.write(f"This text will be executed following the procedure "
-                         f"defined in {escape_latex(ms.test_spec)}.\n\n")
+                         f"defined in {format_latex(ms.test_spec)}.\n\n")
         else:
             output.write("The execution procedure for this test is "
                          "currently unspecified.\n\n")
         output.write("\\subsubsection{Description}\n\n")
-        output.write(f"{escape_latex(ms.description)}\n\n")
+        output.write(f"{format_latex(ms.description)}\n\n")
         if ms.comment:
             output.write("\\subsubsection{Comments}\n\n")
-            output.write(f"{escape_latex(ms.comment)}\n\n")
+            output.write(f"{format_latex(ms.comment)}\n\n")
     return output.getvalue()
 
 
