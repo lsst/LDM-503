@@ -27,7 +27,7 @@ def generate_commentary(milestones):
         output.write(f"\\label{{{escape_latex(ms.code)}}}\n\n")
         output.write("\\subsubsection{Execution Procedure}\n\n")
         if ms.test_spec:
-            output.write(f"This text will be executed following the procedure "
+            output.write(f"This test will be executed following the procedure "
                          f"defined in {format_latex(ms.test_spec)}.\n\n")
         else:
             output.write("The execution procedure for this test is "
