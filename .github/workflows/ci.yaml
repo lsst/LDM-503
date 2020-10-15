@@ -1,0 +1,40 @@
+name: CI
+
+"on": [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # full history for metadata
+          submodules: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Python install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "lander<2.0.0"
+          python -m pip install xlrd numpy matplotlib pyyaml
+      - name: Generate content
+        # Run Python scripts in CI's Python environment
+        run: |
+          make dmtestmilestones.tex
+          make dmtestgantt.tex
+          make testsections.tex
+      - name: TeX build
+        run: |
+          docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make'
+      - name: Landing page upload
+        if: ${{ github.event_name == 'push' }}
+        env:
+          LTD_PASSWORD: ${{ secrets.LTD_PASSWORD }}
+          LTD_USERNAME: ${{ secrets.LTD_USERNAME }}
+        run: |
+          lander --upload --pdf LDM-503.pdf --lsstdoc LDM-503.tex --ltd-product ldm-503
