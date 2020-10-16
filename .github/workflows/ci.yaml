@@ -11,6 +11,7 @@ jobs:
         with:
           fetch-depth: 0 # full history for metadata
           submodules: true
+          lfs: true
 
       - name: Set up Python
         uses: actions/setup-python@v2
