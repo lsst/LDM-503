@@ -25,18 +25,18 @@ acronyms.tex :$(tex) myacronyms.txt skipacronyms.txt
 venv: milestones/requirements.txt
 	python3 -m venv $(VENVDIR)
 	( \
-		source $(VENVDIR)/bin/activate; \
+		.  $(VENVDIR)/bin/activate; \
 		pip install -r milestones/requirements.txt; \
 	)
 
 dmtestmilestones.tex testsections.tex &: bin/generate_milestones.py venv
 	( \
-		source $(VENVDIR)/bin/activate; \
+		.  $(VENVDIR)/bin/activate; \
 		PYTHONPATH=milestones python3 bin/generate_milestones.py \
 	)
 
 dmtestgantt.tex: milestones/milestones.py venv
 	( \
-		source $(VENVDIR)/bin/activate; \
+		.  $(VENVDIR)/bin/activate; \
 		PYTHONPATH=milestones python3 milestones/milestones.py gantt --embedded --output $@ \
 	)
