@@ -2,7 +2,10 @@ export TEXMFHOME ?= lsst-texmf/texmf
 VENVDIR = venv
 
 all: $(tex) dmtestgantt.tex dmtestmilestones.tex testsections.tex acronyms.tex
-	latexmk -bibtex -pdf  LDM-503.tex
+	xelatex LDM-503.tex
+	bibtex LDM-503
+	xelatex LDM-503.tex
+	xelatex LDM-503.tex
 
 clean :
 	latexmk -c
