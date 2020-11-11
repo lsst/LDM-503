@@ -15,6 +15,8 @@ clean :
 	rm -f dmtestgantt.tex
 	rm -rf $(VENVDIR)
 
+generated :dmtestmilestones.tex dmtestgantt.tex
+
 tex=LDM-503.tex DMVcdExample.tex approach.tex body.tex dmtestgantt.tex dmtestmilestones.tex dmvv.tex intro.tex rehearsal.tex reporting.tex roles.tex schedtab.tex schedule.tex scivalidation.tex testsections.tex
 
 acronyms.tex :$(tex) myacronyms.txt skipacronyms.txt
