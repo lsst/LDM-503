@@ -37,6 +37,8 @@ def generate_commentary(milestones):
         if ms.comment:
             output.write("\\subsubsection{Comments}\n\n")
             output.write(f"{format_latex(ms.comment)}\n\n")
+
+        output.write("\\subsubsection{Requirements to be Verified}\n\n")
     return output.getvalue()
 
 
