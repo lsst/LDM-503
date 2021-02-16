@@ -1,7 +1,7 @@
 from io import StringIO
 
-from milestones import (escape_latex, format_latex, format_lvv, write_output,
-                        get_latest_pmcs_path, get_local_data_path,
+from milestones import (escape_latex, format_latex, write_output,
+                        get_latest_pmcs_path, get_local_data_path, extract_lvv,
                         load_milestones)
 
 
@@ -39,15 +39,18 @@ def generate_commentary(milestones):
             output.write(f"{format_latex(ms.comment)}\n\n")
 
         output.write("\\subsubsection{Requirements to be Verified}\n\n")
-        if (ms.code == "LDM-503-10"):
-            print("LDM-503-10")
-        if ms.requirements:
-            print("jira_lvv")
-            output.write(f"The following requirements are planned to be verified as part "
-                         f"of this milestone: {format_lvv(ms.requirements)} \n\n")
+        print(ms.code)
+        if ms.jira_lvv:
+            lvv_elems = extract_lvv(ms.jira_lvv)
+            output.write(f'The following requirements are planned to be verified as part '
+                         f'of this milestone: \n\n')
+            for index in range(len(lvv_elems)):
+                for key in lvv_elems[index]:
+                    output.write(lvv_elems[index][key])
+
         else:
-            output.write("The requirements planned to be verified as part of this milestone "
-                         "are currently unspecified.\n\n")
+            output.write('The requirements planned to be verified as part of this milestone '
+                         'are currently unspecified.\n\n')
     return output.getvalue()
 
 
@@ -55,3 +58,7 @@ if __name__ == "__main__":
     milestones = load_milestones(get_latest_pmcs_path(), get_local_data_path())
     write_output("dmtestmilestones.tex", generate_table(milestones))
     write_output("testsections.tex", generate_commentary(milestones))
+
+
+
+
