@@ -1,6 +1,6 @@
 from io import StringIO
 
-from milestones import (escape_latex, format_latex, write_output,
+from milestones import (escape_latex, format_latex, format_lvv, write_output,
                         get_latest_pmcs_path, get_local_data_path,
                         load_milestones)
 
@@ -39,6 +39,15 @@ def generate_commentary(milestones):
             output.write(f"{format_latex(ms.comment)}\n\n")
 
         output.write("\\subsubsection{Requirements to be Verified}\n\n")
+        if (ms.code == "LDM-503-10"):
+            print("LDM-503-10")
+        if ms.requirements:
+            print("jira_lvv")
+            output.write(f"The following requirements are planned to be verified as part "
+                         f"of this milestone: {format_lvv(ms.requirements)} \n\n")
+        else:
+            output.write("The requirements planned to be verified as part of this milestone "
+                         "are currently unspecified.\n\n")
     return output.getvalue()
 
 
