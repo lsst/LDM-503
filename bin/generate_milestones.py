@@ -8,7 +8,7 @@ from milestones import (escape_latex, format_latex, write_output,
 def generate_table(milestones):
     output = StringIO()
     for ms in sorted([ms for ms in milestones
-                     if ms.code.startswith("LDM-503")],
+                     if ms.code.startswith("LDM-")],
                      key=lambda x: (x.due, x.code)):
         output.write(f"{escape_latex(ms.code)} &\n")
         output.write(f"{escape_latex(ms.due.strftime('%Y-%m-%d'))} &\n")
@@ -20,7 +20,7 @@ def generate_table(milestones):
 def generate_commentary(milestones):
     output = StringIO()
     for ms in sorted([ms for ms in milestones
-                     if ms.code.startswith("LDM-503")],
+                     if ms.code.startswith("LDM-")],
                      key=lambda x: (x.due, x.code)):
         output.write(f"\\subsection{{{escape_latex(ms.short_name)} ")
         output.write(f"(\\textbf{{{escape_latex(ms.code)}}})}}\n")
