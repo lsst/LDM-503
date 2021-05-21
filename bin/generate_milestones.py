@@ -12,6 +12,7 @@ def generate_table(milestones):
                      key=lambda x: (x.due, x.code)):
         output.write(f"{escape_latex(ms.code)} &\n")
         output.write(f"{escape_latex(ms.due.strftime('%Y-%m-%d'))} &\n")
+        output.write(f"{escape_latex(ms.fdue.strftime('%Y-%m-%d'))} &\n")
         output.write("NCSA &\n")
         output.write(f"{escape_latex(ms.short_name)} \\\\\n\n")
     return output.getvalue()
@@ -44,3 +45,5 @@ if __name__ == "__main__":
     milestones = load_milestones(get_latest_pmcs_path(), get_local_data_path())
     write_output("dmtestmilestones.tex", generate_table(milestones))
     write_output("testsections.tex", generate_commentary(milestones))
+    milestones = load_milestones(get_latest_pmcs_path(), get_local_data_path(), forecast=True)
+    write_output("fcast_dmtestmilestones.tex", generate_table(milestones))
