@@ -39,4 +39,6 @@ dmtestgantt.tex: milestones/milestones.py venv
 	( \
 		.  $(VENVDIR)/bin/activate; \
 		PYTHONPATH=milestones python3 milestones/milestones.py gantt --embedded --output $@ \
+		PYTHONPATH=milestones python3 milestones/milestones.py --forecast gantt --embedded --output $@ \
 	)
+
