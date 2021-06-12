@@ -8,10 +8,11 @@ from milestones import (escape_latex, format_latex, write_output,
 def generate_table(milestones):
     output = StringIO()
     for ms in sorted([ms for ms in milestones
-                     if ms.code.startswith("LDM-503")],
+                     if ms.code.startswith("LDM-")],
                      key=lambda x: (x.due, x.code)):
         output.write(f"{escape_latex(ms.code)} &\n")
         output.write(f"{escape_latex(ms.due.strftime('%Y-%m-%d'))} &\n")
+        output.write(f"{escape_latex(ms.fdue.strftime('%Y-%m-%d'))} &\n")
         output.write("NCSA &\n")
         output.write(f"{escape_latex(ms.short_name)} \\\\\n\n")
     return output.getvalue()
@@ -20,7 +21,7 @@ def generate_table(milestones):
 def generate_commentary(milestones):
     output = StringIO()
     for ms in sorted([ms for ms in milestones
-                     if ms.code.startswith("LDM-503")],
+                     if ms.code.startswith("LDM-")],
                      key=lambda x: (x.due, x.code)):
         output.write(f"\\subsection{{{escape_latex(ms.short_name)} ")
         output.write(f"(\\textbf{{{escape_latex(ms.code)}}})}}\n")
@@ -44,3 +45,5 @@ if __name__ == "__main__":
     milestones = load_milestones(get_latest_pmcs_path(), get_local_data_path())
     write_output("dmtestmilestones.tex", generate_table(milestones))
     write_output("testsections.tex", generate_commentary(milestones))
+    milestones = load_milestones(get_latest_pmcs_path(), get_local_data_path(), forecast=True)
+    write_output("fcast_dmtestmilestones.tex", generate_table(milestones))

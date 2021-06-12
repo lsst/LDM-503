@@ -4,6 +4,7 @@
 [submodule "milestones"]
 	path = milestones
 	url = https://github.com/lsst-dm/milestones.git
+	branch = master
 [submodule "lsst-texmf"]
 	path = lsst-texmf
 	url = https://github.com/lsst/lsst-texmf.git
