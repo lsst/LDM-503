@@ -45,5 +45,3 @@ if __name__ == "__main__":
     milestones = load_milestones(get_latest_pmcs_path(), get_local_data_path())
     write_output("dmtestmilestones.tex", generate_table(milestones))
     write_output("testsections.tex", generate_commentary(milestones))
-    milestones = load_milestones(get_latest_pmcs_path(), get_local_data_path(), forecast=True)
-    write_output("fcast_dmtestmilestones.tex", generate_table(milestones))
