@@ -13,7 +13,7 @@ def generate_table(milestones):
         output.write(f"{escape_latex(ms.code)} &\n")
         output.write(f"{escape_latex(ms.due.strftime('%Y-%m-%d'))} &\n")
         output.write(f"{escape_latex(ms.fdue.strftime('%Y-%m-%d'))} &\n")
-        output.write("NCSA &\n")
+        output.write("USDF &\n")
         output.write(f"{escape_latex(ms.short_name)} \\\\\n\n")
     return output.getvalue()
 
