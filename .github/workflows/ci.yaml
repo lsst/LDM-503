@@ -16,7 +16,7 @@ jobs:
         run: |
           git lfs install
           cd milestones
-          git config -f .lfsconfig lfs.url https://git-lfs.lsst.codes
+          git config -f .lfsconfig lfs.url https://git-lfs.lsst.cloud/lsst-dm/milestones
           git lfs pull
 
 
